@@ -46,6 +46,13 @@
   document.getElementById("pd-desc").textContent = product.desc;
   document.getElementById("pd-flavor").textContent = "Sabor " + product.flavor.toLowerCase();
   document.getElementById("pd-dose").textContent = product.dose;
+  var pdDuration = document.getElementById("pd-duration");
+  if (pdDuration) {
+    var duration = clBottleDuration(product);
+    pdDuration.textContent = "Un frasco dura " + (duration.min === duration.max
+      ? "unos " + duration.min
+      : "entre " + duration.min + " y " + duration.max) + " días";
+  }
 
   var img = document.getElementById("pd-img");
   img.src = product.hero;

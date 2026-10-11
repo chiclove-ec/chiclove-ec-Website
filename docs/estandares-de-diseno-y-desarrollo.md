@@ -137,6 +137,27 @@ Las tarjetas de producto son el componente núcleo de conversión del sitio:
 - Todos los bloques principales de contenido integran la clase `.reveal`, que utiliza un `IntersectionObserver` centralizado para animar la opacidad y traslación vertical al hacer scroll.
 - **Respeto a Accesibilidad:** Toda animación se desactiva bajo `@media (prefers-reduced-motion: reduce)`.
 
+### 3.6. Scrollytelling (`js/story.js`)
+
+La portada se lee como una historia por capítulos y cada ficha cuenta sus activos. `story.js` convierte el
+progreso de scroll de cada sección en propiedades CSS y la hoja de estilos las consume **solo** en
+`transform`, `opacity` y `clip-path`:
+
+| Gancho HTML | Propiedad | Efecto |
+|---|---|---|
+| `data-hero-scrub` | `--hp` | Los frascos del hero se separan y la portada se aleja |
+| `data-manifesto` + `data-words` | `--mp` | Las palabras del manifiesto se encienden una a una |
+| `data-formula-story` | `--lp` | Una escena fijada por fórmula, pintada desde `CL_PRODUCTS` (precio, pauta, activos y «Añadir»). Cada escena tiene enlace propio (`/#elige-<id>`, actualizado con `replaceState`) y se recorre con las flechas mientras está fijada |
+| `data-actives-story` | `--ap` | En la ficha, un activo por escena desde `CL_ACTIVES`, con órbita alrededor del frasco |
+| `data-stack-card` | `--sp` | Las tarjetas del ritual se apilan y la de abajo se retira |
+| `data-cinema` | `--cin`, `--ctext` | La foto de comunidad se abre a pantalla completa |
+| `data-parallax` | `--pp` | Parallax suave de fotografías |
+| `data-chapter="…"` | — | Nombra el capítulo de la sección (solo marca semántica; el sitio ya no muestra índice lateral ni barra de progreso) |
+
+Reglas: las escenas que pinta JavaScript van con `hidden` en el HTML (sin JS no ocupan espacio y la
+colección estática sigue ahí); ningún precio se escribe a mano en esas escenas; las escenas inactivas
+llevan `inert`; con «reducir movimiento» las escenas se muestran en columna y nada se fija.
+
 ---
 
 ## 4. Estándares de Responsividad y Mobile-First

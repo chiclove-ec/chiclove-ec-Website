@@ -363,6 +363,13 @@ function storeMarkdown() {
 
 /* ---------- FAQ por producto (dentro del gemelo markdown) ---------- */
 
+/* Etiqueta corta de la ficha («Un frasco dura unos 30 días»); product-page.js la repite
+   con la misma fórmula para que el HTML servido y el hidratado coincidan. */
+function bottleDurationLabel(p) {
+  const d = catalog.clBottleDuration(p);
+  return "Un frasco dura " + (d.min === d.max ? "unos " + d.min : "entre " + d.min + " y " + d.max) + " días";
+}
+
 /* Las preguntas que una persona hace antes de comprar, resueltas en el propio texto de
    la ficha. Es lo que permite a un asistente responder «¿cuánto me dura?» o «¿es vegano?»
    citando el sitio en vez de deducirlo. Todo sale del catálogo: si cambia el precio o la
@@ -1471,6 +1478,7 @@ for (const p of catalog.CL_PRODUCTS) {
   html = setText(html, "pd-desc", p.desc);
   html = setText(html, "pd-flavor", "Sabor " + p.flavor.toLowerCase());
   html = setText(html, "pd-dose", p.dose);
+  html = setText(html, "pd-duration", bottleDurationLabel(p));
   html = replaceInner(html, "pd-badges", p.badges.map((b) => "<span>" + esc(b) + "</span>").join(""));
   html = replaceInner(html, "pd-benefits", p.benefits.map((b) => "<li>" + esc(b) + "</li>").join(""));
   html = replaceInner(html, "pd-actives", p.actives.map((a) => "<span>" + esc(a) + "</span>").join(""));

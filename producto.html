@@ -23,8 +23,8 @@
   <meta name="twitter:image" id="pd-tw-image" content="https://chiclove-ec.com/assets/img/hero-hair-nails.webp">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SiteNavigationElement","name":"Tienda","description":"Toda la colección de gummies de vitaminas","url":"https://chiclove-ec.com/tienda"},{"@type":"SiteNavigationElement","name":"Certificaciones","description":"Certificaciones de calidad que respaldan a Chic&Love","url":"https://chiclove-ec.com/#certificaciones"},{"@type":"SiteNavigationElement","name":"Nosotros","description":"Nuestra historia y filosofía","url":"https://chiclove-ec.com/nosotros"},{"@type":"SiteNavigationElement","name":"Ayuda","description":"Preguntas frecuentes","url":"https://chiclove-ec.com/#faq"},{"@type":"SiteNavigationElement","name":"Contacto","description":"WhatsApp, Instagram y atención al cliente","url":"https://chiclove-ec.com/contact"},{"@type":"SiteNavigationElement","name":"Información de la empresa","description":"Identidad, ubicación y forma de venta de Chic&Love Ecuador","url":"https://chiclove-ec.com/about"}]}</script>
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <script src="js/frame-guard.js?v=20261005-2"></script>
-  <link rel="stylesheet" href="css/styles.css?v=20261005-2">
+  <script src="js/frame-guard.js?v=20261011-42"></script>
+  <link rel="stylesheet" href="css/styles.css?v=20261011-42">
 </head>
 <body class="page-product">
   <noscript><p class="no-script-notice">Activa JavaScript para usar la tienda Chic&amp;Love.</p></noscript>
@@ -85,7 +85,7 @@
     <!-- Detalle de producto (renderizado por product-page.js) -->
     <section class="pd-hero">
       <div class="wrap pd-grid" id="pd-root">
-        <div class="pd-stage" id="pd-stage">
+        <div class="pd-stage" id="pd-stage" data-parallax>
           <div class="ring" aria-hidden="true"></div>
           <img id="pd-img" alt="" width="1080" height="1350" decoding="async" fetchpriority="high">
         </div>
@@ -110,10 +110,9 @@
             <button class="btn btn-accent" id="pd-add" type="button">Añadir al carrito — <span id="pd-add-price" aria-live="polite">Precio</span></button>
           </div>
           <div class="pd-meta">
-            <span>Envío a todo el Ecuador</span>
-            <span>Paga con transferencia</span>
             <span id="pd-flavor">Sabor frutos rojos</span>
             <span id="pd-dose">2 gummies al día después de la comida.</span>
+            <span id="pd-duration">Un frasco dura unos 30 días</span>
           </div>
           <div class="pd-assurance" role="group" aria-label="Información de compra">
             <div><strong>Entrega rápida</strong><span>Hacemos entregas a todo el Ecuador.</span></div>
@@ -131,11 +130,29 @@
       </div>
     </section>
 
+    <!-- ============ DENTRO DE CADA GUMMY (una escena por activo; story.js las pinta desde
+         CL_ACTIVES y sin JavaScript la sección queda oculta) ============ -->
+    <section class="actives-story" data-actives-story hidden aria-labelledby="as-title">
+      <div class="as-pin">
+        <div class="as-head">
+          <h2 class="eyebrow" id="as-title">Dentro de cada gummy</h2>
+          <p class="fs-counter" aria-hidden="true"><b data-as-index>01</b><span data-as-total>/ 01</span></p>
+        </div>
+        <div class="as-stage" aria-hidden="true">
+          <span class="as-ring"></span>
+          <ol class="as-orbit" data-as-orbit></ol>
+          <img class="as-bottle" data-as-bottle alt="" width="1107" height="1600" loading="lazy" decoding="async">
+        </div>
+        <div class="as-panels" data-as-panels></div>
+        <p class="as-note">Información general sobre cada activo. Revisa la etiqueta y consulta a tu médico si tomas medicación o tienes una condición de salud.</p>
+      </div>
+    </section>
+
     <section class="section related">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Combínalo con</span>
-          <h2>Completa tu ritual</h2>
+          <h2>Completa tu momento de cuidado</h2>
         </div>
         <div class="products-grid" id="related-grid" data-products-grid data-limit="3"></div>
       </div>
@@ -206,9 +223,10 @@
     </div>
   </footer>
 
-  <script src="js/products.js?v=20261005-2"></script>
-  <script src="js/analytics.js?v=20261005-2"></script>
-  <script src="js/main.js?v=20261005-2"></script>
-  <script src="js/product-page.js?v=20261005-2"></script>
+  <script src="js/products.js?v=20261011-42"></script>
+  <script src="js/analytics.js?v=20261011-42"></script>
+  <script src="js/main.js?v=20261011-42"></script>
+  <script src="js/product-page.js?v=20261011-42"></script>
+  <script src="js/story.js?v=20261011-42"></script>
 </body>
 </html>

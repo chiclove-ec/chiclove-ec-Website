@@ -37,6 +37,7 @@ propio y `dist/` (el único artefacto publicable) se arma copiando por lista bla
 | `js/products.js` | **Catálogo: nombres, precios, textos, colores — edita aquí** |
 | `js/main.js` | Navegación, carrito (localStorage) y checkout por WhatsApp |
 | `js/product-page.js` | Render de la página de producto |
+| `js/story.js` | Scrollytelling: escenas fijadas (fórmulas en la portada, activos en cada ficha), parallax y barra de compra móvil |
 | `js/analytics.js` | Consentimiento y eventos de analítica (GA4) |
 | `js/frame-guard.js` | Guard anti-frame para hosts sin cabeceras configurables |
 | `css/styles.css` | Todos los estilos |

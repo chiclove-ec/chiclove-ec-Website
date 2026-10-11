@@ -89,6 +89,7 @@ const publicFiles = [
   "js/main.js",
   "js/product-page.js",
   "js/products.js",
+  "js/story.js",
   "assets/img/blueberries.webp",
   "assets/img/cert-nsf.webp",
   "assets/img/cert-organic.webp",

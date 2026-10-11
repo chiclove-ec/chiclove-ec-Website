@@ -402,7 +402,7 @@ function buildCartChrome() {
   shippingProgress.setAttribute("aria-label", "Progreso para obtener envío gratis");
   shipping.append(shippingText, shippingProgress);
   foot.appendChild(shipping);
-  foot.appendChild(makeEl("p", "cart-note", "Los precios incluyen IVA. Antes de confirmar podrás revisar el total de tu compra."));
+  foot.appendChild(makeEl("p", "cart-note", "Antes de confirmar podrás revisar el total de tu compra."));
   var checkout = makeEl("button", "btn btn-wa btn-wide");
   checkout.type = "button";
   checkout.id = "cart-checkout";
@@ -688,6 +688,14 @@ function hydrateProductCard(card, product, revealDelay) {
 }
 
 /* ---------- bandas de promoción ---------- */
+// Cuenta atrás honesta: sale de la fecha de cierre real de la promoción en el catálogo.
+function promoDaysLeft(promo) {
+  var ms = promo && promo.end ? promo.end - Date.now() : 0;
+  if (!(ms > 0)) return "";
+  var days = Math.ceil(ms / 86400000);
+  return days <= 1 ? ". Queda 1 día" : ". Quedan " + days + " días";
+}
+
 // Una banda anuncia una fórmula (y lleva a su ficha) o un grupo de fórmulas con el
 // mismo descuento (y lleva a la tienda). Comparten maqueta: cambian textos, color e imagen.
 function promoBand(band, eager) {
@@ -727,7 +735,7 @@ function promoBand(band, eager) {
   copy.appendChild(prices);
   var actions = makeEl("div", "promo-band-actions");
   actions.appendChild(makeEl("span", "promo-band-cta", group ? group.cta : "Ver producto"));
-  actions.appendChild(makeEl("span", "promo-band-deadline", "Hasta el " + promo.endsLabel));
+  actions.appendChild(makeEl("span", "promo-band-deadline", "Hasta el " + promo.endsLabel + promoDaysLeft(promo)));
   copy.appendChild(actions);
 
   // Imagen editorial de tienda (o la composición del grupo, con el mismo fondo y
@@ -775,7 +783,9 @@ function renderPromoBand() {
   var bands = clPromoBands().filter(promoBandFitsFilter);
   mounts.forEach(function (mount) {
     var host = mount.querySelector(".wrap") || mount;
-    host.textContent = "";
+    // Solo se sustituye la pila de bandas: el encabezado de la sección (si lo hay) se queda.
+    var previous = host.querySelector(".promo-bands");
+    if (previous) previous.remove();
     mount.hidden = !bands.length;
     if (!bands.length) return;
     var stack = makeEl("div", "promo-bands");
