@@ -1456,7 +1456,7 @@ for (const p of catalog.CL_PRODUCTS) {
     'id="related-grid" data-products-grid data-limit="3"',
     'id="related-grid" data-products-grid data-limit="3" data-exclude="' + esc(p.id) + '"'
   );
-  const favAnchor = '  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">';
+  const favAnchor = '  <link rel="icon" href="favicon.ico" sizes="48x48">';
   const heroPreload =
     '  <link rel="preload" as="image" href="' + esc(p.heroSmall) +
     '" imagesrcset="' + esc(p.heroSmall) + ' 640w, ' + esc(p.hero) +
@@ -1520,7 +1520,7 @@ for (const p of catalog.CL_PRODUCTS) {
 
 function sitemapXml() {
   const pages = [
-    { path: "", image: "assets/img/family-bottles.webp" },
+    { path: "", image: "assets/img/share-square.jpg" },
     { path: pagePath("tienda.html") },
     { path: pagePath("nosotros.html") },
     { path: pagePath("about.html") },

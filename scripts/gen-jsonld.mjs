@@ -54,7 +54,7 @@ function upsertJsonLd(html, type, data) {
     '<script type="application/ld\\+json">\\{[^<]*"@type":"' + type + '"[^<]*</script>'
   );
   if (existing.test(html)) return html.replace(existing, block);
-  const anchor = '  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">';
+  const anchor = '  <link rel="icon" href="favicon.ico" sizes="48x48">';
   return html.replace(anchor, "  " + block + "\n" + anchor);
 }
 
@@ -129,7 +129,9 @@ const website = graph["@graph"].find((node) => node["@type"] === "WebSite");
 if (!organization || !website) throw new Error("El grafo de la portada no declara Organization y WebSite");
 organization.name = SITE_NAME;
 organization.alternateName = ["Chic&Love", "Chic & Love", "Chic and Love Ecuador"];
-organization.image = BASE + "assets/img/family-bottles.webp";
+organization.image = BASE + "assets/img/share-square.jpg";
+// Nombre del sitio para Google: el oficial y la forma en que la marca se escribe a sí misma.
+website.alternateName = ["Chic&Love Ecuador", "Chic&Love"];
 organization.dateModified = CONTENT_MODIFIED;
 organization.hasOfferCatalog = {
   "@type": "OfferCatalog",
