@@ -20,3 +20,13 @@ la promoción de octubre de 2026) no usan generación de imágenes: son un monta
 propio. El fondo y el podio salen de `store-radiant-skin.webp`, con el frasco retirado y el
 hueco rellenado con el degradado del propio fondo; los seis frascos se recortaron de
 `family-bottles.webp` y se colocaron encima con sombras suaves.
+
+## Retoques sin generación
+
+Los recortes `splash-*.webp` (frascos con líquido de la portada, las escenas de fórmulas y
+los activos de cada ficha) se limpiaron a mano por script, sin generación de imágenes: se
+quitaron restos del fondo blanco que el recorte original había dejado entre el líquido y
+el frasco, y se reconstruyeron las tapas que ese recorte había borrado. En los Sexual
+Booster la mitad perdida de la tapa se rehízo reflejando la mitad intacta; en Sleep
+Vitamins, con la textura de la misma tapa (es el mismo envase) tomada del recorte de
+Sexual Booster. El líquido original se conserva por encima.
