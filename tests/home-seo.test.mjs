@@ -21,13 +21,13 @@ test("la portada identifica claramente la tienda de vitaminas y sus productos", 
   );
   assert.match(
     html,
-    /<meta property="og:image" content="https:\/\/chiclove-ec\.com\/assets\/img\/family-bottles\.webp">/
+    /<meta property="og:image" content="https:\/\/chiclove-ec\.com\/assets\/img\/share-wide\.jpg">/
   );
   assert.match(
     html,
-    /<meta name="twitter:image" content="https:\/\/chiclove-ec\.com\/assets\/img\/family-bottles\.webp">/
+    /<meta name="twitter:image" content="https:\/\/chiclove-ec\.com\/assets\/img\/share-wide\.jpg">/
   );
-  assert.match(html, /"image":"https:\/\/chiclove-ec\.com\/assets\/img\/family-bottles\.webp"/);
+  assert.match(html, /"image":"https:\/\/chiclove-ec\.com\/assets\/img\/share-square\.jpg"/);
   assert.match(html, /<meta property="og:image:alt" content="Colección de frascos de vitaminas y gummies Chic&amp;Love">/);
   assert.match(html, /<h1>Vitaminas y complementos alimenticios en <span class="accent-word">gummies<\/span><\/h1>/);
   assert.doesNotMatch(html, /productos de moda y estilo|nueva colección de productos de moda/i);
