@@ -1566,6 +1566,18 @@ writeFileSync(resolve(root, "llms.txt"), llmsIndex());
 writeFileSync(resolve(root, "llms-full.txt"), fullTextBundle());
 writeFileSync(resolve(root, "sitemap.xml"), sitemapXml());
 
+// Lista permitida para las Pages Functions, derivada del mismo catálogo sin
+// cargar el script del navegador ni APIs de Node en el borde de Cloudflare.
+writeFileSync(resolve(root, "scripts/lib/search-routes.mjs"),
+  "// Generado por npm run gen:products; no editar a mano.\n" +
+  "export const PRODUCT_PATHS = Object.freeze(" + JSON.stringify(Object.fromEntries(
+    catalog.CL_PRODUCTS.map((product) => [product.id, "/" + pagePath(product.id + ".html")])
+  ), null, 2) + ");\n\n" +
+  "export const VERIFICATION_FILES = Object.freeze(" + JSON.stringify(Object.fromEntries(
+    readdirSync(root).filter((name) => /^google[a-z0-9]+\.html$/.test(name)).sort()
+      .map((name) => ["/" + name, readFileSync(resolve(root, name), "utf8")])
+  ), null, 2) + ");\n");
+
 /* La franja superior de todas las páginas lleva la oferta vigente escrita en el HTML.
    main.js la repinta al cargar, pero quien no ejecuta JavaScript (y el primer pintado
    de cualquiera) leería una promo caducada: por eso se escribe aquí desde el catálogo,
