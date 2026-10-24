@@ -20,6 +20,7 @@ import { anchorFor, createAgentDocs } from "./lib/agent-docs.mjs";
 import { AGENT_CONTENT_REVIEWED, BRAND_FACTS, CATEGORY_QUERIES, EXAMPLE_CITIES, FORMAT_SYNONYMS, PRODUCT_NOTES, ROUTINES, ACTIVE_CAUTIONS } from "./lib/agent-knowledge.mjs";
 import { renderProductGrid } from "./lib/product-card.mjs";
 import { loadSiteConfig, pagePath } from "./lib/site-config.mjs";
+import { shippingPolicy } from "./lib/shipping-policy.mjs";
 
 // El dominio sale de site.config.json; el build lo reescribe si se publica en otro.
 const siteConfig = loadSiteConfig();
@@ -1367,17 +1368,15 @@ for (const p of catalog.CL_PRODUCTS) {
       },
       itemCondition: "https://schema.org/NewCondition",
       areaServed: { "@type": "Country", name: "Ecuador" },
-      seller: { "@id": BASE + "#organization" },
-      // Envío gratis a partir del umbral del catálogo (CL_FREE_SHIPPING).
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: { "@type": "DefinedRegion", addressCountry: "EC" },
-        shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "USD" },
-        eligibleTransactionVolume: {
-          "@type": "PriceSpecification",
-          priceCurrency: "USD",
-          minPrice: catalog.CL_FREE_SHIPPING.toFixed(2)
-        }
+      // Es una condición estándar de la tienda, no una tarifa 0 de este frasco.
+      // La Organization se identifica igual aquí y en la portada para que la
+      // ficha sea autocontenida sin contradecir la entidad de la tienda.
+      seller: {
+        "@type": "Organization",
+        "@id": BASE + "#organization",
+        name: SITE_NAME,
+        url: BASE,
+        hasShippingService: shippingPolicy({ base: BASE, freeShipping: catalog.CL_FREE_SHIPPING })
       },
       // Devolución o cambio dentro de los 15 días posteriores a recibir el pedido,
       // con el frasco cerrado y el sello intacto (ver /terms.html).
