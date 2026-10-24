@@ -9,6 +9,8 @@ import {
   planResponse,
   prefersMarkdown
 } from "../scripts/lib/markdown-negotiation.mjs";
+import { legacyProductRoute, mergeVary, searchHeaders } from "../scripts/lib/search-indexing.mjs";
+import { VERIFICATION_FILES } from "../scripts/lib/search-routes.mjs";
 
 // Los enlaces de recuperación salen del origen de la propia petición: así el
 // mensaje sigue siendo correcto en cualquier dominio o preview, sin configurar nada.
@@ -28,14 +30,46 @@ function notAcceptableBody(origin) {
 function withNegotiationHeaders(headers, markdownPath) {
   const merged = new Headers(headers);
   for (const [key, value] of Object.entries(negotiationHeaders(markdownPath))) {
-    merged.set(key, value);
+    merged.set(key, key === "Vary" ? mergeVary(merged.get(key), value) : value);
   }
   return merged;
 }
 
 export async function onRequest(context) {
+  const response = await respond(context);
+  return new Response(context.request.method === "HEAD" ? null : response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: searchHeaders(new URL(context.request.url), response.status, response.headers)
+  });
+}
+
+async function respond(context) {
   const { request, next, env } = context;
   const url = new URL(request.url);
+  if (request.method === "GET" || request.method === "HEAD") {
+    // Google debe poder leer el testigo exacto sin la normalización .html de Pages.
+    if (Object.hasOwn(VERIFICATION_FILES, url.pathname)) {
+      return new Response(request.method === "HEAD" ? null : VERIFICATION_FILES[url.pathname], {
+        headers: {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "public, max-age=0, must-revalidate",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "X-Robots-Tag": "noindex"
+        }
+      });
+    }
+    const legacy = legacyProductRoute(url);
+    if (legacy?.location) return new Response(null, { status: legacy.status, headers: { Location: legacy.location } });
+    if (legacy?.status === 404) {
+      const markdown = prefersMarkdown(request.headers.get("accept"));
+      const asset = await env.ASSETS.fetch(new URL(markdown ? "/404.md" : "/404", url).toString());
+      const headers = withNegotiationHeaders(asset.headers, "/404.md");
+      headers.set("Content-Type", markdown ? MARKDOWN_CONTENT_TYPE : "text/html; charset=utf-8");
+      return new Response(request.method === "HEAD" ? null : asset.body, { status: 404, headers });
+    }
+  }
   const plan = planResponse({
     pathname: url.pathname,
     accept: request.headers.get("accept")

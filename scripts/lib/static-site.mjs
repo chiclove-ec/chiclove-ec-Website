@@ -11,6 +11,7 @@ import {
   planResponse,
   prefersMarkdown
 } from "./markdown-negotiation.mjs";
+import { legacyProductRoute, searchHeaders } from "./search-indexing.mjs";
 
 const TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -56,7 +57,8 @@ export function createSiteServer(rootDir) {
   }
 
   const send = (req, res, status, body, headers) => {
-    res.writeHead(status, headers);
+    const url = new URL(req.url, "http://" + (req.headers.host || "localhost"));
+    res.writeHead(status, Object.fromEntries(searchHeaders(url, status, headers)));
     res.end(req.method === "HEAD" ? undefined : body);
   };
 
@@ -67,6 +69,16 @@ export function createSiteServer(rootDir) {
       pathname = decodeURIComponent(url.pathname);
     } catch {
       pathname = url.pathname;
+    }
+    const legacy = ["GET", "HEAD"].includes(req.method) ? legacyProductRoute(url) : null;
+    if (legacy?.location) return send(req, res, legacy.status, null, { Location: legacy.location });
+    if (legacy?.status === 404) {
+      const markdown = prefersMarkdown(req.headers.accept);
+      const notFound = await readIfFile(markdown ? "/404.md" : "/404.html");
+      return send(req, res, 404, notFound?.body || "404", {
+        "Content-Type": markdown ? MARKDOWN_CONTENT_TYPE : "text/html; charset=utf-8",
+        ...negotiationHeaders("/404.md")
+      });
     }
     const plan = planResponse({ pathname, accept: req.headers.accept });
     const extra = plan.kind === "passthrough" ? {} : negotiationHeaders(plan.markdownPath);
