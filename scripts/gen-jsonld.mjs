@@ -11,6 +11,7 @@ import { resolve } from "node:path";
 
 import { loadCatalog, projectRoot as root } from "./lib/catalog.mjs";
 import { loadSiteConfig, pagePath } from "./lib/site-config.mjs";
+import { shippingPolicy } from "./lib/shipping-policy.mjs";
 
 // El dominio sale de site.config.json; el build lo reescribe si se publica en otro.
 const siteConfig = loadSiteConfig();
@@ -133,6 +134,7 @@ organization.image = BASE + "assets/img/share-square.jpg";
 // Nombre del sitio para Google: el oficial y la forma en que la marca se escribe a sí misma.
 website.alternateName = ["Chic&Love Ecuador", "Chic&Love"];
 organization.dateModified = CONTENT_MODIFIED;
+organization.hasShippingService = shippingPolicy({ base: BASE, freeShipping: catalog.CL_FREE_SHIPPING });
 organization.hasOfferCatalog = {
   "@type": "OfferCatalog",
   name: "Colección " + SITE_NAME,

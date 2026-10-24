@@ -158,14 +158,24 @@ test("cada página de producto publica oferta, envío y vendedor", () => {
     }
     assert.equal(node.offers.seller["@id"], BASE + "#organization", `${product.id}: vendedor`);
 
-    const shipping = node.offers.shippingDetails;
-    assert.equal(shipping.shippingDestination.addressCountry, "EC", `${product.id}: destino`);
-    assert.equal(shipping.shippingRate.value, "0", `${product.id}: tarifa`);
-    assert.equal(
-      shipping.eligibleTransactionVolume.minPrice,
-      catalog.CL_FREE_SHIPPING.toFixed(2),
-      `${product.id}: umbral de envío gratis`
-    );
+    // La tarifa depende del total del pedido, no del precio de este frasco.
+    // Una anulación OfferShippingDetails con tarifa 0 anunciaría envío gratuito
+    // incluso para compras que no alcanzan el umbral publicado.
+    assert.equal("shippingDetails" in node.offers, false, `${product.id}: no anular la política condicionada`);
+    const shipping = node.offers.seller.hasShippingService;
+    assert.ok(shipping, `${product.id}: falta la política de la tienda`);
+    assert.equal(shipping["@type"], "ShippingService");
+    assert.equal(shipping["@id"], BASE + "#shipping");
+    const conditions = shipping.shippingConditions;
+    assert.equal(conditions["@type"], "ShippingConditions");
+    assert.equal(conditions.shippingDestination.addressCountry, "EC", `${product.id}: destino`);
+    assert.equal(conditions.orderValue.currency, "USD");
+    assert.equal(conditions.orderValue.minValue, catalog.CL_FREE_SHIPPING, `${product.id}: umbral inclusivo`);
+    assert.equal(conditions.shippingRate.currency, "USD");
+    assert.equal(conditions.shippingRate.value, 0, `${product.id}: tarifa dentro de la condición`);
+    assert.equal("eligibleTransactionVolume" in conditions, false);
+    assert.equal("transitTime" in conditions, false, `${product.id}: no inventar plazos`);
+    assert.equal("handlingTime" in shipping, false, `${product.id}: no inventar preparación`);
 
     const returns = node.offers.hasMerchantReturnPolicy;
     assert.equal(returns.applicableCountry, "EC", `${product.id}: país de la política`);
@@ -246,8 +256,20 @@ test("cada Product publica identidad, imagen, precio, envío y devoluciones", ()
     assert.equal(offer.priceSpecification["@type"], "UnitPriceSpecification", `${product.id}: priceSpecification`);
     assert.equal(offer.priceSpecification.priceCurrency, "USD", `${product.id}: moneda del precio`);
     assert.equal(offer.priceSpecification.valueAddedTaxIncluded, true, `${product.id}: IVA`);
-    assert.equal(offer.shippingDetails["@type"], "OfferShippingDetails", `${product.id}: shippingDetails`);
+    assert.equal(offer.seller["@type"], "Organization", `${product.id}: vendedor con política estándar`);
     assert.ok(offer.hasMerchantReturnPolicy, `${product.id}: política de devoluciones`);
+  }
+});
+
+test("la misma política condicionada se declara en la portada y en cada vendedor", () => {
+  const policy = byType("index.html", "Organization").hasShippingService;
+  assert.ok(policy, "la tienda debe declarar su política estándar");
+  assert.equal(policy.shippingConditions.orderValue.minValue, 49.99);
+  for (const product of catalog.CL_PRODUCTS) {
+    const seller = byType(product.id + ".html", "Product").offers.seller;
+    assert.equal(seller.name, loadSiteConfig().brandName);
+    assert.deepEqual(seller.hasShippingService, policy, product.id);
+    assert.equal("shippingRate" in policy, false, "la tarifa debe vivir dentro de sus condiciones");
   }
 });
 
