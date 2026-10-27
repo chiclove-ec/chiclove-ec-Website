@@ -44,8 +44,8 @@ export const FORMAT_SYNONYMS = Object.freeze([
 
 /* Formas en que la gente ESCRIBE la marca al buscarla: con «&», «and», «y», junta,
    con «EC» en vez de «Ecuador», o con faltas frecuentes. Son formas de búsqueda, NO
-   nombres: el nombre oficial es uno solo, «Chic & Love Ecuador», y es el único que va en
-   `name`/`alternateName` de los datos estructurados. Google elige entre esos campos el
+   nombres: el nombre preferido es «Chic&Love Ecuador»; las alternativas de los datos
+   estructurados conservan «Ecuador». Google elige entre esos campos el
    nombre que enseña en los resultados, y un alias corto o mal escrito podría acabar como
    título del sitio (tests/brand-seo.test.mjs lo impide). Por eso estas variantes solo se
    publican en los documentos para máquinas, explicadas como «es la misma tienda».

@@ -1,4 +1,4 @@
-# Hair & Nails Forte — Chic & Love Ecuador
+# Hair & Nails Forte — Chic&Love Ecuador
 
 > Cabello más fuerte. Uñas de acero. La fórmula forte con biotina, ashwagandha y extracto de semilla de calabaza que frena la caída y acelera el crecimiento desde la raíz.
 

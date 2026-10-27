@@ -39,7 +39,7 @@ test("toda página indexable declara metadatos regionales completos", () => {
     const expectedUrl = origin + "/" + pagePath(page);
     const markdown = page.replace(/\.html$/, ".md");
     assert.match(html, /<html lang="es-EC">/, `${page} no declara es-EC`);
-    assert.match(html, /<meta name="author" content="Chic &amp; Love Ecuador">/, `${page} no declara autor`);
+    assert.match(html, /<meta name="author" content="Chic&amp;Love Ecuador">/, `${page} no declara autor`);
     assert.match(html, new RegExp('<meta name="robots" content="' + INDEXABLE_ROBOTS + '">'), `${page} no declara robots`);
     assert.match(html, /<meta property="og:locale" content="es_EC">/, `${page} no declara og:locale`);
     assert.match(html, new RegExp('<meta property="og:url"[^>]*content="' + expectedUrl.replace(/[.]/g, "\\.") + '">'), `${page} no declara og:url`);

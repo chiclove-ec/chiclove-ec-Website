@@ -1,4 +1,4 @@
-# Sexual Booster Women — Chic & Love Ecuador
+# Sexual Booster Women — Chic&Love Ecuador
 
 > Enciende tu energía. Maca y damiana 100% naturales que estabilizan tus canales de energía, estimulan la libido y reducen el estrés.
 

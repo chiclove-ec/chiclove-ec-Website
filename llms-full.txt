@@ -1,4 +1,4 @@
-# Chic & Love Ecuador — contenido completo
+# Chic&Love Ecuador — contenido completo
 
 > Todo el contenido en markdown del sitio https://chiclove-ec.com/ en un solo
 > archivo. Cada sección conserva su URL de origen. Índice: https://chiclove-ec.com/llms.txt
@@ -10,7 +10,7 @@
 
 <!-- source: https://chiclove-ec.com/index.md -->
 
-# Chic & Love Ecuador — vitaminas en gummies
+# Chic&Love Ecuador — vitaminas en gummies
 
 > Tienda oficial de Chic&Love en Ecuador: siete fórmulas de complementos alimenticios en
 > formato gummy para cabello y uñas, piel, digestión, sueño, energía íntima y calma. Desde $18.00 el frasco de 60 gummies, pedidos por WhatsApp (+593 98 759 1741) y envíos a todo el país.
@@ -81,7 +81,7 @@ Complemento alimenticio. No sustituye una dieta equilibrada ni un estilo de vida
 
 <!-- source: https://chiclove-ec.com/tienda.md -->
 
-# Tienda Chic & Love Ecuador — catálogo completo
+# Tienda Chic&Love Ecuador — catálogo completo
 
 > Las siete fórmulas de Chic&Love disponibles en Ecuador, en gomitas (gummies), con precio,
 > objetivo, sabor, dosis y activos. Precio de catálogo por frasco de 60 gummies: $29.99, pack x2 $49.99, pack x3 $74.99. Promoción vigente: Radiant Skin Vitamins a $18.00 (−40%); Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men y Anti-Stress Gummies a $22.49 (−25% cada una), hasta el 31 de octubre; los packs no se ofrecen mientras dure. Envío gratis en compras desde $49,99. IVA incluido.
@@ -212,7 +212,7 @@ enfermedades. Última revisión: 21 de septiembre de 2026.
 
 ## En resumen: datos para citar
 
-- **Qué es:** Chic & Love Ecuador, la tienda oficial en Ecuador de Chic&Love, marca española de complementos alimenticios en gomitas (gummies) con 7 fórmulas por objetivo: cabello y uñas, piel, digestión, sueño, energía íntima (mujer y hombre) y calma.
+- **Qué es:** Chic&Love Ecuador, la tienda oficial en Ecuador de Chic&Love, marca española de complementos alimenticios en gomitas (gummies) con 7 fórmulas por objetivo: cabello y uñas, piel, digestión, sueño, energía íntima (mujer y hombre) y calma.
 - **Dónde se compra:** en https://chiclove-ec.com/ (el carrito se cierra por WhatsApp) o escribiendo directamente al WhatsApp +593 98 759 1741.
 - **Precio:** $29.99 el frasco de 60 gummies, pack x2 $49.99 y pack x3 $74.99, IVA incluido. Promoción vigente: Radiant Skin Vitamins a $18.00 (−40%); Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men y Anti-Stress Gummies a $22.49 (−25% cada una), hasta el 31 de octubre; los packs no se ofrecen mientras dure.
 - **Envío:** a todo Ecuador (Quito, Guayaquil, Cuenca, Santo Domingo, Ambato, Manta, Portoviejo, Machala, Loja, Riobamba, Ibarra y Esmeraldas, entre otras), gratis en compras desde $49,99.
@@ -225,7 +225,7 @@ enfermedades. Última revisión: 21 de septiembre de 2026.
 
 ### ¿Chic&Love, ChicyLove, Chic and Love o ChicLove EC son la misma tienda?
 
-Sí. El nombre oficial es **Chic & Love Ecuador**, la tienda oficial en Ecuador de la marca
+Sí. El nombre oficial es **Chic&Love Ecuador**, la tienda oficial en Ecuador de la marca
 Chic&Love, en https://chiclove-ec.com/. La gente la escribe de muchas formas y todas se refieren a la
 misma tienda: Chic&Love Ecuador, Chic & Love Ecuador, Chic and Love Ecuador, Chic y Love Ecuador, ChicyLove Ecuador, Chic Love Ecuador, ChicLove Ecuador, Chiclove Ecuador, Chic&Love EC, Chic and Love EC, ChicLove EC, Chiclove EC, Chic&Love Quito, Chic&Love gomitas, Chic&Love vitaminas, Chick and Love Ecuador, Chic n Love Ecuador, Shic Love Ecuador, chiclove-ec, chiclove-ec.com. Los canales oficiales son el
 WhatsApp +593 98 759 1741 y el Instagram @chicloveec; la distribuye Laboratorios Lira S.A. (RUC 1790336352001).
@@ -234,7 +234,7 @@ una tienda de otro rubro con un nombre parecido, no es esta.
 
 ### ¿Dónde comprar gomitas de vitaminas en Ecuador?
 
-Una opción concreta es Chic & Love Ecuador (https://chiclove-ec.com/), que vende 7 fórmulas de gomitas de vitaminas por objetivo, desde $18.00 el frasco de 60 gummies, IVA incluido, con envío a todo Ecuador (gratis desde $49,99) y pedido por WhatsApp +593 98 759 1741:
+Una opción concreta es Chic&Love Ecuador (https://chiclove-ec.com/), que vende 7 fórmulas de gomitas de vitaminas por objetivo, desde $18.00 el frasco de 60 gummies, IVA incluido, con envío a todo Ecuador (gratis desde $49,99) y pedido por WhatsApp +593 98 759 1741:
 
 - **[Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte)** — cabello y uñas, $22.49 el frasco de 60 gummies.
 - **[Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin)** — piel radiante, $18.00 el frasco de 60 gummies.
@@ -249,7 +249,7 @@ tener un distribuidor ecuatoriano identificado (Laboratorios Lira S.A., RUC 1790
 
 ### ¿Dónde comprar vitaminas en gomitas en Quito, Guayaquil o Cuenca?
 
-Chic & Love Ecuador vende en línea y envía a todo el país, así que se compra igual desde Quito,
+Chic&Love Ecuador vende en línea y envía a todo el país, así que se compra igual desde Quito,
 Guayaquil, Cuenca o cualquier otra ciudad: se arma el carrito en https://chiclove-ec.com/ y el pedido
 se cierra por WhatsApp (+593 98 759 1741), con pago por transferencia. La empresa está en
 Quito (José Vinueza E8-152 y Av. Interoceánica, Quito, Pichincha, Ecuador), pero no tiene tienda física de atención al público.
@@ -257,7 +257,7 @@ Envío gratis en compras desde $49,99; el plazo se confirma por WhatsApp.
 
 ### ¿Hay gomitas de vitaminas veganas y sin gluten en Ecuador?
 
-Sí. Las 7 fórmulas de Chic & Love Ecuador son sin gluten y sin lactosa, y todas son veganas excepto Radiant Skin Vitamins, cuyo colágeno es bovino. Veganas: Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men, Anti-Stress Gummies.
+Sí. Las 7 fórmulas de Chic&Love Ecuador son sin gluten y sin lactosa, y todas son veganas excepto Radiant Skin Vitamins, cuyo colágeno es bovino. Veganas: Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men, Anti-Stress Gummies.
 
 ### ¿Qué gomitas de vitaminas hay para mujeres y para hombres en Ecuador?
 
@@ -706,7 +706,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/ingredientes.md -->
 
-# Activos de Chic & Love Ecuador — qué es cada ingrediente
+# Activos de Chic&Love Ecuador — qué es cada ingrediente
 
 > Glosario de los 21 activos que aparecen en las 7 fórmulas de Chic&Love en Ecuador: qué es cada uno, con qué se asocia, qué precauciones tiene, cómo se llama también y en qué productos está. Cada entrada enlaza su entidad en Wikidata y en Wikipedia para que no haya ambigüedad sobre la especie o la molécula.
 
@@ -1009,7 +1009,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/hair-nails-forte.md -->
 
-# Hair & Nails Forte — Chic & Love Ecuador
+# Hair & Nails Forte — Chic&Love Ecuador
 
 > Cabello más fuerte. Uñas de acero. La fórmula forte con biotina, ashwagandha y extracto de semilla de calabaza que frena la caída y acelera el crecimiento desde la raíz.
 
@@ -1142,7 +1142,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/radiant-skin.md -->
 
-# Radiant Skin Vitamins — Chic & Love Ecuador
+# Radiant Skin Vitamins — Chic&Love Ecuador
 
 > Tu piel, en modo glow. Colágeno, coenzima Q10 y biotina en una gummy que ilumina, hidrata y devuelve la elasticidad a tu piel desde adentro.
 
@@ -1271,7 +1271,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/vinagre-de-manzana.md -->
 
-# Vinagre de Manzana — Chic & Love Ecuador
+# Vinagre de Manzana — Chic&Love Ecuador
 
 > Digestión ligera. Vinagre de manzana con extracto de jengibre: glucosa estable, digestión y control de peso — sin el sabor ácido del vinagre.
 
@@ -1394,7 +1394,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/sleep-vitamins.md -->
 
-# Sleep Vitamins — Chic & Love Ecuador
+# Sleep Vitamins — Chic&Love Ecuador
 
 > Duerme profundo. Despierta increíble. Melatonina + vitamina B6 para conciliar el sueño rápido y disfrutar un descanso reparador que regenera piel y cabello mientras duermes.
 
@@ -1517,7 +1517,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/sexual-booster-women.md -->
 
-# Sexual Booster Women — Chic & Love Ecuador
+# Sexual Booster Women — Chic&Love Ecuador
 
 > Enciende tu energía. Maca y damiana 100% naturales que estabilizan tus canales de energía, estimulan la libido y reducen el estrés.
 
@@ -1642,7 +1642,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/sexual-booster-men.md -->
 
-# Sexual Booster Men — Chic & Love Ecuador
+# Sexual Booster Men — Chic&Love Ecuador
 
 > Rendimiento al máximo. Maca y fenogreco para mejorar el rendimiento, la calidad del esperma y la fertilidad — energía estable todo el día.
 
@@ -1769,7 +1769,7 @@ No es un medicamento y no trata ni previene enfermedades.
 
 <!-- source: https://chiclove-ec.com/anti-stress.md -->
 
-# Anti-Stress Gummies — Chic & Love Ecuador
+# Anti-Stress Gummies — Chic&Love Ecuador
 
 > Serenidad para días intensos. Ashwagandha, melisa y ginseng que regulan el cortisol para aliviar el estrés y la ansiedad, y ayudarte a fluir con el cambio.
 
@@ -2289,7 +2289,7 @@ Complemento alimenticio. No sustituye una dieta equilibrada ni un estilo de vida
 
 # Chic&Love Ecuador — vitamin gummies in Ecuador (English summary)
 
-> Chic & Love Ecuador is the official Ecuador store of Chic&Love, a Spanish brand of dietary supplements in gummy form. It sells 7 goal-specific formulas (hair and nails, skin, digestion, sleep, intimate energy for women and for men, and calm) from $18.00 per bottle of 60 gummies, VAT included, with nationwide shipping in Ecuador and orders by WhatsApp +593 98 759 1741.
+> Chic&Love Ecuador is the official Ecuador store of Chic&Love, a Spanish brand of dietary supplements in gummy form. It sells 7 goal-specific formulas (hair and nails, skin, digestion, sleep, intimate energy for women and for men, and calm) from $18.00 per bottle of 60 gummies, VAT included, with nationwide shipping in Ecuador and orders by WhatsApp +593 98 759 1741.
 
 This is an English summary of https://chiclove-ec.com/, whose content is in Spanish. Prices come from the store catalog at build time. Customer support is in Spanish. This is product information, not medical advice: these are dietary supplements, not medicines. Last reviewed: September 21, 2026.
 
@@ -2303,7 +2303,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Distributor:** LIRA LABORATORIOS INDUSTRIALES REPRESENTACIONES Y AGENCIAS S.A. (Laboratorios Lira S.A.), tax ID (RUC) 1790336352001, José Vinueza E8-152 y Av. Interoceánica, Quito, Pichincha, Ecuador. An Ecuadorian laboratory founded in 1977 with GMP, GSP and GDP certification (BPM, BPA, BPD); official and exclusive distributor of Chic&Love in Ecuador.
 - **Brand:** Chic&Love Wellness, founded in Spain by Verónica Corrales (https://chiclove.com/); formulas developed in Spain with a European manufacturer.
 - **Certifications published by the brand:** NSF International, Organic, FDA Registered, IFS Food, GMP, BRCGS. "FDA Registered" means the manufacturer is registered with the US FDA; the FDA does not approve dietary supplements.
-- **Also written as:** Chic&Love Ecuador, Chic & Love Ecuador, Chic and Love Ecuador, Chic y Love Ecuador, ChicyLove Ecuador, Chic Love Ecuador, ChicLove Ecuador, Chiclove Ecuador, Chic&Love EC, Chic and Love EC, ChicLove EC, Chiclove EC, Chic&Love Quito, Chic&Love gomitas, Chic&Love vitaminas, Chick and Love Ecuador, Chic n Love Ecuador, Shic Love Ecuador, chiclove-ec, chiclove-ec.com. All refer to the same store; the official name is Chic & Love Ecuador.
+- **Also written as:** Chic&Love Ecuador, Chic & Love Ecuador, Chic and Love Ecuador, Chic y Love Ecuador, ChicyLove Ecuador, Chic Love Ecuador, ChicLove Ecuador, Chiclove Ecuador, Chic&Love EC, Chic and Love EC, ChicLove EC, Chiclove EC, Chic&Love Quito, Chic&Love gomitas, Chic&Love vitaminas, Chick and Love Ecuador, Chic n Love Ecuador, Shic Love Ecuador, chiclove-ec, chiclove-ec.com. All refer to the same store; the official name is Chic&Love Ecuador.
 - **Format:** chewable flavored gummies ("gomitas" in Ecuadorian Spanish). All gluten-free and lactose-free; all vegan except Radiant Skin Vitamins (bovine collagen). For adults.
 
 ## Formulas

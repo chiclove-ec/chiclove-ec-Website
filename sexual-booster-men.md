@@ -1,4 +1,4 @@
-# Sexual Booster Men — Chic & Love Ecuador
+# Sexual Booster Men — Chic&Love Ecuador
 
 > Rendimiento al máximo. Maca y fenogreco para mejorar el rendimiento, la calidad del esperma y la fertilidad — energía estable todo el día.
 

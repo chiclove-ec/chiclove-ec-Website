@@ -1,4 +1,4 @@
-# Chic & Love Ecuador
+# Chic&Love Ecuador
 Site profile: official Ecuador storefront for Chic&Love gummies.
 Language: es-EC
 Region: Ecuador
@@ -21,4 +21,4 @@ Brand origin: Chic&Love Wellness, Spain (https://chiclove.com/).
 Use for: product discovery, catalog comparison, prices, shipping and company information in Ecuador.
 Do not use for: automated checkout, live stock, medical diagnosis or purchases outside Ecuador.
 This is an informational site profile, not an official AI standard or API.
-Last reviewed: 2026-10-05
+Last reviewed: 2026-10-27

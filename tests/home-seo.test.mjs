@@ -10,7 +10,7 @@ const read = (file) => readFileSync(resolve(projectRoot, file), "utf8");
 test("la portada identifica claramente la tienda de vitaminas y sus productos", () => {
   const html = read("index.html");
 
-  assert.match(html, /<title>Chic &amp; Love Ecuador — Vitaminas y complementos en gummies<\/title>/);
+  assert.match(html, /<title>Chic&amp;Love Ecuador — Vitaminas y complementos en gummies<\/title>/);
   assert.match(
     html,
     /<meta name="description" content="Tienda oficial en Ecuador de complementos alimenticios en formato gummy: vitaminas para cabello, piel, sueño, digestión, energía y calma\. Envíos a todo el país\.\">/

@@ -1,4 +1,4 @@
-# Vinagre de Manzana — Chic & Love Ecuador
+# Vinagre de Manzana — Chic&Love Ecuador
 
 > Digestión ligera. Vinagre de manzana con extracto de jengibre: glucosa estable, digestión y control de peso — sin el sabor ácido del vinagre.
 

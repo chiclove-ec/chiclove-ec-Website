@@ -17,6 +17,8 @@ import { shippingPolicy } from "./lib/shipping-policy.mjs";
 const siteConfig = loadSiteConfig();
 const BASE = siteConfig.base;
 const SITE_NAME = siteConfig.brandName;
+const SITE_NAME_HTML = SITE_NAME.replaceAll("&", "&amp;");
+const REGIONAL_ALIASES = ["Chic & Love Ecuador", "Chic and Love Ecuador"];
 const CONTENT_MODIFIED = siteConfig.contentModified;
 const catalog = loadCatalog();
 const { clSinglePrice, clFreeShippingLabel } = catalog;
@@ -131,8 +133,8 @@ if (!organization || !website) throw new Error("El grafo de la portada no declar
 organization.name = SITE_NAME;
 organization.alternateName = ["Chic&Love", "Chic & Love", "Chic and Love Ecuador"];
 organization.image = BASE + "assets/img/share-square.jpg";
-// Nombre del sitio para Google: el oficial y la forma en que la marca se escribe a sí misma.
-website.alternateName = ["Chic&Love Ecuador", "Chic&Love"];
+// Una sola identidad ecuatoriana; no proponer el nombre de la tienda española.
+website.alternateName = REGIONAL_ALIASES;
 organization.dateModified = CONTENT_MODIFIED;
 organization.hasShippingService = shippingPolicy({ base: BASE, freeShipping: catalog.CL_FREE_SHIPPING });
 organization.hasOfferCatalog = {
@@ -297,7 +299,7 @@ for (const file of allIndexablePages) {
       }
       if (types.includes("WebSite")) node.name = SITE_NAME;
       if (types.some((type) => ["WebPage", "AboutPage", "ContactPage", "CollectionPage"].includes(type)) && typeof node.name === "string") {
-        node.name = node.name.replaceAll("Chic&Love Ecuador", SITE_NAME);
+        node.name = node.name.replaceAll("Chic & Love Ecuador", SITE_NAME).replaceAll("Chic&Love Ecuador", SITE_NAME);
       }
       if (types.includes("BreadcrumbList")) {
         node.isPartOf = { "@id": BASE + "#website" };
@@ -319,7 +321,8 @@ for (const file of allIndexablePages) {
     return '<script type="application/ld+json">' + JSON.stringify(data) + "</script>";
   });
   const [head, body] = rewritten.split(/(?=<\/head>)/i);
-  writeFileSync(path, head.replaceAll("Chic&amp;Love Ecuador", "Chic &amp; Love Ecuador") + body);
+  writeFileSync(path, head.replaceAll("Chic &amp; Love Ecuador", SITE_NAME_HTML)
+    .replaceAll("Chic&amp;Love Ecuador", SITE_NAME_HTML) + body);
 }
 
 console.log(
