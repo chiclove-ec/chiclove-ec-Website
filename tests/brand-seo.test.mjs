@@ -66,6 +66,7 @@ test("todas las páginas publican el nombre oficial en Open Graph y Organization
   for (const page of htmlPages) {
     const html = read(page);
     assert.match(html, /<meta property="og:site_name" content="Chic&amp;Love Ecuador">/, page);
+    assert.match(html, /<title>[^<]*Chic&amp;Love Ecuador[^<]*<\/title>/, `${page}: título sin nombre oficial completo`);
     assert.ok(!FORBIDDEN_ALIAS.test(html), `${page}: alias corto no permitido`);
     for (const organization of nodesOfType(page, "Organization")) {
       assert.equal(organization.name, SEARCH_NAME, `${page}: Organization.name`);
