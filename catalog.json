@@ -1,18 +1,18 @@
 {
-  "name": "Chic & Love Ecuador",
+  "name": "Chic&Love Ecuador",
   "description": "Catálogo completo de Chic&Love Ecuador en JSON: complementos alimenticios en formato gummy, con precio, pauta, activos y datos de la empresa. Documento estático, público y sin autenticación. No es una API: no hay stock en tiempo real ni compra automática.",
   "canonicalUrl": "https://chiclove-ec.com/",
   "language": "es-EC",
   "country": "EC",
   "countryName": "Ecuador",
-  "lastModified": "2026-10-05",
+  "lastModified": "2026-10-27",
   "agentContentReviewed": "2026-09-21",
   "documentation": "https://chiclove-ec.com/agents.md",
   "index": "https://chiclove-ec.com/llms.txt",
   "fullText": "https://chiclove-ec.com/llms-full.txt",
   "brand": {
     "name": "Chic&Love",
-    "storefront": "Chic & Love Ecuador",
+    "storefront": "Chic&Love Ecuador",
     "alternateNames": [
       "Chic&Love",
       "Chic & Love",
@@ -41,7 +41,7 @@
       "chiclove-ec",
       "chiclove-ec.com"
     ],
-    "searchVariantsNote": "Formas en que se escribe la marca al buscarla; todas son la misma tienda. El nombre oficial es Chic & Love Ecuador.",
+    "searchVariantsNote": "Formas en que se escribe la marca al buscarla; todas son la misma tienda. El nombre oficial es Chic&Love Ecuador.",
     "categoryQueries": [
       "gomitas Ecuador",
       "gomitas de vitaminas Ecuador",

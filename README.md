@@ -247,8 +247,30 @@ web pide consentimiento antes de cargarlo. Registra visitas, productos vistos, f
 contacto con contexto de página, carrito, inicio de checkout, intención de lead por WhatsApp y
 preguntas frecuentes, sin enviar nombres, teléfonos, mensajes ni el contenido del carrito. El
 evento `generate_lead` sólo se emite cuando se abre correctamente la ventana de WhatsApp; no
-representa una compra confirmada. El archivo `googlee70d0e2c8fe95f2c.html` mantiene la
-verificación de Google Search Console para los informes de impresiones y clics de búsqueda.
+representa una compra confirmada. Conserva el archivo `googlee70d0e2c8fe95f2c.html`,
+la etiqueta `google-site-verification` de la portada y el registro DNS de verificación
+de Google Search Console. El middleware sirve el archivo exacto con 200, sin la
+redirección habitual de las URLs `.html`.
+
+### Nombre del sitio e indexación en Google
+
+`site.config.json → brandName` declara **Chic&Love Ecuador**. `npm run gen` lo publica
+en `WebSite.name`, `Organization.name`, los títulos, `og:site_name` y el catálogo.
+La portada usa la misma escritura en su contenido visible. Las alternativas de
+`WebSite.alternateName` conservan «Ecuador» para identificar esta tienda regional.
+
+Después de publicar, `npm run audit:search` comprueba las 14 URLs del sitemap como
+Googlebot, sus canónicas y metadatos, robots.txt, la verificación, los 404, los gemelos
+markdown y las redirecciones. Solo realiza peticiones públicas de lectura; no consulta
+Search Console ni demuestra que una URL esté indexada.
+
+El nombre situado sobre la dirección en Google es el **nombre del sitio**, distinto
+del título azul de cada página. [Google lo elige automáticamente](https://developers.google.com/search/docs/appearance/site-names)
+y Search Console no tiene un campo para cambiarlo. Tras publicar, inspecciona la
+portada en vivo y solicita su indexación. El procesamiento puede tardar días o semanas.
+Las exclusiones «Página con redirección» de HTTP, www y `.html` son esperadas si su
+destino es la URL canónica. Una página «Rastreada: actualmente sin indexar» necesita
+revisión individual; no se arregla retirándola ni solicitándola repetidamente.
 
 ### Informe automático de los lunes
 

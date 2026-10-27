@@ -93,7 +93,7 @@ test("ai.txt contiene un perfil estático trazable y explícitamente limitado", 
   const { contentModified } = loadSiteConfig();
   const { CL_LEGAL } = catalog;
 
-  assert.match(profile, /^# Chic & Love Ecuador$/m);
+  assert.match(profile, /^# Chic&Love Ecuador$/m);
   assert.match(profile, /^Site profile: official Ecuador storefront for Chic&Love gummies\.$/m);
   assert.match(profile, /^Language: es-EC$/m);
   assert.match(profile, /^Region: Ecuador$/m);

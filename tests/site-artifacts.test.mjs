@@ -226,7 +226,7 @@ test("las páginas de confianza superan los 500 caracteres de contenido", () => 
 test("las páginas de confianza tienen título, descripción y canónica propios", () => {
   for (const anchor of TRUST_ANCHORS) {
     const html = read(anchor + ".html");
-    assert.match(html, /<title>[^<]*Chic &amp; Love Ecuador<\/title>/, `${anchor}: título`);
+    assert.match(html, /<title>[^<]*Chic&amp;Love Ecuador<\/title>/, `${anchor}: título`);
     assert.match(html, /<meta name="description" content="[^"]{80,}">/, `${anchor}: descripción`);
     assert.match(
       html,

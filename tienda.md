@@ -1,4 +1,4 @@
-# Tienda Chic & Love Ecuador — catálogo completo
+# Tienda Chic&Love Ecuador — catálogo completo
 
 > Las siete fórmulas de Chic&Love disponibles en Ecuador, en gomitas (gummies), con precio,
 > objetivo, sabor, dosis y activos. Precio de catálogo por frasco de 60 gummies: $29.99, pack x2 $49.99, pack x3 $74.99. Promoción vigente: Radiant Skin Vitamins a $18.00 (−40%); Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men y Anti-Stress Gummies a $22.49 (−25% cada una), hasta el 31 de octubre; los packs no se ofrecen mientras dure. Envío gratis en compras desde $49,99. IVA incluido.

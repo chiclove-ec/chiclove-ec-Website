@@ -1,4 +1,4 @@
-# Anti-Stress Gummies — Chic & Love Ecuador
+# Anti-Stress Gummies — Chic&Love Ecuador
 
 > Serenidad para días intensos. Ashwagandha, melisa y ginseng que regulan el cortisol para aliviar el estrés y la ansiedad, y ayudarte a fluir con el cambio.
 

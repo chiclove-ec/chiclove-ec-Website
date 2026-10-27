@@ -1,4 +1,4 @@
-# Sleep Vitamins — Chic & Love Ecuador
+# Sleep Vitamins — Chic&Love Ecuador
 
 > Duerme profundo. Despierta increíble. Melatonina + vitamina B6 para conciliar el sueño rápido y disfrutar un descanso reparador que regenera piel y cabello mientras duermes.
 

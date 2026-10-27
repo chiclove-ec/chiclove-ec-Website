@@ -1,4 +1,4 @@
-# Radiant Skin Vitamins — Chic & Love Ecuador
+# Radiant Skin Vitamins — Chic&Love Ecuador
 
 > Tu piel, en modo glow. Colágeno, coenzima Q10 y biotina en una gummy que ilumina, hidrata y devuelve la elasticidad a tu piel desde adentro.
 

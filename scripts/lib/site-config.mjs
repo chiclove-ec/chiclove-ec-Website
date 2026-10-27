@@ -72,8 +72,8 @@ export function loadSiteConfig() {
 
   const canonicalOrigin = assertOrigin(config.canonicalOrigin, "canonicalOrigin");
   const sourceOrigin = assertOrigin(config.sourceOrigin, "sourceOrigin");
-  if (typeof config.brandName !== "string" || config.brandName.trim() !== "Chic & Love Ecuador") {
-    throw new Error(`${CONFIG_FILE}: "brandName" debe ser "Chic & Love Ecuador"`);
+  if (config.brandName !== "Chic&Love Ecuador") {
+    throw new Error(`${CONFIG_FILE}: "brandName" debe ser "Chic&Love Ecuador"`);
   }
   const contentModified = assertContentModified(config.contentModified);
 

@@ -1,4 +1,4 @@
-# Activos de Chic & Love Ecuador — qué es cada ingrediente
+# Activos de Chic&Love Ecuador — qué es cada ingrediente
 
 > Glosario de los 21 activos que aparecen en las 7 fórmulas de Chic&Love en Ecuador: qué es cada uno, con qué se asocia, qué precauciones tiene, cómo se llama también y en qué productos está. Cada entrada enlaza su entidad en Wikidata y en Wikipedia para que no haya ambigüedad sobre la especie o la molécula.
 

@@ -1,4 +1,4 @@
-# Instrucciones para agentes — Chic & Love Ecuador
+# Instrucciones para agentes — Chic&Love Ecuador
 
 > Tienda oficial en Ecuador de Chic&Love: complementos alimenticios en formato gummy.
 > Este archivo dice para qué sirve el sitio, cómo leerlo y qué no esperar de él.
@@ -6,8 +6,8 @@
 
 ## Identidad
 
-- **Nombre:** Chic & Love Ecuador (también «Chic&Love», «Chic and Love Ecuador»).
-- **Se escribe también:** Chic&Love Ecuador, Chic and Love Ecuador, Chic y Love Ecuador, ChicyLove Ecuador, Chic Love Ecuador, ChicLove Ecuador, Chiclove Ecuador, Chic&Love EC, Chic and Love EC, ChicLove EC, Chiclove EC, Chic&Love Quito, Chic&Love gomitas, Chic&Love vitaminas, Chick and Love Ecuador, Chic n Love Ecuador, Shic Love Ecuador, chiclove-ec, chiclove-ec.com. Son formas de buscar la misma tienda, no marcas distintas.
+- **Nombre:** Chic&Love Ecuador (también «Chic&Love», «Chic and Love Ecuador»).
+- **Se escribe también:** Chic & Love Ecuador, Chic and Love Ecuador, Chic y Love Ecuador, ChicyLove Ecuador, Chic Love Ecuador, ChicLove Ecuador, Chiclove Ecuador, Chic&Love EC, Chic and Love EC, ChicLove EC, Chiclove EC, Chic&Love Quito, Chic&Love gomitas, Chic&Love vitaminas, Chick and Love Ecuador, Chic n Love Ecuador, Shic Love Ecuador, chiclove-ec, chiclove-ec.com. Son formas de buscar la misma tienda, no marcas distintas.
 - **Qué vende:** siete fórmulas de vitaminas en gummies para cabello y uñas, piel,
   digestión, sueño, energía íntima y calma.
 - **Dónde opera:** todo Ecuador, desde Quito, Pichincha. Atención en español.

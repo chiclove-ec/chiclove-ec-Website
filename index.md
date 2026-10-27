@@ -1,4 +1,4 @@
-# Chic & Love Ecuador — vitaminas en gummies
+# Chic&Love Ecuador — vitaminas en gummies
 
 > Tienda oficial de Chic&Love en Ecuador: siete fórmulas de complementos alimenticios en
 > formato gummy para cabello y uñas, piel, digestión, sueño, energía íntima y calma. Desde $18.00 el frasco de 60 gummies, pedidos por WhatsApp (+593 98 759 1741) y envíos a todo el país.

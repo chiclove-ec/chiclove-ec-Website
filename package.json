@@ -24,6 +24,7 @@
     "refresh": "node scripts/refresh-catalog.mjs",
     "set-origin": "node scripts/set-origin.mjs",
     "serve": "node scripts/serve.mjs",
+    "audit:search": "node scripts/audit-search.mjs",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "check": "npm run build:cloudflare && npm test"
   },
