@@ -13,7 +13,7 @@ profesional de la salud, y los productos no tratan ni previenen enfermedades.
 
 **Elige esta familia si:** Notas más pelo del normal en el cepillo, el cabello quebradizo, o uñas que se parten y crecen despacio.
 
-- **[Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte.md)** — Cabello más fuerte. Uñas de acero. Activos: Biotina, Vitamina B12, Ácido fólico, Vitamina A, Vitamina D, Ashwagandha, Zinc. Pauta: 2 gummies al día después de la comida. Sabor arándanos, $22.49 el frasco.
+- **[Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte.md)** — Cabello más fuerte. Uñas de acero. Activos: Biotina, Vitamina B12, Ácido fólico, Vitamina A, Vitamina D, Ashwagandha, Zinc. Pauta: 2 gummies al día después de la comida. Sabor arándanos, $29.99 el frasco.
   - **Para quién es:** Personas adultas que notan más caída de lo normal, cabello débil o uñas que se quiebran, y prefieren una gomita diaria con sabor a tragar cápsulas.
   - **Para quién no es, o cuándo consultar antes:** La caída intensa, repentina o en placas necesita valoración de un dermatólogo: puede deberse a tiroides, anemia o alopecia areata, que un complemento no resuelve. Por la biotina, hay que avisar al médico antes de un análisis de sangre.
 
@@ -23,7 +23,7 @@ Se busca también como: caída del cabello, cabello quebradizo, uñas frágiles,
 
 **Elige esta familia si:** Buscas luminosidad, hidratación y elasticidad trabajadas desde dentro, no solo con cosmética.
 
-- **[Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin.md)** — Tu piel, en modo glow. Activos: Colágeno, Coenzima Q10, Biotina, Vitamina C, Vitamina E. Pauta: 2 gummies al día después de la comida. Sabor frutos rojos, $18.00 el frasco.
+- **[Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin.md)** — Tu piel, en modo glow. Activos: Colágeno, Coenzima Q10, Biotina, Vitamina C, Vitamina E. Pauta: 2 gummies al día después de la comida. Sabor frutos rojos, $29.99 el frasco.
   - **Para quién es:** Personas adultas que notan la piel apagada, deshidratada o con menos firmeza y quieren complementar su rutina cosmética desde dentro.
   - **Para quién no es, o cuándo consultar antes:** No es apta para veganos ni vegetarianos ni para alergias a la proteína bovina, porque su colágeno es bovino. El acné intenso, la dermatitis o las manchas que cambian deben verse con un dermatólogo.
 
@@ -33,7 +33,7 @@ Se busca también como: piel apagada, elasticidad, colágeno bebible, glow, anti
 
 **Elige esta familia si:** Te sientes hinchada o hinchado después de comer, o quieres acompañar un plan de control de peso.
 
-- **[Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana.md)** — Digestión ligera. Activos: Vinagre de manzana, Extracto de jengibre. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. Sabor manzana, $22.49 el frasco.
+- **[Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana.md)** — Digestión ligera. Activos: Vinagre de manzana, Extracto de jengibre. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. Sabor manzana, $29.99 el frasco.
   - **Para quién es:** Personas adultas que se sienten hinchadas o pesadas después de comer, o que quieren acompañar un plan de alimentación, sin el sabor ácido del vinagre líquido.
   - **Para quién no es, o cuándo consultar antes:** No adelgaza por sí sola: acompaña una alimentación equilibrada y actividad física. Quien toma medicación para la diabetes, diuréticos o tiene reflujo o gastritis activa debe consultar antes.
 
@@ -43,7 +43,7 @@ Se busca también como: hinchazón, digestión pesada, control de peso, vinagre 
 
 **Elige esta familia si:** Tardas en conciliar el sueño o te despiertas sin sensación de descanso.
 
-- **[Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins.md)** — Duerme profundo. Despierta increíble. Activos: Melatonina, Vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. Sabor fresa, $22.49 el frasco.
+- **[Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins.md)** — Duerme profundo. Despierta increíble. Activos: Melatonina, Vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. Sabor fresa, $29.99 el frasco.
   - **Para quién es:** Personas adultas que tardan en conciliar el sueño de forma ocasional, cambian de horario o viajan, y quieren una ayuda suave antes de dormir.
   - **Para quién no es, o cuándo consultar antes:** No es para menores de edad, embarazo ni lactancia. Tras tomarla no se debe conducir. Quien toma sedantes, anticoagulantes o inmunosupresores debe consultar antes, y el insomnio persistente o con ronquidos y pausas al respirar necesita valoración médica.
 
@@ -53,10 +53,10 @@ Se busca también como: insomnio ocasional, conciliar el sueño, descanso, melat
 
 **Elige esta familia si:** Buscas apoyo de la libido y de la energía. Hay una fórmula para mujeres y otra para hombres: no son intercambiables.
 
-- **[Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women.md)** — Mujeres adultas. Enciende tu energía. Activos: Maca, Damiana, Ashwagandha. Pauta: 2 gummies al día después del desayuno. Sabor cereza, $22.49 el frasco.
+- **[Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women.md)** — Mujeres adultas. Enciende tu energía. Activos: Maca, Damiana, Ashwagandha. Pauta: 2 gummies al día después del desayuno. Sabor cereza, $29.99 el frasco.
   - **Para quién es:** Mujeres adultas que notan menos deseo o energía, a menudo ligado al estrés o al cansancio, y buscan un apoyo con extractos botánicos.
   - **Para quién no es, o cuándo consultar antes:** No se recomienda en embarazo ni lactancia, ni sin consultar en caso de enfermedad tiroidea o condiciones sensibles a las hormonas. Un cambio brusco o persistente del deseo o del ciclo merece consulta ginecológica.
-- **[Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men.md)** — Hombres adultos. Rendimiento al máximo. Activos: Maca, Fenogreco, Zinc, L-arginina. Pauta: 2 gummies al día después del desayuno. Sabor cereza, $22.49 el frasco.
+- **[Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men.md)** — Hombres adultos. Rendimiento al máximo. Activos: Maca, Fenogreco, Zinc, L-arginina. Pauta: 2 gummies al día después del desayuno. Sabor cereza, $29.99 el frasco.
   - **Para quién es:** Hombres adultos que buscan apoyo para la libido, la energía y la fertilidad, con maca, fenogreco, zinc y L-arginina.
   - **Para quién no es, o cuándo consultar antes:** Quien toma medicamentos para la presión arterial, nitratos, medicamentos para la disfunción eréctil o antidiabéticos debe consultar antes. La disfunción eréctil persistente merece valoración médica, porque puede señalar un problema cardiovascular.
 
@@ -66,7 +66,7 @@ Se busca también como: libido, energía íntima, deseo, maca, vitalidad, gomita
 
 **Elige esta familia si:** Atraviesas una temporada de estrés alto o de tensión sostenida y quieres acompañarla.
 
-- **[Anti-Stress Gummies](https://chiclove-ec.com/anti-stress.md)** — Serenidad para días intensos. Activos: Ashwagandha, Melisa, Ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. Sabor naranja, $22.49 el frasco.
+- **[Anti-Stress Gummies](https://chiclove-ec.com/anti-stress.md)** — Serenidad para días intensos. Activos: Ashwagandha, Melisa, Ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. Sabor naranja, $29.99 el frasco.
   - **Para quién es:** Personas adultas que atraviesan una temporada de estrés alto, tensión o cambios, y quieren acompañarla con adaptógenos.
   - **Para quién no es, o cuándo consultar antes:** No se recomienda en embarazo ni lactancia, ni sin consultar en caso de enfermedad tiroidea, autoinmune o hepática, o si se toman ansiolíticos, antidepresivos o sedantes. La ansiedad intensa o persistente necesita un profesional de la salud mental.
 
@@ -76,13 +76,13 @@ Se busca también como: estrés, ansiedad leve, cortisol, ashwagandha, concentra
 
 | Fórmula | Objetivo | Activos | Sabor | Pauta diaria | Vegano | Precio por frasco |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte.md) | Cabello y uñas | Biotina, Vitamina B12, Ácido fólico, Vitamina A, Vitamina D, Ashwagandha, Zinc | Arándanos | 2 gummies al día después de la comida | Sí | $22.49 |
-| [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin.md) | Piel radiante | Colágeno, Coenzima Q10, Biotina, Vitamina C, Vitamina E | Frutos rojos | 2 gummies al día después de la comida | No (colágeno bovino) | $18.00 |
-| [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana.md) | Digestión y balance | Vinagre de manzana, Extracto de jengibre | Manzana | 2 gummies en ayunas, o 1 gummy después de la comida | Sí | $22.49 |
-| [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins.md) | Sueño reparador | Melatonina, Vitamina B6 | Fresa | 1–3 gummies al día antes de dormir según tu patrón de sueño | Sí | $22.49 |
-| [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women.md) | Energía íntima | Maca, Damiana, Ashwagandha | Cereza | 2 gummies al día después del desayuno | Sí | $22.49 |
-| [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men.md) | Energía íntima | Maca, Fenogreco, Zinc, L-arginina | Cereza | 2 gummies al día después del desayuno | Sí | $22.49 |
-| [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress.md) | Calma y enfoque | Ashwagandha, Melisa, Ginseng | Naranja | 2 gummies al día durante períodos altos de estrés y/o ansiedad | Sí | $22.49 |
+| [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte.md) | Cabello y uñas | Biotina, Vitamina B12, Ácido fólico, Vitamina A, Vitamina D, Ashwagandha, Zinc | Arándanos | 2 gummies al día después de la comida | Sí | $29.99 |
+| [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin.md) | Piel radiante | Colágeno, Coenzima Q10, Biotina, Vitamina C, Vitamina E | Frutos rojos | 2 gummies al día después de la comida | No (colágeno bovino) | $29.99 |
+| [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana.md) | Digestión y balance | Vinagre de manzana, Extracto de jengibre | Manzana | 2 gummies en ayunas, o 1 gummy después de la comida | Sí | $29.99 |
+| [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins.md) | Sueño reparador | Melatonina, Vitamina B6 | Fresa | 1–3 gummies al día antes de dormir según tu patrón de sueño | Sí | $29.99 |
+| [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women.md) | Energía íntima | Maca, Damiana, Ashwagandha | Cereza | 2 gummies al día después del desayuno | Sí | $29.99 |
+| [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men.md) | Energía íntima | Maca, Fenogreco, Zinc, L-arginina | Cereza | 2 gummies al día después del desayuno | Sí | $29.99 |
+| [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress.md) | Calma y enfoque | Ashwagandha, Melisa, Ginseng | Naranja | 2 gummies al día durante períodos altos de estrés y/o ansiedad | Sí | $29.99 |
 
 Packs (los mismos para todas las fórmulas que los ofrecen): pack x2 $49.99, pack x3 $74.99. Envío gratis en compras desde $49,99.
 

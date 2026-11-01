@@ -2,7 +2,7 @@
 
 > Serenidad para días intensos. Ashwagandha, melisa y ginseng que regulan el cortisol para aliviar el estrés y la ansiedad, y ayudarte a fluir con el cambio.
 
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure), frasco de 60 gummies
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99, frasco de 60 gummies
 - **Disponibilidad:** Disponibilidad confirmada por WhatsApp; no hay stock en tiempo real. Envíos a todo Ecuador. Envío gratis en compras desde $49,99. IVA incluido.
 - **Objetivo:** Calma y enfoque
 - **Sabor:** Naranja
@@ -13,7 +13,7 @@
 
 ## Resumen para citar
 
-**Anti-Stress Gummies** es la gomita (gummy) de Chic&Love para calma y enfoque. Combina tres botánicos clásicos para el estrés: ashwagandha (adaptógeno), melisa y ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. El frasco trae 60 gummies de sabor naranja y dura unos 30 días. Cuesta $22.49 el frasco de 60 gummies por promoción hasta el 31 de octubre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/anti-stress o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Anti-Stress Gummies** es la gomita (gummy) de Chic&Love para calma y enfoque. Combina tres botánicos clásicos para el estrés: ashwagandha (adaptógeno), melisa y ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. El frasco trae 60 gummies de sabor naranja y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/anti-stress o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 ## Para quién es y para quién no
 
@@ -76,7 +76,7 @@ Es la fórmula de Chic&Love para calma y enfoque. Alivia estados de estrés y an
 Con la pauta recomendada, unos 30 días.
 
 **¿Cuánto cuesta y cuánto vale el envío?**  
-1 frasco $22.49 (los packs no se ofrecen durante la promoción). IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
+1 frasco $29.99, pack x2 (2 frascos) $49.99, pack x3 (3 frascos) $74.99. IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
 
 **¿Es vegano? ¿Tiene gluten o lactosa?**  
 Sin gluten, sin lactosa y apto para veganos.

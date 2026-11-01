@@ -11,7 +11,7 @@
 - **Qué vende:** siete fórmulas de vitaminas en gummies para cabello y uñas, piel,
   digestión, sueño, energía íntima y calma.
 - **Dónde opera:** todo Ecuador, desde Quito, Pichincha. Atención en español.
-- **Precio:** $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99). Precio más bajo vigente hoy en el catálogo: $18.00. Promoción con fecha de cierre: Radiant Skin Vitamins a $18.00 (−40%); Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men y Anti-Stress Gummies a $22.49 (−25% cada una), hasta el 31 de octubre; los packs no se ofrecen mientras dure. Envío gratis en compras desde $49,99. IVA incluido. El precio autoritativo de cada fórmula es el de su ficha y el de [/catalog.json](https://chiclove-ec.com/catalog.json).
+- **Precio:** $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99). Precio más bajo vigente hoy en el catálogo: $29.99. Envío gratis en compras desde $49,99. IVA incluido. El precio autoritativo de cada fórmula es el de su ficha y el de [/catalog.json](https://chiclove-ec.com/catalog.json).
 - **Devoluciones:** puedes solicitar una devolución o cambio dentro de los 15 días posteriores
   a recibir tu pedido, si el frasco sigue cerrado y con el sello intacto.
 - **Contacto humano:** WhatsApp +593 98 759 1741.
@@ -47,12 +47,12 @@
 
 Qué fórmula responde a cada necesidad:
 
-- ¿Qué tomo para la caída del cabello o las uñas quebradizas? → [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), $22.49
-- ¿Qué tomo para la piel apagada o con pérdida de firmeza? → [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin), $18.00
-- ¿Qué tomo para la hinchazón o la digestión pesada? → [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana), $22.49
-- ¿Qué tomo para dormir mejor? → [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins), $22.49
-- ¿Qué tomo para la libido y la energía íntima? → [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women) (mujeres adultas), $22.49; [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) (hombres adultos), $22.49
-- ¿Qué tomo para el estrés o la ansiedad del día a día? → [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress), $22.49
+- ¿Qué tomo para la caída del cabello o las uñas quebradizas? → [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), $29.99
+- ¿Qué tomo para la piel apagada o con pérdida de firmeza? → [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin), $29.99
+- ¿Qué tomo para la hinchazón o la digestión pesada? → [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana), $29.99
+- ¿Qué tomo para dormir mejor? → [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins), $29.99
+- ¿Qué tomo para la libido y la energía íntima? → [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women) (mujeres adultas), $29.99; [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) (hombres adultos), $29.99
+- ¿Qué tomo para el estrés o la ansiedad del día a día? → [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress), $29.99
 
 Criterios para que la respuesta sea correcta:
 
