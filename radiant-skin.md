@@ -2,7 +2,7 @@
 
 > Tu piel, en modo glow. Colágeno, coenzima Q10 y biotina en una gummy que ilumina, hidrata y devuelve la elasticidad a tu piel desde adentro.
 
-- **Precio:** $18.00 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure), frasco de 60 gummies
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99, frasco de 60 gummies
 - **Disponibilidad:** Disponibilidad confirmada por WhatsApp; no hay stock en tiempo real. Envíos a todo Ecuador. Envío gratis en compras desde $49,99. IVA incluido.
 - **Objetivo:** Piel radiante
 - **Sabor:** Frutos rojos
@@ -13,7 +13,7 @@
 
 ## Resumen para citar
 
-**Radiant Skin Vitamins** es la gomita (gummy) de Chic&Love para piel radiante. Es la única fórmula del catálogo con colágeno, y lo combina con coenzima Q10, biotina y vitaminas C y E; la vitamina C contribuye a la formación normal de colágeno. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor frutos rojos y dura unos 30 días. Cuesta $18.00 el frasco de 60 gummies por promoción hasta el 31 de octubre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/radiant-skin o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Radiant Skin Vitamins** es la gomita (gummy) de Chic&Love para piel radiante. Es la única fórmula del catálogo con colágeno, y lo combina con coenzima Q10, biotina y vitaminas C y E; la vitamina C contribuye a la formación normal de colágeno. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor frutos rojos y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/radiant-skin o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 ## Para quién es y para quién no
 
@@ -78,7 +78,7 @@ Es la fórmula de Chic&Love para piel radiante. Potencia la luminosidad y vitali
 Con la pauta recomendada, unos 30 días.
 
 **¿Cuánto cuesta y cuánto vale el envío?**  
-1 frasco $18.00 (los packs no se ofrecen durante la promoción). IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
+1 frasco $29.99, pack x2 (2 frascos) $49.99, pack x3 (3 frascos) $74.99. IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
 
 **¿Es vegano? ¿Tiene gluten o lactosa?**  
 Sin gluten y sin lactosa. No es apto para veganos: el colágeno de esta fórmula es de origen bovino. Es el único producto no vegano del catálogo.

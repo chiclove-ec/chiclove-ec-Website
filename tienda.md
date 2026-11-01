@@ -1,7 +1,7 @@
 # Tienda Chic&Love Ecuador — catálogo completo
 
 > Las siete fórmulas de Chic&Love disponibles en Ecuador, en gomitas (gummies), con precio,
-> objetivo, sabor, dosis y activos. Precio de catálogo por frasco de 60 gummies: $29.99, pack x2 $49.99, pack x3 $74.99. Promoción vigente: Radiant Skin Vitamins a $18.00 (−40%); Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men y Anti-Stress Gummies a $22.49 (−25% cada una), hasta el 31 de octubre; los packs no se ofrecen mientras dure. Envío gratis en compras desde $49,99. IVA incluido.
+> objetivo, sabor, dosis y activos. Precio de catálogo por frasco de 60 gummies: $29.99, pack x2 $49.99, pack x3 $74.99. Envío gratis en compras desde $49,99. IVA incluido.
 
 Los pedidos se cierran por WhatsApp (+593 98 759 1741) con pago por
 transferencia bancaria. Los precios publicados incluyen IVA y son los vigentes en la tienda.
@@ -14,7 +14,7 @@ siempre que el frasco esté cerrado y conserve su sello intacto.
 Cabello más fuerte. Uñas de acero. La fórmula forte con biotina, ashwagandha y extracto de semilla de calabaza que frena la caída y acelera el crecimiento desde la raíz.
 
 - **Objetivo:** Cabello y uñas
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure)
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99
 - **Sabor:** Arándanos
 - **Dosis:** 2 gummies al día después de la comida.
 - **Distintivos:** Sin gluten, Sin lactosa, Vegano
@@ -27,7 +27,7 @@ Cabello más fuerte. Uñas de acero. La fórmula forte con biotina, ashwagandha 
 Tu piel, en modo glow. Colágeno, coenzima Q10 y biotina en una gummy que ilumina, hidrata y devuelve la elasticidad a tu piel desde adentro.
 
 - **Objetivo:** Piel radiante
-- **Precio:** $18.00 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure)
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99
 - **Sabor:** Frutos rojos
 - **Dosis:** 2 gummies al día después de la comida.
 - **Distintivos:** Sin gluten, Sin lactosa
@@ -40,7 +40,7 @@ Tu piel, en modo glow. Colágeno, coenzima Q10 y biotina en una gummy que ilumin
 Digestión ligera. Vinagre de manzana con extracto de jengibre: glucosa estable, digestión y control de peso — sin el sabor ácido del vinagre.
 
 - **Objetivo:** Digestión y balance
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure)
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99
 - **Sabor:** Manzana
 - **Dosis:** 2 gummies en ayunas, o 1 gummy después de la comida.
 - **Distintivos:** Sin gluten, Sin lactosa, Vegano
@@ -53,7 +53,7 @@ Digestión ligera. Vinagre de manzana con extracto de jengibre: glucosa estable,
 Duerme profundo. Despierta increíble. Melatonina + vitamina B6 para conciliar el sueño rápido y disfrutar un descanso reparador que regenera piel y cabello mientras duermes.
 
 - **Objetivo:** Sueño reparador
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure)
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99
 - **Sabor:** Fresa
 - **Dosis:** 1–3 gummies al día antes de dormir según tu patrón de sueño.
 - **Distintivos:** Sin gluten, Sin lactosa, Vegano
@@ -66,7 +66,7 @@ Duerme profundo. Despierta increíble. Melatonina + vitamina B6 para conciliar e
 Enciende tu energía. Maca y damiana 100% naturales que estabilizan tus canales de energía, estimulan la libido y reducen el estrés.
 
 - **Objetivo:** Energía íntima
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure)
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99
 - **Sabor:** Cereza
 - **Dosis:** 2 gummies al día después del desayuno.
 - **Distintivos:** Sin gluten, Sin lactosa, Vegano
@@ -79,7 +79,7 @@ Enciende tu energía. Maca y damiana 100% naturales que estabilizan tus canales 
 Rendimiento al máximo. Maca y fenogreco para mejorar el rendimiento, la calidad del esperma y la fertilidad — energía estable todo el día.
 
 - **Objetivo:** Energía íntima
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure)
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99
 - **Sabor:** Cereza
 - **Dosis:** 2 gummies al día después del desayuno.
 - **Distintivos:** Sin gluten, Sin lactosa, Vegano
@@ -92,7 +92,7 @@ Rendimiento al máximo. Maca y fenogreco para mejorar el rendimiento, la calidad
 Serenidad para días intensos. Ashwagandha, melisa y ginseng que regulan el cortisol para aliviar el estrés y la ansiedad, y ayudarte a fluir con el cambio.
 
 - **Objetivo:** Calma y enfoque
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure)
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99
 - **Sabor:** Naranja
 - **Dosis:** 2 gummies al día durante períodos altos de estrés y/o ansiedad.
 - **Distintivos:** Sin gluten, Sin lactosa, Vegano

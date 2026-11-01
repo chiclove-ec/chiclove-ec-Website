@@ -2,7 +2,7 @@
 
 > Rendimiento al máximo. Maca y fenogreco para mejorar el rendimiento, la calidad del esperma y la fertilidad — energía estable todo el día.
 
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure), frasco de 60 gummies
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99, frasco de 60 gummies
 - **Disponibilidad:** Disponibilidad confirmada por WhatsApp; no hay stock en tiempo real. Envíos a todo Ecuador. Envío gratis en compras desde $49,99. IVA incluido.
 - **Objetivo:** Energía íntima
 - **Sabor:** Cereza
@@ -13,7 +13,7 @@
 
 ## Resumen para citar
 
-**Sexual Booster Men** es la gomita (gummy) de Chic&Love para energía íntima, pensada para hombres adultos. Es la fórmula masculina del catálogo, y la única con L-arginina y fenogreco; el zinc contribuye a la fertilidad normal. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $22.49 el frasco de 60 gummies por promoción hasta el 31 de octubre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-men o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Sexual Booster Men** es la gomita (gummy) de Chic&Love para energía íntima, pensada para hombres adultos. Es la fórmula masculina del catálogo, y la única con L-arginina y fenogreco; el zinc contribuye a la fertilidad normal. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-men o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 ## Para quién es y para quién no
 
@@ -77,7 +77,7 @@ Es la fórmula de Chic&Love para energía íntima. Aumenta la libido y el rendim
 Con la pauta recomendada, unos 30 días.
 
 **¿Cuánto cuesta y cuánto vale el envío?**  
-1 frasco $22.49 (los packs no se ofrecen durante la promoción). IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
+1 frasco $29.99, pack x2 (2 frascos) $49.99, pack x3 (3 frascos) $74.99. IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
 
 **¿Es vegano? ¿Tiene gluten o lactosa?**  
 Sin gluten, sin lactosa y apto para veganos.

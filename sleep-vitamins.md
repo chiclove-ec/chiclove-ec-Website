@@ -2,7 +2,7 @@
 
 > Duerme profundo. Despierta increíble. Melatonina + vitamina B6 para conciliar el sueño rápido y disfrutar un descanso reparador que regenera piel y cabello mientras duermes.
 
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure), frasco de 60 gummies
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99, frasco de 60 gummies
 - **Disponibilidad:** Disponibilidad confirmada por WhatsApp; no hay stock en tiempo real. Envíos a todo Ecuador. Envío gratis en compras desde $49,99. IVA incluido.
 - **Objetivo:** Sueño reparador
 - **Sabor:** Fresa
@@ -13,7 +13,7 @@
 
 ## Resumen para citar
 
-**Sleep Vitamins** es la gomita (gummy) de Chic&Love para sueño reparador. Es la única fórmula nocturna del catálogo y la de pauta más ajustable, según el patrón de sueño de cada persona. Combina melatonina y vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. El frasco trae 60 gummies de sabor fresa y dura entre 20 y 60 días. Cuesta $22.49 el frasco de 60 gummies por promoción hasta el 31 de octubre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sleep-vitamins o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Sleep Vitamins** es la gomita (gummy) de Chic&Love para sueño reparador. Es la única fórmula nocturna del catálogo y la de pauta más ajustable, según el patrón de sueño de cada persona. Combina melatonina y vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. El frasco trae 60 gummies de sabor fresa y dura entre 20 y 60 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sleep-vitamins o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 ## Para quién es y para quién no
 
@@ -75,7 +75,7 @@ Es la fórmula de Chic&Love para sueño reparador. Ayuda a conciliar el sueño d
 Con la pauta recomendada, entre 20 y 60 días, según la cantidad que tomes.
 
 **¿Cuánto cuesta y cuánto vale el envío?**  
-1 frasco $22.49 (los packs no se ofrecen durante la promoción). IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
+1 frasco $29.99, pack x2 (2 frascos) $49.99, pack x3 (3 frascos) $74.99. IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
 
 **¿Es vegano? ¿Tiene gluten o lactosa?**  
 Sin gluten, sin lactosa y apto para veganos.

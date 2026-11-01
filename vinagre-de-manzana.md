@@ -2,7 +2,7 @@
 
 > Digestión ligera. Vinagre de manzana con extracto de jengibre: glucosa estable, digestión y control de peso — sin el sabor ácido del vinagre.
 
-- **Precio:** $22.49 (promoción hasta el 31 de octubre, antes $29.99; los packs no se ofrecen mientras dure), frasco de 60 gummies
+- **Precio:** $29.99, pack x2 $49.99, pack x3 $74.99, frasco de 60 gummies
 - **Disponibilidad:** Disponibilidad confirmada por WhatsApp; no hay stock en tiempo real. Envíos a todo Ecuador. Envío gratis en compras desde $49,99. IVA incluido.
 - **Objetivo:** Digestión y balance
 - **Sabor:** Manzana
@@ -13,7 +13,7 @@
 
 ## Resumen para citar
 
-**Vinagre de Manzana** es la gomita (gummy) de Chic&Love para digestión y balance. Es la fórmula del catálogo para la digestión: combina vinagre de manzana con extracto de jengibre en una gomita, sin el sabor ácido del vinagre líquido. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. El frasco trae 60 gummies de sabor manzana y dura entre 30 y 60 días. Cuesta $22.49 el frasco de 60 gummies por promoción hasta el 31 de octubre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/vinagre-de-manzana o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Vinagre de Manzana** es la gomita (gummy) de Chic&Love para digestión y balance. Es la fórmula del catálogo para la digestión: combina vinagre de manzana con extracto de jengibre en una gomita, sin el sabor ácido del vinagre líquido. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. El frasco trae 60 gummies de sabor manzana y dura entre 30 y 60 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/vinagre-de-manzana o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 ## Para quién es y para quién no
 
@@ -75,7 +75,7 @@ Es la fórmula de Chic&Love para digestión y balance. Ayuda a mantener estables
 Con la pauta recomendada, entre 30 y 60 días, según la cantidad que tomes.
 
 **¿Cuánto cuesta y cuánto vale el envío?**  
-1 frasco $22.49 (los packs no se ofrecen durante la promoción). IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
+1 frasco $29.99, pack x2 (2 frascos) $49.99, pack x3 (3 frascos) $74.99. IVA incluido. Envíos a todo Ecuador, gratis en compras desde $49,99.
 
 **¿Es vegano? ¿Tiene gluten o lactosa?**  
 Sin gluten, sin lactosa y apto para veganos.

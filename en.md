@@ -1,13 +1,13 @@
 # Chic&Love Ecuador — vitamin gummies in Ecuador (English summary)
 
-> Chic&Love Ecuador is the official Ecuador store of Chic&Love, a Spanish brand of dietary supplements in gummy form. It sells 7 goal-specific formulas (hair and nails, skin, digestion, sleep, intimate energy for women and for men, and calm) from $18.00 per bottle of 60 gummies, VAT included, with nationwide shipping in Ecuador and orders by WhatsApp +593 98 759 1741.
+> Chic&Love Ecuador is the official Ecuador store of Chic&Love, a Spanish brand of dietary supplements in gummy form. It sells 7 goal-specific formulas (hair and nails, skin, digestion, sleep, intimate energy for women and for men, and calm) from $29.99 per bottle of 60 gummies, VAT included, with nationwide shipping in Ecuador and orders by WhatsApp +593 98 759 1741.
 
 This is an English summary of https://chiclove-ec.com/, whose content is in Spanish. Prices come from the store catalog at build time. Customer support is in Spanish. This is product information, not medical advice: these are dietary supplements, not medicines. Last reviewed: September 21, 2026.
 
 ## Key facts
 
 - **Where to buy:** the official store https://chiclove-ec.com/ (the cart is sent as a WhatsApp message) or directly on WhatsApp +593 98 759 1741.
-- **Price:** $29.99 per bottle, 2-pack $49.99, 3-pack $74.99, VAT (IVA) included. Current promotion: Radiant Skin Vitamins at $18.00 (40% off); Hair & Nails Forte, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men and Anti-Stress Gummies at $22.49 (25% off each), until 2026-10-31; multi-bottle packs are paused meanwhile.
+- **Price:** $29.99 per bottle, 2-pack $49.99, 3-pack $74.99, VAT (IVA) included.
 - **Shipping:** anywhere in Ecuador (Quito, Guayaquil, Cuenca, Santo Domingo, Ambato, Manta and the rest of the country), free from $49.99. Delivery times are confirmed on WhatsApp.
 - **Payment:** bank transfer, confirmed on WhatsApp. The website does not take cards.
 - **Returns:** within 15 days of delivery, bottle unopened and seal intact.
@@ -25,7 +25,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Actives:** Biotin, Vitamin B12, Folic acid, Vitamin A, Vitamin D, Ashwagandha (Withania somnifera), Zinc.
 - **How to take:** 2 gummies a day after a meal. A bottle lasts about 30 days.
 - **Flavor:** blueberry.
-- **Price:** $22.49 per bottle of 60 gummies on a promotion ending 2026-10-31 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
+- **Price:** $29.99 per bottle of 60 gummies (2-pack $49.99, 3-pack $74.99), VAT included.
 - **Page:** https://chiclove-ec.com/hair-nails-forte (Spanish) · https://chiclove-ec.com/hair-nails-forte.md (markdown)
 
 ### Radiant Skin Vitamins
@@ -34,7 +34,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Actives:** Collagen (bovine), Coenzyme Q10, Biotin, Vitamin C, Vitamin E.
 - **How to take:** 2 gummies a day after a meal. A bottle lasts about 30 days.
 - **Flavor:** red berries.
-- **Price:** $18.00 per bottle of 60 gummies on a promotion ending 2026-10-31 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
+- **Price:** $29.99 per bottle of 60 gummies (2-pack $49.99, 3-pack $74.99), VAT included.
 - **Page:** https://chiclove-ec.com/radiant-skin (Spanish) · https://chiclove-ec.com/radiant-skin.md (markdown)
 
 ### Vinagre de Manzana
@@ -43,7 +43,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Actives:** Apple cider vinegar, Ginger extract.
 - **How to take:** 2 gummies on an empty stomach, or 1 gummy after a meal. A bottle lasts 30 to 60 days.
 - **Flavor:** apple.
-- **Price:** $22.49 per bottle of 60 gummies on a promotion ending 2026-10-31 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
+- **Price:** $29.99 per bottle of 60 gummies (2-pack $49.99, 3-pack $74.99), VAT included.
 - **Page:** https://chiclove-ec.com/vinagre-de-manzana (Spanish) · https://chiclove-ec.com/vinagre-de-manzana.md (markdown)
 
 ### Sleep Vitamins
@@ -52,7 +52,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Actives:** Melatonin, Vitamin B6.
 - **How to take:** 1–3 gummies a day before bed, depending on your sleep pattern. A bottle lasts 20 to 60 days.
 - **Flavor:** strawberry.
-- **Price:** $22.49 per bottle of 60 gummies on a promotion ending 2026-10-31 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
+- **Price:** $29.99 per bottle of 60 gummies (2-pack $49.99, 3-pack $74.99), VAT included.
 - **Page:** https://chiclove-ec.com/sleep-vitamins (Spanish) · https://chiclove-ec.com/sleep-vitamins.md (markdown)
 
 ### Sexual Booster Women
@@ -61,7 +61,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Actives:** Maca (Lepidium meyenii), Damiana (Turnera diffusa), Ashwagandha (Withania somnifera).
 - **How to take:** 2 gummies a day after breakfast. A bottle lasts about 30 days.
 - **Flavor:** cherry.
-- **Price:** $22.49 per bottle of 60 gummies on a promotion ending 2026-10-31 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
+- **Price:** $29.99 per bottle of 60 gummies (2-pack $49.99, 3-pack $74.99), VAT included.
 - **Page:** https://chiclove-ec.com/sexual-booster-women (Spanish) · https://chiclove-ec.com/sexual-booster-women.md (markdown)
 
 ### Sexual Booster Men
@@ -70,7 +70,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Actives:** Maca (Lepidium meyenii), Fenugreek, Zinc, L-arginine.
 - **How to take:** 2 gummies a day after breakfast. A bottle lasts about 30 days.
 - **Flavor:** cherry.
-- **Price:** $22.49 per bottle of 60 gummies on a promotion ending 2026-10-31 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
+- **Price:** $29.99 per bottle of 60 gummies (2-pack $49.99, 3-pack $74.99), VAT included.
 - **Page:** https://chiclove-ec.com/sexual-booster-men (Spanish) · https://chiclove-ec.com/sexual-booster-men.md (markdown)
 
 ### Anti-Stress Gummies
@@ -79,7 +79,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **Actives:** Ashwagandha (Withania somnifera), Lemon balm (Melissa officinalis), Ginseng (Panax ginseng).
 - **How to take:** 2 gummies a day during periods of high stress and/or anxiety. A bottle lasts about 30 days.
 - **Flavor:** orange.
-- **Price:** $22.49 per bottle of 60 gummies on a promotion ending 2026-10-31 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
+- **Price:** $29.99 per bottle of 60 gummies (2-pack $49.99, 3-pack $74.99), VAT included.
 - **Page:** https://chiclove-ec.com/anti-stress (Spanish) · https://chiclove-ec.com/anti-stress.md (markdown)
 
 ## Safety
