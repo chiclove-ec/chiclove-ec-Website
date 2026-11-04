@@ -912,9 +912,9 @@ p, li { text-wrap: pretty; }
     linear-gradient(108deg, color-mix(in srgb, var(--a) 30%, #fff), color-mix(in srgb, var(--a) 14%, #fff) 62%, color-mix(in srgb, var(--a) 20%, #fff));
   box-shadow: var(--shadow-1);
   color: var(--ink);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s;
 }
-.promo-band:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+.promo-band:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
 /* El aire vive aquí, no en la banda: así la imagen llega hasta los cuatro bordes. */
 .promo-band-copy { position: relative; z-index: 1; padding: 52px 0 52px 56px; }
 .promo-band-head { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
@@ -966,9 +966,10 @@ p, li { text-wrap: pretty; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* El scroll usa scale y translate; solo transform anima el hover. */
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.promo-band:hover .promo-band-media img { transform: scale(1.05); }
+.promo-band:hover .promo-band-media img { transform: scale(1.02); }
 /* En la tienda el hueco superior lo da el margen de los chips (42px). */
 .promo-band-slot { margin-bottom: 46px; }
 /* Comparte el fondo de #productos para que la banda no caiga justo sobre el
@@ -3211,7 +3212,7 @@ html.story-ready .manifesto { height: 170vh; }
   transform-origin: 50% 100%;
   transform: translate3d(0, calc((1 - var(--pe)) * 90px), 0) rotateX(calc((1 - var(--pe)) * 16deg)) scale(calc(0.92 + var(--pe) * 0.08));
   opacity: calc(var(--pe) * 1.6);
-  transition: box-shadow 0.35s;
+  transition: box-shadow 0.45s;
 }
 .promo-band-section.is-story .promo-band:hover { transform: translate3d(0, calc((1 - var(--pe)) * 90px), 0) rotateX(calc((1 - var(--pe)) * 16deg)) scale(calc(0.92 + var(--pe) * 0.08)); box-shadow: var(--shadow-2); }
 .promo-band-section.is-story .promo-band-media { clip-path: inset(0 0 0 calc((1 - min(1, var(--pe) * 1.35)) * 100%) round 0); }
@@ -3293,7 +3294,6 @@ html.story-ready .manifesto { height: 170vh; }
 [data-benefits].is-story .split > .reveal:not(.split-media) { transition: none; will-change: transform, opacity; }
 .certs-section.is-story .cert-item { transition: border-color 0.3s ease; will-change: transform, opacity; }
 .promo-band-section.is-story .promo-band { will-change: transform, opacity; }
-.promo-band-section.is-story .promo-band-media img { transition: none; }
 .hero-bottle img { transition: none; }
 /* Capas propias para lo que se mueve en las escenas fijadas: la sombra (drop-shadow) del
    frasco se pinta una vez y luego solo se desplaza en el compositor. */
