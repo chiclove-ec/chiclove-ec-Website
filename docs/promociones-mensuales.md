@@ -158,6 +158,44 @@ No se deben alterar las clases CSS ni la estructura semántica. El comportamient
 2. **Carga prioritaria (Eager):** La primera banda se carga con `loading="eager"` (o sin `lazy`) para optimizar el LCP sobre el pliegue; las subsiguientes llevan `loading="lazy"`.
 3. **Filtros de tienda:** Al interactuar con los chips de objetivo en `tienda.html`, `promoBandFitsFilter` oculta automáticamente cualquier banda si ninguno de sus productos pertenece al filtro seleccionado.
 
+
+#### Hover oficial de las promociones
+
+Todas las promociones actuales y futuras, individuales o agrupadas, deben reutilizar
+el hover de `.promo-band` definido en `css/styles.css`. Se aplica en portada y
+tienda con los siguientes valores exactos, aprobados el 4 de noviembre de 2026:
+
+| Elemento | Reposo | Hover | Transición de entrada y salida |
+| --- | --- | --- | --- |
+| Imagen (`.promo-band-media img`) | `transform: none` (escala 1) | `transform: scale(1.02)` (ampliación del 2%) | `transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)` |
+| Banda sin scrollytelling | `transform: none` | `transform: translateY(-2px)` | `transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1)` |
+| Sombra de la banda | `var(--shadow-1)` | `var(--shadow-2)` | `box-shadow 0.45s ease` |
+| CTA (`.promo-band-cta`) | `background: var(--ink)` | `background: var(--a-dark)` | `background 0.32s ease` |
+
+Reglas obligatorias para conservar exactamente este comportamiento:
+
+1. Declarar las transiciones en el estado base, de modo que tanto la entrada como
+   la salida del puntero sean graduales. La imagen termina en `scale(1.02)` y vuelve
+   a escala 1 sin saltos, rebotes, giros ni ampliaciones adicionales.
+2. En la portada con `.promo-band-section.is-story`, el hover conserva el
+   `transform` completo de entrada calculado con `--pe`; no añade la elevación de
+   2 px ni sustituye la transformación del scroll. La sombra sí mantiene sus 0.45 s.
+3. El hover de la imagen anima únicamente `transform`. El scrollytelling controla
+   `scale` y `translate` por separado; estas propiedades no se incluyen en la
+   transición. No usar `transition: all` ni volver a anular la transición de la
+   imagen con `.promo-band-section.is-story .promo-band-media img { transition: none; }`.
+   Esa anulación provocaba el cambio instantáneo de tamaño.
+4. Respetar la regla global de `prefers-reduced-motion: reduce`, que limita las
+   transiciones a `0.01ms !important`. No introducir excepciones para las promociones.
+5. Mantener estas mismas clases y reglas al cambiar de campaña o regenerar las
+   bandas. La configuración de cada mes cambia datos y textos; no crea versiones
+   del hover por producto, mes, descuento o campaña.
+
+**Verificación visual de cada campaña:** probar entrada y salida del puntero en
+portada y tienda, comprobar la ampliación máxima del 2% y la transición de 0.6 s,
+y confirmar que el scroll y el parallax siguen funcionando. Revisar también móvil
+(320 y 390 px), sin desbordamiento horizontal, y movimiento reducido.
+
 ---
 
 ### 3.2. Secciones Relacionadas y Tarjetas de Producto con Descuento

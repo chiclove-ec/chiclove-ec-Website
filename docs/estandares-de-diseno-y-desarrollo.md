@@ -158,6 +158,21 @@ Reglas: las escenas que pinta JavaScript van con `hidden` en el HTML (sin JS no 
 colección estática sigue ahí); ningún precio se escribe a mano en esas escenas; las escenas inactivas
 llevan `inert`; con «reducir movimiento» las escenas se muestran en columna y nada se fija.
 
+
+### 3.7. Hover de las bandas de promoción (`.promo-band`)
+
+Todas las campañas reutilizan el [hover oficial de las promociones](promociones-mensuales.md#hover-oficial-de-las-promociones)
+de `css/styles.css`: imagen con ampliación exacta del 2% (`scale(1.02)`) y transición
+`transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)` en ambos sentidos; elevación de 2 px
+solo fuera del scrollytelling; sombra de `--shadow-1` a `--shadow-2` en 0.45 s; y CTA
+de `--ink` a `--a-dark` en 0.32 s con `ease`.
+
+En la portada se conserva la transformación de entrada controlada por `--pe`.
+El hover anima `transform` de la imagen y el scroll mantiene `scale` y `translate`
+independientes. La transición de la imagen debe seguir activa también en
+`.is-story`. Respetar siempre `prefers-reduced-motion` y reutilizar este componente
+para las próximas promociones, sin variantes de animación por campaña.
+
 ---
 
 ## 4. Estándares de Responsividad y Mobile-First
