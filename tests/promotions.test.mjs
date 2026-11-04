@@ -10,7 +10,7 @@ import { loadCatalog, projectRoot } from "../scripts/lib/catalog.mjs";
 import { loadPublicFiles } from "./public-files.mjs";
 
 const catalog = loadCatalog();
-const promos = Object.entries(catalog.CL_PROMOS);
+const promos = Object.entries(catalog.CL_PROMOS).flatMap(([id, schedule]) => schedule.map((promo) => [id, promo]));
 const MONTHS = [
   "enero", "febrero", "marzo", "abril", "mayo", "junio",
   "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
@@ -59,9 +59,10 @@ test("las fórmulas de un grupo comparten la misma oferta", () => {
     if (!promo.group) continue;
     assert.ok(catalog.CL_PROMO_GROUPS[promo.group], `${id}: grupo ${promo.group} sin ficha en CL_PROMO_GROUPS`);
     const key = [promo.price, promo.start, promo.end, Boolean(promo.singleOnly)].join("|");
-    const known = groups.get(promo.group);
+    const groupWindow = promo.group + "|" + promo.start;
+    const known = groups.get(groupWindow);
     if (known) assert.equal(key, known, `${id}: no comparte precio y fechas con el resto de ${promo.group}`);
-    else groups.set(promo.group, key);
+    else groups.set(groupWindow, key);
   }
 });
 
@@ -93,7 +94,7 @@ test("las bandas agrupan, ordenan por descuento y desaparecen al cerrar la promo
       assert.ok(band.group || band.products.length === 1, "una banda sin grupo anuncia varios productos");
     }
     assert.equal(
-      catalog.clPromoBands(promo.end).some((band) => band.products.some((p) => p.id === id)),
+      catalog.clPromoBands(promo.end).some((band) => band.promo === promo && band.products.some((p) => p.id === id)),
       false,
       `${id}: la banda sigue viva al cerrar la promo`
     );
@@ -107,8 +108,9 @@ test("con el reloj fijado, el catálogo evalúa las promociones en ese instante"
     const product = (cat) => cat.CL_PRODUCTS.find((p) => p.id === id);
     assert.ok(opening.clActivePromo(product(opening)), `${id}: la promo no está viva al abrir`);
     assert.equal(loadCatalog({ now: promo.end - 1 }).clSinglePrice(product(opening)), promo.price, `${id}: el último instante ya no tiene precio de promo`);
-    assert.equal(closing.clActivePromo(product(closing)), null, `${id}: la promo sigue viva al cerrar`);
-    assert.equal(closing.clSinglePrice(product(closing)), product(closing).price, `${id}: no vuelve al precio de lista`);
+    const next = closing.clActivePromo(product(closing));
+    assert.ok(!next || next.start >= promo.end, `${id}: sigue viva una promoción anterior`);
+    assert.equal(closing.clSinglePrice(product(closing)), next ? next.price : product(closing).price);
   }
   // Una fecha creada fuera del catálogo se sigue reconociendo como fecha dentro.
   const [id, promo] = promos[0];
@@ -124,7 +126,7 @@ test("sin promociones vivas, la franja superior vuelve a anunciar los packs", ()
   assert.equal(later.clPromoBands().length, 0);
   assert.match(later.clCatalogOfferText(), /^Packs x2 por \$\d+\.\d{2} y x3 por \$\d+\.\d{2}\.$/);
   for (const [, promo] of promos) {
-    assert.match(loadCatalog({ now: promo.start }).clCatalogOfferText(), new RegExp(" en " + promo.monthLabel + "$"));
+    assert.match(loadCatalog({ now: promo.start }).clCatalogOfferText(), new RegExp(" en " + (promo.campaignLabel || promo.monthLabel) + "$"));
   }
 });
 
@@ -142,4 +144,14 @@ test("la franja superior escrita en el HTML es la oferta vigente", () => {
     assert.equal(match[1], expected, `${page}: la franja superior no es la oferta vigente (ejecuta npm run refresh)`);
   }
   assert.ok(found >= 10, `solo ${found} páginas llevan la franja superior`);
+});
+
+// Una fecha no puede seleccionar dos campañas para la misma fórmula.
+test("las campañas de cada producto no se solapan", () => {
+  for (const [id, schedule] of Object.entries(catalog.CL_PROMOS)) {
+    const ordered = [...schedule].sort((a, b) => a.start - b.start);
+    for (let i = 1; i < ordered.length; i++) {
+      assert.ok(ordered[i - 1].end <= ordered[i].start, `${id}: campañas solapadas`);
+    }
+  }
 });

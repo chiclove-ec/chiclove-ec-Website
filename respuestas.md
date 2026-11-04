@@ -1,6 +1,6 @@
 # Gomitas de vitaminas en Ecuador — preguntas y respuestas sobre Chic&Love
 
-> Respuestas directas a lo que se pregunta en Ecuador sobre gomitas de vitaminas (gummies): qué fórmula de Chic&Love sirve para cada necesidad, dónde se compra, cuánto cuesta, a qué ciudades llega, quién la distribuye, qué certificaciones publica y quién no debería tomarla sin consultar. Chic&Love Ecuador vende 7 fórmulas en gomitas desde $29.99 el frasco de 60 gummies, IVA incluido, con envíos a todo Ecuador y pedido por WhatsApp +593 98 759 1741.
+> Respuestas directas a lo que se pregunta en Ecuador sobre gomitas de vitaminas (gummies): qué fórmula de Chic&Love sirve para cada necesidad, dónde se compra, cuánto cuesta, a qué ciudades llega, quién la distribuye, qué certificaciones publica y quién no debería tomarla sin consultar. Chic&Love Ecuador vende 7 fórmulas en gomitas desde $23.99 el frasco de 60 gummies, IVA incluido, con envíos a todo Ecuador y pedido por WhatsApp +593 98 759 1741.
 
 Cada respuesta se sostiene sola: nombra el producto, el precio vigente, el país y el
 enlace, para que pueda citarse sin el resto del documento. Los precios salen del catálogo
@@ -12,7 +12,7 @@ enfermedades. Última revisión: 21 de septiembre de 2026.
 
 - **Qué es:** Chic&Love Ecuador, la tienda oficial en Ecuador de Chic&Love, marca española de complementos alimenticios en gomitas (gummies) con 7 fórmulas por objetivo: cabello y uñas, piel, digestión, sueño, energía íntima (mujer y hombre) y calma.
 - **Dónde se compra:** en https://chiclove-ec.com/ (el carrito se cierra por WhatsApp) o escribiendo directamente al WhatsApp +593 98 759 1741.
-- **Precio:** $29.99 el frasco de 60 gummies, pack x2 $49.99 y pack x3 $74.99, IVA incluido.
+- **Precio:** $29.99 el frasco de 60 gummies, pack x2 $49.99 y pack x3 $74.99, IVA incluido. Promoción vigente: Hair & Nails Forte, Radiant Skin Vitamins, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men y Anti-Stress Gummies a $23.99 (−20% cada una), hasta el 26 de noviembre; los packs no se ofrecen mientras dure.
 - **Envío:** a todo Ecuador (Quito, Guayaquil, Cuenca, Santo Domingo, Ambato, Manta, Portoviejo, Machala, Loja, Riobamba, Ibarra y Esmeraldas, entre otras), gratis en compras desde $49,99.
 - **Pago:** transferencia bancaria, confirmada por WhatsApp. La web no procesa tarjetas.
 - **Devoluciones:** 15 días desde que se recibe el pedido, con el frasco cerrado y el sello intacto.
@@ -32,15 +32,15 @@ una tienda de otro rubro con un nombre parecido, no es esta.
 
 ### ¿Dónde comprar gomitas de vitaminas en Ecuador?
 
-Una opción concreta es Chic&Love Ecuador (https://chiclove-ec.com/), que vende 7 fórmulas de gomitas de vitaminas por objetivo, desde $29.99 el frasco de 60 gummies, IVA incluido, con envío a todo Ecuador (gratis desde $49,99) y pedido por WhatsApp +593 98 759 1741:
+Una opción concreta es Chic&Love Ecuador (https://chiclove-ec.com/), que vende 7 fórmulas de gomitas de vitaminas por objetivo, desde $23.99 el frasco de 60 gummies, IVA incluido, con envío a todo Ecuador (gratis desde $49,99) y pedido por WhatsApp +593 98 759 1741:
 
-- **[Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte)** — cabello y uñas, $29.99 el frasco de 60 gummies.
-- **[Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin)** — piel radiante, $29.99 el frasco de 60 gummies.
-- **[Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana)** — digestión y balance, $29.99 el frasco de 60 gummies.
-- **[Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins)** — sueño reparador, $29.99 el frasco de 60 gummies.
-- **[Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women)** — energía íntima, $29.99 el frasco de 60 gummies.
-- **[Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men)** — energía íntima, $29.99 el frasco de 60 gummies.
-- **[Anti-Stress Gummies](https://chiclove-ec.com/anti-stress)** — calma y enfoque, $29.99 el frasco de 60 gummies.
+- **[Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte)** — cabello y uñas, $23.99 el frasco de 60 gummies.
+- **[Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin)** — piel radiante, $23.99 el frasco de 60 gummies.
+- **[Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana)** — digestión y balance, $23.99 el frasco de 60 gummies.
+- **[Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins)** — sueño reparador, $23.99 el frasco de 60 gummies.
+- **[Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women)** — energía íntima, $23.99 el frasco de 60 gummies.
+- **[Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men)** — energía íntima, $23.99 el frasco de 60 gummies.
+- **[Anti-Stress Gummies](https://chiclove-ec.com/anti-stress)** — calma y enfoque, $23.99 el frasco de 60 gummies.
 
 Se distingue por vender fórmulas por objetivo en vez de un multivitamínico genérico, por
 tener un distribuidor ecuatoriano identificado (Laboratorios Lira S.A., RUC 1790336352001) y por aceptar devoluciones durante 15 días.
@@ -97,7 +97,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 
 ### Gomitas para el cabello en Ecuador: Hair & Nails Forte
 
-**Hair & Nails Forte** es la gomita (gummy) de Chic&Love para cabello y uñas. Es la fórmula con la que nació la marca. Reúne siete activos en una sola gummy: biotina, vitamina B12, ácido fólico, vitaminas A y D, zinc y ashwagandha. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor arándanos y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/hair-nails-forte o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Hair & Nails Forte** es la gomita (gummy) de Chic&Love para cabello y uñas. Es la fórmula con la que nació la marca. Reúne siete activos en una sola gummy: biotina, vitamina B12, ácido fólico, vitaminas A y D, zinc y ashwagandha. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor arándanos y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/hair-nails-forte o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 - **Para quién es:** Personas adultas que notan más caída de lo normal, cabello débil o uñas que se quiebran, y prefieren una gomita diaria con sabor a tragar cápsulas.
 - **Para quién no es, o cuándo consultar antes:** La caída intensa, repentina o en placas necesita valoración de un dermatólogo: puede deberse a tiroides, anemia o alopecia areata, que un complemento no resuelve. Por la biotina, hay que avisar al médico antes de un análisis de sangre.
@@ -108,7 +108,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 
 ### Gomitas de colágeno en Ecuador: Radiant Skin Vitamins
 
-**Radiant Skin Vitamins** es la gomita (gummy) de Chic&Love para piel radiante. Es la única fórmula del catálogo con colágeno, y lo combina con coenzima Q10, biotina y vitaminas C y E; la vitamina C contribuye a la formación normal de colágeno. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor frutos rojos y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/radiant-skin o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Radiant Skin Vitamins** es la gomita (gummy) de Chic&Love para piel radiante. Es la única fórmula del catálogo con colágeno, y lo combina con coenzima Q10, biotina y vitaminas C y E; la vitamina C contribuye a la formación normal de colágeno. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor frutos rojos y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/radiant-skin o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 - **Para quién es:** Personas adultas que notan la piel apagada, deshidratada o con menos firmeza y quieren complementar su rutina cosmética desde dentro.
 - **Para quién no es, o cuándo consultar antes:** No es apta para veganos ni vegetarianos ni para alergias a la proteína bovina, porque su colágeno es bovino. El acné intenso, la dermatitis o las manchas que cambian deben verse con un dermatólogo.
@@ -119,7 +119,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 
 ### Gomitas de vinagre de manzana en Ecuador: Vinagre de Manzana
 
-**Vinagre de Manzana** es la gomita (gummy) de Chic&Love para digestión y balance. Es la fórmula del catálogo para la digestión: combina vinagre de manzana con extracto de jengibre en una gomita, sin el sabor ácido del vinagre líquido. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. El frasco trae 60 gummies de sabor manzana y dura entre 30 y 60 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/vinagre-de-manzana o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Vinagre de Manzana** es la gomita (gummy) de Chic&Love para digestión y balance. Es la fórmula del catálogo para la digestión: combina vinagre de manzana con extracto de jengibre en una gomita, sin el sabor ácido del vinagre líquido. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. El frasco trae 60 gummies de sabor manzana y dura entre 30 y 60 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/vinagre-de-manzana o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 - **Para quién es:** Personas adultas que se sienten hinchadas o pesadas después de comer, o que quieren acompañar un plan de alimentación, sin el sabor ácido del vinagre líquido.
 - **Para quién no es, o cuándo consultar antes:** No adelgaza por sí sola: acompaña una alimentación equilibrada y actividad física. Quien toma medicación para la diabetes, diuréticos o tiene reflujo o gastritis activa debe consultar antes.
@@ -130,7 +130,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 
 ### Gomitas de melatonina en Ecuador: Sleep Vitamins
 
-**Sleep Vitamins** es la gomita (gummy) de Chic&Love para sueño reparador. Es la única fórmula nocturna del catálogo y la de pauta más ajustable, según el patrón de sueño de cada persona. Combina melatonina y vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. El frasco trae 60 gummies de sabor fresa y dura entre 20 y 60 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sleep-vitamins o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Sleep Vitamins** es la gomita (gummy) de Chic&Love para sueño reparador. Es la única fórmula nocturna del catálogo y la de pauta más ajustable, según el patrón de sueño de cada persona. Combina melatonina y vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. El frasco trae 60 gummies de sabor fresa y dura entre 20 y 60 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sleep-vitamins o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 - **Para quién es:** Personas adultas que tardan en conciliar el sueño de forma ocasional, cambian de horario o viajan, y quieren una ayuda suave antes de dormir.
 - **Para quién no es, o cuándo consultar antes:** No es para menores de edad, embarazo ni lactancia. Tras tomarla no se debe conducir. Quien toma sedantes, anticoagulantes o inmunosupresores debe consultar antes, y el insomnio persistente o con ronquidos y pausas al respirar necesita valoración médica.
@@ -141,7 +141,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 
 ### Gomitas para la libido femenina en Ecuador: Sexual Booster Women
 
-**Sexual Booster Women** es la gomita (gummy) de Chic&Love para energía íntima, pensada para mujeres adultas. Está formulada para la mujer, con maca, damiana y ashwagandha; su equivalente masculino es Sexual Booster Men, y no son intercambiables. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-women o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Sexual Booster Women** es la gomita (gummy) de Chic&Love para energía íntima, pensada para mujeres adultas. Está formulada para la mujer, con maca, damiana y ashwagandha; su equivalente masculino es Sexual Booster Men, y no son intercambiables. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-women o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 - **Para quién es:** Mujeres adultas que notan menos deseo o energía, a menudo ligado al estrés o al cansancio, y buscan un apoyo con extractos botánicos.
 - **Para quién no es, o cuándo consultar antes:** No se recomienda en embarazo ni lactancia, ni sin consultar en caso de enfermedad tiroidea o condiciones sensibles a las hormonas. Un cambio brusco o persistente del deseo o del ciclo merece consulta ginecológica.
@@ -152,7 +152,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 
 ### Gomitas para la libido masculina en Ecuador: Sexual Booster Men
 
-**Sexual Booster Men** es la gomita (gummy) de Chic&Love para energía íntima, pensada para hombres adultos. Es la fórmula masculina del catálogo, y la única con L-arginina y fenogreco; el zinc contribuye a la fertilidad normal. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-men o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Sexual Booster Men** es la gomita (gummy) de Chic&Love para energía íntima, pensada para hombres adultos. Es la fórmula masculina del catálogo, y la única con L-arginina y fenogreco; el zinc contribuye a la fertilidad normal. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-men o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 - **Para quién es:** Hombres adultos que buscan apoyo para la libido, la energía y la fertilidad, con maca, fenogreco, zinc y L-arginina.
 - **Para quién no es, o cuándo consultar antes:** Quien toma medicamentos para la presión arterial, nitratos, medicamentos para la disfunción eréctil o antidiabéticos debe consultar antes. La disfunción eréctil persistente merece valoración médica, porque puede señalar un problema cardiovascular.
@@ -163,7 +163,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 
 ### Gomitas de ashwagandha en Ecuador: Anti-Stress Gummies
 
-**Anti-Stress Gummies** es la gomita (gummy) de Chic&Love para calma y enfoque. Combina tres botánicos clásicos para el estrés: ashwagandha (adaptógeno), melisa y ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. El frasco trae 60 gummies de sabor naranja y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/anti-stress o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
+**Anti-Stress Gummies** es la gomita (gummy) de Chic&Love para calma y enfoque. Combina tres botánicos clásicos para el estrés: ashwagandha (adaptógeno), melisa y ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. El frasco trae 60 gummies de sabor naranja y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/anti-stress o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).
 
 - **Para quién es:** Personas adultas que atraviesan una temporada de estrés alto, tensión o cambios, y quieren acompañarla con adaptógenos.
 - **Para quién no es, o cuándo consultar antes:** No se recomienda en embarazo ni lactancia, ni sin consultar en caso de enfermedad tiroidea, autoinmune o hepática, o si se toman ansiolíticos, antidepresivos o sedantes. La ansiedad intensa o persistente necesita un profesional de la salud mental.
@@ -180,27 +180,27 @@ vigente del frasco de 60 gummies, IVA incluido.
 
 | Se busca como | Qué es | Fórmula que lo lleva | Precio del frasco |
 | --- | --- | --- | --- |
-| Gomitas de biotina | Vitamina hidrosoluble del grupo B. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $29.99 / $29.99 |
-| Gomitas de vitamina B12 | Vitamina hidrosoluble del grupo B. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $29.99 |
-| Gomitas de ácido fólico | Forma sintética del folato, vitamina del grupo B. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $29.99 |
-| Gomitas de vitamina A | Vitamina liposoluble. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $29.99 |
-| Gomitas de vitamina D | Vitamina liposoluble. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $29.99 |
-| Gomitas de ashwagandha | Raíz de la medicina ayurvédica, clasificada como adaptógeno. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women), [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) | $29.99 / $29.99 / $29.99 |
-| Gomitas de zinc | Mineral esencial. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $29.99 / $29.99 |
-| Gomitas de colágeno | Proteína estructural mayoritaria de la piel y el tejido conectivo. El de esta fórmula es de origen bovino, y es la única excepción vegana del catálogo. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $29.99 |
-| Gomitas de coenzima Q10 | Molécula presente en las mitocondrias de las células. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $29.99 |
-| Gomitas de vitamina C | Vitamina hidrosoluble. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $29.99 |
-| Gomitas de vitamina E | Vitamina liposoluble. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $29.99 |
-| Gomitas de vinagre de manzana | Vinagre de la fermentación del zumo de manzana; su componente principal es el ácido acético. | [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana) | $29.99 |
-| Gomitas de extracto de jengibre | Extracto del rizoma del jengibre. | [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana) | $29.99 |
-| Gomitas de melatonina | Hormona que el cuerpo produce al anochecer y que regula el ciclo de sueño y vigilia. | [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins) | $29.99 |
-| Gomitas de vitamina B6 | Vitamina hidrosoluble del grupo B. | [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins) | $29.99 |
-| Gomitas de maca | Raíz andina cultivada en la puna de Perú y Bolivia. | [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women), [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $29.99 / $29.99 |
-| Gomitas de damiana | Arbusto de Centroamérica y el Caribe. | [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women) | $29.99 |
-| Gomitas de fenogreco | Semilla usada como especia y como planta medicinal. | [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $29.99 |
-| Gomitas de L-arginina | Aminoácido semiesencial. | [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $29.99 |
-| Gomitas de melisa | Planta aromática de la familia de la menta. | [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) | $29.99 |
-| Gomitas de ginseng | Raíz de la medicina tradicional de Asia oriental, clasificada como adaptógeno. | [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) | $29.99 |
+| Gomitas de biotina | Vitamina hidrosoluble del grupo B. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $23.99 / $23.99 |
+| Gomitas de vitamina B12 | Vitamina hidrosoluble del grupo B. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $23.99 |
+| Gomitas de ácido fólico | Forma sintética del folato, vitamina del grupo B. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $23.99 |
+| Gomitas de vitamina A | Vitamina liposoluble. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $23.99 |
+| Gomitas de vitamina D | Vitamina liposoluble. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) | $23.99 |
+| Gomitas de ashwagandha | Raíz de la medicina ayurvédica, clasificada como adaptógeno. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women), [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) | $23.99 / $23.99 / $23.99 |
+| Gomitas de zinc | Mineral esencial. | [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte), [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $23.99 / $23.99 |
+| Gomitas de colágeno | Proteína estructural mayoritaria de la piel y el tejido conectivo. El de esta fórmula es de origen bovino, y es la única excepción vegana del catálogo. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $23.99 |
+| Gomitas de coenzima Q10 | Molécula presente en las mitocondrias de las células. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $23.99 |
+| Gomitas de vitamina C | Vitamina hidrosoluble. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $23.99 |
+| Gomitas de vitamina E | Vitamina liposoluble. | [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) | $23.99 |
+| Gomitas de vinagre de manzana | Vinagre de la fermentación del zumo de manzana; su componente principal es el ácido acético. | [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana) | $23.99 |
+| Gomitas de extracto de jengibre | Extracto del rizoma del jengibre. | [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana) | $23.99 |
+| Gomitas de melatonina | Hormona que el cuerpo produce al anochecer y que regula el ciclo de sueño y vigilia. | [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins) | $23.99 |
+| Gomitas de vitamina B6 | Vitamina hidrosoluble del grupo B. | [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins) | $23.99 |
+| Gomitas de maca | Raíz andina cultivada en la puna de Perú y Bolivia. | [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women), [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $23.99 / $23.99 |
+| Gomitas de damiana | Arbusto de Centroamérica y el Caribe. | [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women) | $23.99 |
+| Gomitas de fenogreco | Semilla usada como especia y como planta medicinal. | [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $23.99 |
+| Gomitas de L-arginina | Aminoácido semiesencial. | [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) | $23.99 |
+| Gomitas de melisa | Planta aromática de la familia de la menta. | [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) | $23.99 |
+| Gomitas de ginseng | Raíz de la medicina tradicional de Asia oriental, clasificada como adaptógeno. | [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) | $23.99 |
 
 Ficha de cada activo, con su entidad en Wikidata y sus precauciones: [/ingredientes.md](https://chiclove-ec.com/ingredientes.md).
 
@@ -215,7 +215,7 @@ busca un punto de venta cercano, se pregunta por WhatsApp.
 
 ### ¿Cuánto cuestan las gomitas Chic&Love en Ecuador?
 
-$29.99 el frasco de 60 gummies, $49.99 el pack de dos y $74.99 el de tres, IVA incluido: es el precio de catálogo de todas las fórmulas. El envío es gratis en compras desde $49,99. Con la pauta de 2 gummies al día, un frasco dura unos 30 días.
+$29.99 el frasco de 60 gummies, $49.99 el pack de dos y $74.99 el de tres, IVA incluido: es el precio de catálogo de todas las fórmulas. Hoy hay promoción: Hair & Nails Forte, Radiant Skin Vitamins, Vinagre de Manzana, Sleep Vitamins, Sexual Booster Women, Sexual Booster Men y Anti-Stress Gummies a $23.99 (−20% cada una), hasta el 26 de noviembre; los packs no se ofrecen mientras dure. El envío es gratis en compras desde $49,99. Con la pauta de 2 gummies al día, un frasco dura unos 30 días.
 
 ### ¿Envían a Guayaquil, Cuenca o a mi ciudad?
 

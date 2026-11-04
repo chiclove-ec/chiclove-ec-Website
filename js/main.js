@@ -619,7 +619,7 @@ function productCard(p, revealDelay) {
   // secundaria y píldora de ahorro), para que la rejilla no pierda simetría.
   var secondLine = makeEl("div", "pcard-pack-prices");
   if (promo) {
-    secondLine.appendChild(makeEl("small", "", "−" + clPromoPercent(p) + "% en " + promo.monthLabel));
+    secondLine.appendChild(makeEl("small", "", "−" + clPromoPercent(p) + "% en " + (promo.campaignLabel || promo.monthLabel)));
     price.appendChild(secondLine);
     price.appendChild(makeEl("span", "pcard-saving", "Ahorras " + clMoney(p.price - singlePrice)));
   } else {
@@ -656,7 +656,8 @@ function canHydrateGrid(grid, list) {
   return list.every(function (product, index) {
     var card = cards[index];
     return card.getAttribute("data-product-id") === product.id &&
-      card.classList.contains("is-promo") === !!clActivePromo(product);
+      card.classList.contains("is-promo") === !!clActivePromo(product) &&
+      card.querySelector(".pcard-now-price").textContent === clMoney(clSinglePrice(product));
   });
 }
 
@@ -724,7 +725,7 @@ function promoBand(band, eager) {
   // El descuento vive en la chapa, no en el título: repetirlo en ambos sitios
   // le quita fuerza justo a la cifra que queremos que se lea primero.
   var head = makeEl("div", "promo-band-head");
-  head.appendChild(makeEl("span", "promo-band-kicker", "Solo en " + promo.monthLabel));
+  head.appendChild(makeEl("span", "promo-band-kicker", promo.campaignLabel || "Solo en " + promo.monthLabel));
   head.appendChild(makeEl("span", "promo-band-badge", "−" + band.percent + "%"));
   copy.appendChild(head);
   copy.appendChild(makeEl("h2", "", group ? group.title : product.short));
@@ -1092,18 +1093,8 @@ function initBusinessData() {
   });
 }
 
-/* ---------- init ---------- */
-document.addEventListener("DOMContentLoaded", function () {
-  initBusinessData();
-  buildCartChrome();
-  renderCart();
-  renderPromoBand();
-  renderGrids();
-  initChips();
-  observeReveals(document);
-  observeCounters(document);
-  observeLazyImages(document);
-
+/* ---------- cambios de campaña con la página abierta ---------- */
+function renderEditorialPrices() {
   document.querySelectorAll("[data-editorial-product]").forEach(function (link) {
     var product = clFindProduct(link.getAttribute("data-editorial-product"));
     var price = link.querySelector("[data-editorial-price]");
@@ -1121,6 +1112,58 @@ document.addEventListener("DOMContentLoaded", function () {
       link.setAttribute("aria-label", "Ver " + product.name + " por " + clMoney(currentPrice));
     }
   });
+}
+
+function refreshPromotionState() {
+  initBusinessData();
+  renderPromoBand();
+  renderGrids();
+  renderEditorialPrices();
+  renderCart();
+  document.dispatchEvent(new Event("cl:promotionchange"));
+  clScrollScheduler.request();
+}
+
+function initPromoClock() {
+  var timer = null;
+  function signature() {
+    return CL_PRODUCTS.map(function (product) {
+      var promo = clActivePromo(product);
+      return promo ? [product.id, promo.start, promo.end, promo.price].join(":") : product.id;
+    }).join("|");
+  }
+  var previous = signature();
+  function sync() {
+    clearTimeout(timer);
+    var current = signature();
+    if (current !== previous) {
+      previous = current;
+      refreshPromotionState();
+    }
+    var next = clNextPromoBoundary();
+    // El máximo nativo evita que un cambio lejano se convierta en un bucle de 1 ms.
+    if (next !== null) timer = setTimeout(sync, Math.min(Math.max(next - Date.now(), 1), 2147483647));
+  }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) sync(); });
+  window.addEventListener("focus", sync);
+  window.addEventListener("pageshow", sync);
+  sync();
+}
+
+/* ---------- init ---------- */
+document.addEventListener("DOMContentLoaded", function () {
+  initBusinessData();
+  buildCartChrome();
+  renderCart();
+  renderPromoBand();
+  renderGrids();
+  initChips();
+  observeReveals(document);
+  observeCounters(document);
+  observeLazyImages(document);
+
+  renderEditorialPrices();
+  initPromoClock();
 
   var header = document.querySelector(".header");
   if (header) {

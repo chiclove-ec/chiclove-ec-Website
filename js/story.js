@@ -146,6 +146,38 @@
   }
 
   /* ---------- encuentra tu fórmula: una escena fijada por producto ---------- */
+  function renderStoryPrice(price, product) {
+    price.textContent = "";
+    var promo = clActivePromo(product);
+    price.appendChild(makeEl("strong", "", clMoney(clSinglePrice(product))));
+    if (promo) {
+      price.appendChild(makeEl("del", "", clMoney(product.price)));
+      price.appendChild(makeEl("span", "fs-badge", "−" + clPromoPercent(product) + "% en " + (promo.campaignLabel || promo.monthLabel)));
+    }
+    // Una sola línea de datos: sabor, cuánto dura el frasco (de `perDay`) e IVA.
+    var meta = ["Sabor " + product.flavor.toLowerCase()];
+    if (typeof clBottleDuration === "function") {
+      var duration = clBottleDuration(product);
+      meta.push("dura " + (duration.min === duration.max ? "unos " + duration.min : duration.min + "–" + duration.max) + " días");
+    }
+    meta.push(CL_VAT_NOTE);
+    price.appendChild(makeEl("small", "", meta.join(" · ")));
+    // Fuera de promoción (o con una que mantenga los packs) se enseña el ahorro por volumen,
+    // con los precios tal cual están en el catálogo: nunca un precio por unidad calculado.
+    if (typeof clHasPacks === "function" && clHasPacks(product)) {
+      price.appendChild(makeEl("span", "fs-packs", "Pack x2 " + clMoney(product.pricePack) + " · Pack x3 " + clMoney(product.pricePack3)));
+    }
+  }
+
+  document.addEventListener("cl:promotionchange", function () {
+    document.querySelectorAll(".fs-scene[data-product-id]").forEach(function (scene) {
+      var product = clFindProduct(scene.getAttribute("data-product-id"));
+      if (product) renderStoryPrice(scene.querySelector(".fs-price"), product);
+    });
+    var dockPrice = document.querySelector(".home-dock-copy strong");
+    if (dockPrice) dockPrice.textContent = "Desde " + clMoney(clCurrentSingleMinimum());
+  });
+
   function sceneFor(product, index, total) {
     var scene = makeEl("article", "fs-scene");
     scene.setAttribute("data-product-id", product.id);
@@ -186,25 +218,7 @@
 
     var buy = makeEl("div", "fs-buy");
     var price = makeEl("p", "fs-price");
-    var promo = clActivePromo(product);
-    price.appendChild(makeEl("strong", "", clMoney(clSinglePrice(product))));
-    if (promo) {
-      price.appendChild(makeEl("del", "", clMoney(product.price)));
-      price.appendChild(makeEl("span", "fs-badge", "−" + clPromoPercent(product) + "% en " + promo.monthLabel));
-    }
-    // Una sola línea de datos: sabor, cuánto dura el frasco (de `perDay`) e IVA.
-    var meta = ["Sabor " + product.flavor.toLowerCase()];
-    if (typeof clBottleDuration === "function") {
-      var duration = clBottleDuration(product);
-      meta.push("dura " + (duration.min === duration.max ? "unos " + duration.min : duration.min + "–" + duration.max) + " días");
-    }
-    meta.push(CL_VAT_NOTE);
-    price.appendChild(makeEl("small", "", meta.join(" · ")));
-    // Fuera de promoción (o con una que mantenga los packs) se enseña el ahorro por volumen,
-    // con los precios tal cual están en el catálogo: nunca un precio por unidad calculado.
-    if (typeof clHasPacks === "function" && clHasPacks(product)) {
-      price.appendChild(makeEl("span", "fs-packs", "Pack x2 " + clMoney(product.pricePack) + " · Pack x3 " + clMoney(product.pricePack3)));
-    }
+    renderStoryPrice(price, product);
     buy.appendChild(price);
     var actions = makeEl("div", "fs-actions");
     var add = makeEl("button", "btn btn-primary fs-add", "Añadir al carrito");
@@ -644,8 +658,13 @@
 
   /* ---------- parallax de fotografías ---------- */
   function initParallax() {
-    document.querySelectorAll(".promo-band-media").forEach(function (media) {
-      media.setAttribute("data-parallax", "");
+    document.querySelectorAll("[data-promo-band]").forEach(function (mount) {
+      addScrubber(mount, function () {
+        mount.querySelectorAll(".promo-band-media").forEach(function (media) {
+          media.setAttribute("data-parallax", "");
+          setVar(media, "--pp", passProgress(media.getBoundingClientRect()) * 2 - 1);
+        });
+      });
     });
     document.querySelectorAll("[data-parallax]").forEach(function (frame) {
       addScrubber(frame, function (rect) {
@@ -733,7 +752,7 @@
         // El encabezado abre la escena; las bandas llegan justo detrás.
         var entry = clamp((viewportH - rect.top) / viewportH, 0, 1);
         setVar(section, "--ph", ease(clamp(entry * 1.3 - 0.05, 0, 1)));
-        bands.forEach(function (band, i) {
+        section.querySelectorAll(".promo-band").forEach(function (band, i) {
           var pe;
           if (pinned) {
             var p = pinnedProgress(rect);
