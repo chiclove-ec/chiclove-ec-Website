@@ -141,7 +141,7 @@ Las tarjetas de producto son el componente núcleo de conversión del sitio:
 
 La portada se lee como una historia por capítulos y cada ficha cuenta sus activos. `story.js` convierte el
 progreso de scroll de cada sección en propiedades CSS y la hoja de estilos las consume **solo** en
-`transform`, `opacity` y `clip-path`:
+`transform`, `scale`, `translate`, `opacity` y `clip-path`:
 
 | Gancho HTML | Propiedad | Efecto |
 |---|---|---|
