@@ -35,32 +35,57 @@ const CL_PRODUCT_PRICING = Object.freeze({
 });
 
 /* Promociones temporales por producto. La ventana se evalúa en hora de Ecuador
-   (UTC-5), así entra y sale a la vez para todo el mundo sin importar el reloj del
+   (UTC-5), así entra y sale a la vez para todo el mundo sin importar la zona horaria del
    visitante; al cerrarse, el sitio vuelve solo al precio de catálogo.
    `singleOnly` retira los packs mientras dure: al precio promocional dejarían de
    ahorrar frente a comprar frascos sueltos.
    `group` junta en una sola banda de promoción las fórmulas que comparten descuento
    (ver CL_PROMO_GROUPS); sin `group`, la fórmula tiene banda propia. */
-const CL_PROMO_OCTOBER = Object.freeze({
-  monthLabel: "octubre",
-  endsLabel: "31 de octubre",
-  singleOnly: true,
-  start: Date.parse("2026-10-01T00:00:00-05:00"),
-  end: Date.parse("2026-11-01T00:00:00-05:00"),
-  priceValidUntil: "2026-10-31"
-});
+/* Calendario 2026: precios finales solicitados, sin recalcularlos con porcentajes.
+   Cada producto comparte las tres ventanas consecutivas e inmutables. */
+const CL_PROMO_CALENDAR = Object.freeze([
+  Object.freeze({
+    monthLabel: "noviembre",
+    endsLabel: "26 de noviembre",
+    price: 23.99,
+    singleOnly: true,
+    group: "coleccion",
+    start: Date.parse("2026-11-01T00:00:00-05:00"),
+    end: Date.parse("2026-11-27T00:00:00-05:00"),
+    priceValidUntil: "2026-11-26"
+  }),
+  Object.freeze({
+    monthLabel: "noviembre",
+    campaignLabel: "Black Days",
+    endsLabel: "30 de noviembre",
+    price: 20.99,
+    singleOnly: true,
+    group: "coleccion",
+    start: Date.parse("2026-11-27T00:00:00-05:00"),
+    end: Date.parse("2026-12-01T00:00:00-05:00"),
+    priceValidUntil: "2026-11-30"
+  }),
+  Object.freeze({
+    monthLabel: "diciembre",
+    campaignLabel: "Cyber Days",
+    endsLabel: "2 de diciembre",
+    price: 18.00,
+    singleOnly: true,
+    group: "coleccion",
+    start: Date.parse("2026-12-01T00:00:00-05:00"),
+    end: Date.parse("2026-12-03T00:00:00-05:00"),
+    priceValidUntil: "2026-12-02"
+  })
+]);
 
-/* Octubre: Radiant Skin repite el −40% de septiembre y el resto de la colección va al
-   −25% (29,99 × 0,75 = 22,49). Los packs se retiran en todas: 2 frascos a 22,49 suman
-   44,98 y 3 suman 67,47, menos que el pack x2 (49,99) y el pack x3 (74,99). */
 const CL_PROMOS = Object.freeze({
-  "radiant-skin": Object.freeze({ ...CL_PROMO_OCTOBER, price: 18.00 }),
-  "hair-nails-forte": Object.freeze({ ...CL_PROMO_OCTOBER, price: 22.49, group: "coleccion" }),
-  "vinagre-de-manzana": Object.freeze({ ...CL_PROMO_OCTOBER, price: 22.49, group: "coleccion" }),
-  "sleep-vitamins": Object.freeze({ ...CL_PROMO_OCTOBER, price: 22.49, group: "coleccion" }),
-  "sexual-booster-women": Object.freeze({ ...CL_PROMO_OCTOBER, price: 22.49, group: "coleccion" }),
-  "sexual-booster-men": Object.freeze({ ...CL_PROMO_OCTOBER, price: 22.49, group: "coleccion" }),
-  "anti-stress": Object.freeze({ ...CL_PROMO_OCTOBER, price: 22.49, group: "coleccion" })
+  "radiant-skin": CL_PROMO_CALENDAR,
+  "hair-nails-forte": CL_PROMO_CALENDAR,
+  "vinagre-de-manzana": CL_PROMO_CALENDAR,
+  "sleep-vitamins": CL_PROMO_CALENDAR,
+  "sexual-booster-women": CL_PROMO_CALENDAR,
+  "sexual-booster-men": CL_PROMO_CALENDAR,
+  "anti-stress": CL_PROMO_CALENDAR
 });
 
 /* Bandas compartidas: las fórmulas de un mismo grupo deben tener la misma promoción
@@ -587,10 +612,25 @@ function clInstagramUrl() {
 }
 
 function clActivePromo(product, now) {
-  var promo = product && CL_PROMOS[product.id];
-  if (!promo) return null;
+  var promos = product && CL_PROMOS[product.id];
+  if (!promos) return null;
   var timestamp = now instanceof Date ? now.getTime() : (typeof now === "number" ? now : Date.now());
-  return timestamp >= promo.start && timestamp < promo.end ? promo : null;
+  return promos.find(function (promo) {
+    return timestamp >= promo.start && timestamp < promo.end;
+  }) || null;
+}
+
+// Próxima apertura o cierre absoluto: también funciona antes de la primera campaña.
+function clNextPromoBoundary(now) {
+  var timestamp = now instanceof Date ? now.getTime() : (typeof now === "number" ? now : Date.now());
+  var next = Infinity;
+  Object.keys(CL_PROMOS).forEach(function (id) {
+    CL_PROMOS[id].forEach(function (promo) {
+      if (promo.start > timestamp) next = Math.min(next, promo.start);
+      if (promo.end > timestamp) next = Math.min(next, promo.end);
+    });
+  });
+  return Number.isFinite(next) ? next : null;
 }
 
 function clSinglePrice(product, now) {
@@ -653,7 +693,7 @@ function clCatalogOfferText(now) {
     return (band.group ? band.group.label : band.product.short) + " −" + band.percent + "%";
   });
   var offer = parts.length > 1 ? parts.slice(0, -1).join(", ") + " y " + parts[parts.length - 1] : parts[0];
-  return offer + " en " + bands[0].promo.monthLabel;
+  return offer + " en " + (bands[0].promo.campaignLabel || bands[0].promo.monthLabel);
 }
 
 function clBestSingleBundle(product, quantity, now) {

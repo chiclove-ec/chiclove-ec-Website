@@ -89,35 +89,44 @@
     actives.appendChild(s);
   });
 
-  // Variantes
-  var singlePrice = clSinglePrice(product);
-  var promo = clActivePromo(product);
-  var saveSingle = product.price - singlePrice;
-  var originalPack2 = product.price * 2;
-  var originalPack3 = product.price * 3;
-  var savePack2 = originalPack2 - product.pricePack;
-  var savePack3 = originalPack3 - product.pricePack3;
-  var variants = [
-    { key: "uno", name: "1 frasco", sub: promo ? "Antes " + clMoney(product.price) + ", ahorras " + clMoney(saveSingle) : "60 gummies para 1 mes", price: singlePrice, badge: promo ? "−" + clPromoPercent(product) + "%" : "" }
-  ];
-  // Durante una promo de solo frasco los packs no se ofrecen: costarían más que
-  // comprar la misma cantidad de frascos sueltos al precio promocional.
-  if (clHasPacks(product)) {
-    variants.push(
-      { key: "pack", name: "Pack x2 frascos", sub: "Antes " + clMoney(originalPack2), price: product.pricePack, badge: "Ahorra " + clMoney(savePack2) },
-      { key: "pack3", name: "Pack x3 frascos", sub: "Antes " + clMoney(originalPack3), price: product.pricePack3, badge: "Ahorra " + clMoney(savePack3) }
-    );
-  }
+  var variants = [];
   var vBox = document.getElementById("pd-variants");
 
-  var promoNote = document.getElementById("pd-promo");
-  if (promoNote) {
-    promoNote.hidden = !promo;
-    promoNote.textContent = promo ? "Promo hasta el " + promo.endsLabel : "";
+  function refreshVariants() {
+    var singlePrice = clSinglePrice(product);
+    var promo = clActivePromo(product);
+    var saveSingle = product.price - singlePrice;
+    var originalPack2 = product.price * 2;
+    var originalPack3 = product.price * 3;
+    var savePack2 = originalPack2 - product.pricePack;
+    var savePack3 = originalPack3 - product.pricePack3;
+    variants = [
+      { key: "uno", name: "1 frasco", sub: promo ? "Antes " + clMoney(product.price) + ", ahorras " + clMoney(saveSingle) : "60 gummies para 1 mes", price: singlePrice, badge: promo ? "−" + clPromoPercent(product) + "%" : "" }
+    ];
+    // Durante una promo de solo frasco los packs no se ofrecen: costarían más que
+    // comprar la misma cantidad de frascos sueltos al precio promocional.
+    if (clHasPacks(product)) {
+      variants.push(
+        { key: "pack", name: "Pack x2 frascos", sub: "Antes " + clMoney(originalPack2), price: product.pricePack, badge: "Ahorra " + clMoney(savePack2) },
+        { key: "pack3", name: "Pack x3 frascos", sub: "Antes " + clMoney(originalPack3), price: product.pricePack3, badge: "Ahorra " + clMoney(savePack3) }
+      );
+    }
+
+    var promoNote = document.getElementById("pd-promo");
+    if (promoNote) {
+      promoNote.hidden = !promo;
+      promoNote.textContent = promo ? "Promo hasta el " + promo.endsLabel : "";
+    }
+    // En los dos sentidos: el HTML puede venir de antes de que una promo abriera o cerrara.
+    var buyLabel = document.querySelector(".pd-buy-label");
+    if (buyLabel) buyLabel.textContent = variants.length === 1 ? "Tu presentación" : "Elige tu presentación";
+    if (!variants.some(function (variant) { return variant.key === state.variant; })) {
+      state.qty = Math.min(state.qty * (state.variant === "pack3" ? 3 : 2), 99);
+      state.variant = "uno";
+    }
+    renderVariants();
+    updateBuy();
   }
-  // En los dos sentidos: el HTML puede venir de antes de que una promo abriera o cerrara.
-  var buyLabel = document.querySelector(".pd-buy-label");
-  if (buyLabel) buyLabel.textContent = variants.length === 1 ? "Tu presentación" : "Elige tu presentación";
 
   function chooseVariant(index, restoreFocus) {
     state.variant = variants[index].key;
@@ -216,8 +225,8 @@
     cartAdd(product.id, state.variant, state.qty);
   });
 
-  renderVariants();
-  updateBuy();
+  refreshVariants();
+  document.addEventListener("cl:promotionchange", refreshVariants);
   if (window.clAnalytics) {
     window.clAnalytics.track("view_item", {
       item_id: product.id,

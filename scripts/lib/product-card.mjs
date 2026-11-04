@@ -26,7 +26,7 @@ export function renderProductCard(product, { page = "home", headingLevel = 3, ba
   const promo = catalog.clActivePromo(product);
   const singlePrice = catalog.clSinglePrice(product);
   const priceMarkup = promo
-    ? '<div class="pcard-pack-prices"><small>−' + escapeHtml(catalog.clPromoPercent(product)) + "% en " + escapeHtml(promo.monthLabel) + '</small></div>' +
+    ? '<div class="pcard-pack-prices"><small>−' + escapeHtml(catalog.clPromoPercent(product)) + "% en " + escapeHtml(promo.campaignLabel || promo.monthLabel) + '</small></div>' +
       '<span class="pcard-saving">Ahorras ' + escapeHtml(catalog.clMoney(product.price - singlePrice)) + "</span>"
     : '<div class="pcard-pack-prices"><small>Pack x2 ' + escapeHtml(catalog.clMoney(product.pricePack)) + '</small><small>Pack x3 ' + escapeHtml(catalog.clMoney(product.pricePack3)) + '</small></div>' +
       '<span class="pcard-saving">Ahorra hasta ' + escapeHtml(catalog.clMoney(product.price * 3 - product.pricePack3)) + "</span>";

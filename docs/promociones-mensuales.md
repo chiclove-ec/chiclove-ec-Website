@@ -21,44 +21,51 @@ Chic&Love opera con promociones temporales que se anuncian de forma elegante y c
 
 Toda la configuración comercial de una promoción mensual vive en `js/products.js`. Jamás se introducen precios o textos promocionales directamente en los archivos HTML.
 
-### 2.1. Definición del Periodo Mensual (`CL_PROMO_<MES>`)
+### 2.1. Calendario de campañas (`CL_PROMO_CALENDAR`)
 
-Se define un objeto inmutable con los metadatos de la campaña del mes:
+Las promociones de un producto son una lista inmutable de ventanas, con inicio
+inclusivo y cierre exclusivo a las 00:00 de Ecuador (UTC−5). Cada ventana contiene
+`monthLabel`, `endsLabel`, `price`, `singleOnly`, `group`, `start`, `end` y
+`priceValidUntil`. `campaignLabel` es opcional: nombra Black Days o Cyber Days en
+las mismas ranuras de texto de la promoción mensual, sin cambiar su diseño.
 
-```javascript
-const CL_PROMO_NOVIEMBRE = Object.freeze({
-  monthLabel: "noviembre",                    // Nombre del mes en minúsculas (para textos tipo "Solo en noviembre")
-  endsLabel: "30 de noviembre",               // Fecha visible de cierre (para deadline "Hasta el 30 de noviembre")
-  singleOnly: true,                           // true si los frascos sueltos rebajados hacen que los packs no ahorren
-  start: Date.parse("2026-11-01T00:00:00-05:00"),  // 00:00 del primer día en hora Ecuador (UTC-5)
-  end: Date.parse("2026-12-01T00:00:00-05:00"),    // 00:00 del primer día del mes siguiente (UTC-5, exclusivo)
-  priceValidUntil: "2026-11-30"               // Último día calendario en formato ISO AAAA-MM-DD (para JSON-LD)
-});
-```
+Calendario de 2026, válido para las siete fórmulas:
 
-#### Regla de Validación de Fechas
-- `start` y `end` deben ser números finitos (timestamps en milisegundos).
-- La zona horaria debe ser obligatoriamente `-05:00` (Ecuador continental).
-- `priceValidUntil` debe ser exactamente el día anterior a `end` a las 00:00 UTC-5.
-- La suite de pruebas (`tests/promotions.test.mjs`) comprueba que `monthLabel`, `endsLabel` y `priceValidUntil` coincidan matemáticamente con la ventana temporal.
+| Campaña | Fechas inclusivas en Ecuador | Descuento | Precio final con IVA |
+| --- | --- | --- | --- |
+| Noviembre | 1–26 de noviembre | 20% | $23.99 |
+| Black Days | 27–30 de noviembre | 30% | $20.99 |
+| Cyber Days | 1–2 de diciembre | 40% | $18.00 |
 
----
+Los precios finales son explícitos; el porcentaje mostrado se deriva de ellos.
+No se publicitan campañas futuras. Desde el 3 de diciembre no hay promoción y
+vuelven $29.99 y los packs habituales.
 
-### 2.2. Asignación de Productos en `CL_PROMOS`
+- `start` y `end` deben ser timestamps finitos, con `start < end`.
+- `priceValidUntil` es el día anterior al cierre exclusivo; `endsLabel` lo expresa en español.
+- `monthLabel` es el mes de inicio; `campaignLabel` no sustituye las fechas.
+- Las ventanas de un producto nunca se solapan. Pueden ser consecutivas.
 
-Cada producto participante se registra en `CL_PROMOS` usando su identificador (`id`):
+### 2.2. Asignación de productos en `CL_PROMOS`
+
+Cada ID apunta a una lista de campañas. Como toda la colección comparte las tres
+ofertas, sus siete entradas reutilizan `CL_PROMO_CALENDAR`:
 
 ```javascript
 const CL_PROMOS = Object.freeze({
-  "radiant-skin": Object.freeze({ ...CL_PROMO_NOVIEMBRE, price: 18.00 }),
-  "hair-nails-forte": Object.freeze({ ...CL_PROMO_NOVIEMBRE, price: 22.49, group: "coleccion" }),
-  "vinagre-de-manzana": Object.freeze({ ...CL_PROMO_NOVIEMBRE, price: 22.49, group: "coleccion" }),
-  "sleep-vitamins": Object.freeze({ ...CL_PROMO_NOVIEMBRE, price: 22.49, group: "coleccion" }),
-  "sexual-booster-women": Object.freeze({ ...CL_PROMO_NOVIEMBRE, price: 22.49, group: "coleccion" }),
-  "sexual-booster-men": Object.freeze({ ...CL_PROMO_NOVIEMBRE, price: 22.49, group: "coleccion" }),
-  "anti-stress": Object.freeze({ ...CL_PROMO_NOVIEMBRE, price: 22.49, group: "coleccion" })
+  "radiant-skin": CL_PROMO_CALENDAR,
+  "hair-nails-forte": CL_PROMO_CALENDAR,
+  "vinagre-de-manzana": CL_PROMO_CALENDAR,
+  "sleep-vitamins": CL_PROMO_CALENDAR,
+  "sexual-booster-women": CL_PROMO_CALENDAR,
+  "sexual-booster-men": CL_PROMO_CALENDAR,
+  "anti-stress": CL_PROMO_CALENDAR
 });
 ```
+
+`clActivePromo(product, now)` devuelve solo la ventana vigente o `null`.
+`clNextPromoBoundary(now)` devuelve la próxima apertura o cierre, o `null` si no
+quedan cambios. Ambos aceptan un timestamp o `Date` para verificar los límites.
 
 #### Regla Estricta: `singleOnly`
 - Si `2 * promo.price <= product.pricePack` (ej. $22.49 × 2 = $44.98 ≤ $49.99) ó `3 * promo.price <= product.pricePack3` (ej. $22.49 × 3 = $67.47 ≤ $74.99):
@@ -238,10 +245,19 @@ El ciclo de promociones está 100% automatizado mediante GitHub Actions:
   3. Si hubo cambios, actualiza `contentModified` en `site.config.json` para alertar a los buscadores a través de `sitemap.xml`.
   4. Crea una rama `auto/catalogo-<fecha>`, abre un Pull Request, ejecuta la suite de validación CI, espera la aprobación de checks y lo fusiona automáticamente a `main`.
 
-### 5.2. Simulación de Fechas Futuras
+### 5.2. Pestañas abiertas y HTML de la campaña anterior
+
+`initPromoClock()` programa la siguiente frontera y comprueba el estado al recuperar
+foco, visibilidad o una página desde la caché de navegación. Actualiza franja,
+bandas, tarjetas, ficha, precios editoriales y carrito sin recargar ni perder filtros
+o cantidades. Las animaciones de las bandas usan los nodos vigentes. Las tarjetas
+estáticas solo se hidratan si su precio coincide con el vigente, también cuando
+ambas campañas tienen descuento.
+
+### 5.3. Simulación de Fechas Futuras
 Para verificar cómo se verá el sitio al expirar la promoción o en una fecha específica:
 ```bash
-npm run refresh -- --now=2026-11-01T00:00:00-05:00
+npm run refresh -- --now=2026-12-03T00:00:00-05:00
 ```
 Permite comprobar localmente que al llegar las 00:00 del día posterior al cierre, todo el sitio retorna de forma limpia a los precios estándar de lista ($29.99, packs a $49.99 y $74.99) sin dejar residuos visuales.
 
@@ -252,8 +268,8 @@ Permite comprobar localmente que al llegar las 00:00 del día posterior al cierr
 Sigue esta lista de verificación cada mes para desplegar una nueva campaña:
 
 ### Paso 1: Configurar la campaña en `js/products.js`
-1. Crea la constante del mes (ej. `CL_PROMO_NOVIEMBRE`) con `monthLabel`, `endsLabel`, `start`, `end`, `priceValidUntil` y `singleOnly`.
-2. Asigna las promociones en `CL_PROMOS` para cada producto que participe.
+1. Define las ventanas del calendario con `monthLabel`, `endsLabel`, `price`, `start`, `end`, `priceValidUntil`, `singleOnly` y, si corresponde, `campaignLabel`.
+2. Asigna una lista inmutable de ventanas en `CL_PROMOS` a cada producto participante; comprueba que no se solapen.
 3. Si utilizas un grupo nuevo, defínelo en `CL_PROMO_GROUPS` y añade las imágenes correspondientes a `assets/img/` (y a la lista blanca de `scripts/build.mjs`).
 
 ### Paso 2: Regenerar artefactos derivados

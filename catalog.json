@@ -5,7 +5,7 @@
   "language": "es-EC",
   "country": "EC",
   "countryName": "Ecuador",
-  "lastModified": "2026-11-01",
+  "lastModified": "2026-11-04",
   "agentContentReviewed": "2026-09-21",
   "documentation": "https://chiclove-ec.com/agents.md",
   "index": "https://chiclove-ec.com/llms.txt",
@@ -416,7 +416,7 @@
       "idealFor": "Personas adultas que notan más caída de lo normal, cabello débil o uñas que se quiebran, y prefieren una gomita diaria con sabor a tragar cápsulas.",
       "notFor": "La caída intensa, repentina o en placas necesita valoración de un dermatólogo: puede deberse a tiroides, anemia o alopecia areata, que un complemento no resuelve. Por la biotina, hay que avisar al médico antes de un análisis de sangre.",
       "standout": "Es la fórmula con la que nació la marca. Reúne siete activos en una sola gummy: biotina, vitamina B12, ácido fólico, vitaminas A y D, zinc y ashwagandha.",
-      "summary": "Hair & Nails Forte es la gomita (gummy) de Chic&Love para cabello y uñas. Es la fórmula con la que nació la marca. Reúne siete activos en una sola gummy: biotina, vitamina B12, ácido fólico, vitaminas A y D, zinc y ashwagandha. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor arándanos y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/hair-nails-forte o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
+      "summary": "Hair & Nails Forte es la gomita (gummy) de Chic&Love para cabello y uñas. Es la fórmula con la que nació la marca. Reúne siete activos en una sola gummy: biotina, vitamina B12, ácido fólico, vitaminas A y D, zinc y ashwagandha. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor arándanos y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/hair-nails-forte o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
       "english": {
         "goal": "hair and nails",
         "flavor": "blueberry",
@@ -430,21 +430,17 @@
         "offers": [
           {
             "units": 1,
-            "price": 29.99,
+            "price": 23.99,
             "label": "1 frasco"
-          },
-          {
-            "units": 2,
-            "price": 49.99,
-            "label": "Pack x2"
-          },
-          {
-            "units": 3,
-            "price": 74.99,
-            "label": "Pack x3"
           }
         ],
-        "promotion": null
+        "promotion": {
+          "price": 23.99,
+          "listPrice": 29.99,
+          "percentOff": 20,
+          "endsOn": "2026-11-26",
+          "packsSuspended": true
+        }
       },
       "images": [
         "https://chiclove-ec.com/assets/img/hero-hair-nails.webp",
@@ -564,7 +560,7 @@
       "idealFor": "Personas adultas que notan la piel apagada, deshidratada o con menos firmeza y quieren complementar su rutina cosmética desde dentro.",
       "notFor": "No es apta para veganos ni vegetarianos ni para alergias a la proteína bovina, porque su colágeno es bovino. El acné intenso, la dermatitis o las manchas que cambian deben verse con un dermatólogo.",
       "standout": "Es la única fórmula del catálogo con colágeno, y lo combina con coenzima Q10, biotina y vitaminas C y E; la vitamina C contribuye a la formación normal de colágeno.",
-      "summary": "Radiant Skin Vitamins es la gomita (gummy) de Chic&Love para piel radiante. Es la única fórmula del catálogo con colágeno, y lo combina con coenzima Q10, biotina y vitaminas C y E; la vitamina C contribuye a la formación normal de colágeno. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor frutos rojos y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/radiant-skin o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
+      "summary": "Radiant Skin Vitamins es la gomita (gummy) de Chic&Love para piel radiante. Es la única fórmula del catálogo con colágeno, y lo combina con coenzima Q10, biotina y vitaminas C y E; la vitamina C contribuye a la formación normal de colágeno. Pauta: 2 gummies al día después de la comida. El frasco trae 60 gummies de sabor frutos rojos y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/radiant-skin o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
       "english": {
         "goal": "radiant skin",
         "flavor": "red berries",
@@ -578,21 +574,17 @@
         "offers": [
           {
             "units": 1,
-            "price": 29.99,
+            "price": 23.99,
             "label": "1 frasco"
-          },
-          {
-            "units": 2,
-            "price": 49.99,
-            "label": "Pack x2"
-          },
-          {
-            "units": 3,
-            "price": 74.99,
-            "label": "Pack x3"
           }
         ],
-        "promotion": null
+        "promotion": {
+          "price": 23.99,
+          "listPrice": 29.99,
+          "percentOff": 20,
+          "endsOn": "2026-11-26",
+          "packsSuspended": true
+        }
       },
       "images": [
         "https://chiclove-ec.com/assets/img/hero-radiant-skin.webp",
@@ -683,7 +675,7 @@
       "idealFor": "Personas adultas que se sienten hinchadas o pesadas después de comer, o que quieren acompañar un plan de alimentación, sin el sabor ácido del vinagre líquido.",
       "notFor": "No adelgaza por sí sola: acompaña una alimentación equilibrada y actividad física. Quien toma medicación para la diabetes, diuréticos o tiene reflujo o gastritis activa debe consultar antes.",
       "standout": "Es la fórmula del catálogo para la digestión: combina vinagre de manzana con extracto de jengibre en una gomita, sin el sabor ácido del vinagre líquido.",
-      "summary": "Vinagre de Manzana es la gomita (gummy) de Chic&Love para digestión y balance. Es la fórmula del catálogo para la digestión: combina vinagre de manzana con extracto de jengibre en una gomita, sin el sabor ácido del vinagre líquido. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. El frasco trae 60 gummies de sabor manzana y dura entre 30 y 60 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/vinagre-de-manzana o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
+      "summary": "Vinagre de Manzana es la gomita (gummy) de Chic&Love para digestión y balance. Es la fórmula del catálogo para la digestión: combina vinagre de manzana con extracto de jengibre en una gomita, sin el sabor ácido del vinagre líquido. Pauta: 2 gummies en ayunas, o 1 gummy después de la comida. El frasco trae 60 gummies de sabor manzana y dura entre 30 y 60 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/vinagre-de-manzana o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
       "english": {
         "goal": "digestion and balance",
         "flavor": "apple",
@@ -697,21 +689,17 @@
         "offers": [
           {
             "units": 1,
-            "price": 29.99,
+            "price": 23.99,
             "label": "1 frasco"
-          },
-          {
-            "units": 2,
-            "price": 49.99,
-            "label": "Pack x2"
-          },
-          {
-            "units": 3,
-            "price": 74.99,
-            "label": "Pack x3"
           }
         ],
-        "promotion": null
+        "promotion": {
+          "price": 23.99,
+          "listPrice": 29.99,
+          "percentOff": 20,
+          "endsOn": "2026-11-26",
+          "packsSuspended": true
+        }
       },
       "images": [
         "https://chiclove-ec.com/assets/img/hero-acv.webp",
@@ -799,7 +787,7 @@
       "idealFor": "Personas adultas que tardan en conciliar el sueño de forma ocasional, cambian de horario o viajan, y quieren una ayuda suave antes de dormir.",
       "notFor": "No es para menores de edad, embarazo ni lactancia. Tras tomarla no se debe conducir. Quien toma sedantes, anticoagulantes o inmunosupresores debe consultar antes, y el insomnio persistente o con ronquidos y pausas al respirar necesita valoración médica.",
       "standout": "Es la única fórmula nocturna del catálogo y la de pauta más ajustable, según el patrón de sueño de cada persona. Combina melatonina y vitamina B6.",
-      "summary": "Sleep Vitamins es la gomita (gummy) de Chic&Love para sueño reparador. Es la única fórmula nocturna del catálogo y la de pauta más ajustable, según el patrón de sueño de cada persona. Combina melatonina y vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. El frasco trae 60 gummies de sabor fresa y dura entre 20 y 60 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sleep-vitamins o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
+      "summary": "Sleep Vitamins es la gomita (gummy) de Chic&Love para sueño reparador. Es la única fórmula nocturna del catálogo y la de pauta más ajustable, según el patrón de sueño de cada persona. Combina melatonina y vitamina B6. Pauta: 1–3 gummies al día antes de dormir según tu patrón de sueño. El frasco trae 60 gummies de sabor fresa y dura entre 20 y 60 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sleep-vitamins o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
       "english": {
         "goal": "restful sleep",
         "flavor": "strawberry",
@@ -813,21 +801,17 @@
         "offers": [
           {
             "units": 1,
-            "price": 29.99,
+            "price": 23.99,
             "label": "1 frasco"
-          },
-          {
-            "units": 2,
-            "price": 49.99,
-            "label": "Pack x2"
-          },
-          {
-            "units": 3,
-            "price": 74.99,
-            "label": "Pack x3"
           }
         ],
-        "promotion": null
+        "promotion": {
+          "price": 23.99,
+          "listPrice": 29.99,
+          "percentOff": 20,
+          "endsOn": "2026-11-26",
+          "packsSuspended": true
+        }
       },
       "images": [
         "https://chiclove-ec.com/assets/img/hero-sleep.webp",
@@ -924,7 +908,7 @@
       "idealFor": "Mujeres adultas que notan menos deseo o energía, a menudo ligado al estrés o al cansancio, y buscan un apoyo con extractos botánicos.",
       "notFor": "No se recomienda en embarazo ni lactancia, ni sin consultar en caso de enfermedad tiroidea o condiciones sensibles a las hormonas. Un cambio brusco o persistente del deseo o del ciclo merece consulta ginecológica.",
       "standout": "Está formulada para la mujer, con maca, damiana y ashwagandha; su equivalente masculino es Sexual Booster Men, y no son intercambiables.",
-      "summary": "Sexual Booster Women es la gomita (gummy) de Chic&Love para energía íntima, pensada para mujeres adultas. Está formulada para la mujer, con maca, damiana y ashwagandha; su equivalente masculino es Sexual Booster Men, y no son intercambiables. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-women o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
+      "summary": "Sexual Booster Women es la gomita (gummy) de Chic&Love para energía íntima, pensada para mujeres adultas. Está formulada para la mujer, con maca, damiana y ashwagandha; su equivalente masculino es Sexual Booster Men, y no son intercambiables. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-women o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
       "english": {
         "goal": "intimate energy (women)",
         "flavor": "cherry",
@@ -938,21 +922,17 @@
         "offers": [
           {
             "units": 1,
-            "price": 29.99,
+            "price": 23.99,
             "label": "1 frasco"
-          },
-          {
-            "units": 2,
-            "price": 49.99,
-            "label": "Pack x2"
-          },
-          {
-            "units": 3,
-            "price": 74.99,
-            "label": "Pack x3"
           }
         ],
-        "promotion": null
+        "promotion": {
+          "price": 23.99,
+          "listPrice": 29.99,
+          "percentOff": 20,
+          "endsOn": "2026-11-26",
+          "packsSuspended": true
+        }
       },
       "images": [
         "https://chiclove-ec.com/assets/img/hero-sexual-w.webp",
@@ -1060,7 +1040,7 @@
       "idealFor": "Hombres adultos que buscan apoyo para la libido, la energía y la fertilidad, con maca, fenogreco, zinc y L-arginina.",
       "notFor": "Quien toma medicamentos para la presión arterial, nitratos, medicamentos para la disfunción eréctil o antidiabéticos debe consultar antes. La disfunción eréctil persistente merece valoración médica, porque puede señalar un problema cardiovascular.",
       "standout": "Es la fórmula masculina del catálogo, y la única con L-arginina y fenogreco; el zinc contribuye a la fertilidad normal.",
-      "summary": "Sexual Booster Men es la gomita (gummy) de Chic&Love para energía íntima, pensada para hombres adultos. Es la fórmula masculina del catálogo, y la única con L-arginina y fenogreco; el zinc contribuye a la fertilidad normal. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-men o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
+      "summary": "Sexual Booster Men es la gomita (gummy) de Chic&Love para energía íntima, pensada para hombres adultos. Es la fórmula masculina del catálogo, y la única con L-arginina y fenogreco; el zinc contribuye a la fertilidad normal. Pauta: 2 gummies al día después del desayuno. El frasco trae 60 gummies de sabor cereza y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/sexual-booster-men o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
       "english": {
         "goal": "intimate energy (men)",
         "flavor": "cherry",
@@ -1074,21 +1054,17 @@
         "offers": [
           {
             "units": 1,
-            "price": 29.99,
+            "price": 23.99,
             "label": "1 frasco"
-          },
-          {
-            "units": 2,
-            "price": 49.99,
-            "label": "Pack x2"
-          },
-          {
-            "units": 3,
-            "price": 74.99,
-            "label": "Pack x3"
           }
         ],
-        "promotion": null
+        "promotion": {
+          "price": 23.99,
+          "listPrice": 29.99,
+          "percentOff": 20,
+          "endsOn": "2026-11-26",
+          "packsSuspended": true
+        }
       },
       "images": [
         "https://chiclove-ec.com/assets/img/hero-sexual-m.webp",
@@ -1187,7 +1163,7 @@
       "idealFor": "Personas adultas que atraviesan una temporada de estrés alto, tensión o cambios, y quieren acompañarla con adaptógenos.",
       "notFor": "No se recomienda en embarazo ni lactancia, ni sin consultar en caso de enfermedad tiroidea, autoinmune o hepática, o si se toman ansiolíticos, antidepresivos o sedantes. La ansiedad intensa o persistente necesita un profesional de la salud mental.",
       "standout": "Combina tres botánicos clásicos para el estrés: ashwagandha (adaptógeno), melisa y ginseng.",
-      "summary": "Anti-Stress Gummies es la gomita (gummy) de Chic&Love para calma y enfoque. Combina tres botánicos clásicos para el estrés: ashwagandha (adaptógeno), melisa y ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. El frasco trae 60 gummies de sabor naranja y dura unos 30 días. Cuesta $29.99 el frasco de 60 gummies (pack x2 $49.99, pack x3 $74.99), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/anti-stress o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
+      "summary": "Anti-Stress Gummies es la gomita (gummy) de Chic&Love para calma y enfoque. Combina tres botánicos clásicos para el estrés: ashwagandha (adaptógeno), melisa y ginseng. Pauta: 2 gummies al día durante períodos altos de estrés y/o ansiedad. El frasco trae 60 gummies de sabor naranja y dura unos 30 días. Cuesta $23.99 el frasco de 60 gummies por promoción hasta el 26 de noviembre (precio habitual $29.99; los packs no se ofrecen mientras dure), IVA incluido, con envíos a todo Ecuador y envío gratis desde $49,99. Se compra en la tienda oficial https://chiclove-ec.com/anti-stress o por WhatsApp +593 98 759 1741; la distribuye en Ecuador Laboratorios Lira S.A. (RUC 1790336352001).",
       "english": {
         "goal": "calm and focus",
         "flavor": "orange",
@@ -1201,21 +1177,17 @@
         "offers": [
           {
             "units": 1,
-            "price": 29.99,
+            "price": 23.99,
             "label": "1 frasco"
-          },
-          {
-            "units": 2,
-            "price": 49.99,
-            "label": "Pack x2"
-          },
-          {
-            "units": 3,
-            "price": 74.99,
-            "label": "Pack x3"
           }
         ],
-        "promotion": null
+        "promotion": {
+          "price": 23.99,
+          "listPrice": 29.99,
+          "percentOff": 20,
+          "endsOn": "2026-11-26",
+          "packsSuspended": true
+        }
       },
       "images": [
         "https://chiclove-ec.com/assets/img/hero-antistress.webp",

@@ -53,7 +53,7 @@ export function loadCatalog({ now = process.env.CL_NOW } = {}) {
       "\nthis.clBottleDuration=clBottleDuration;" +
       "\nthis.CL_PROMOS=CL_PROMOS; this.CL_PROMO_GROUPS=CL_PROMO_GROUPS;" +
       "\nthis.clPromotedProducts=clPromotedProducts; this.clPromoBands=clPromoBands;" +
-      "\nthis.clCatalogOfferText=clCatalogOfferText;"
+      "\nthis.clCatalogOfferText=clCatalogOfferText; this.clNextPromoBoundary=clNextPromoBoundary;"
   ).call(catalog, catalogClock(now));
   return catalog;
 }
