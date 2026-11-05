@@ -123,9 +123,12 @@ const graph = JSON.parse(graphMatch[1]);
 const itemList = graph["@graph"].find((node) => node["@type"] === "ItemList");
 if (!itemList) throw new Error("No se encontró el ItemList de la portada");
 itemList.itemListElement = listItems();
-itemList.isPartOf = { "@id": BASE + "#website" };
-itemList.about = { "@id": BASE + "#organization" };
-itemList.dateModified = CONTENT_MODIFIED;
+itemList["@id"] = BASE + "#products";
+itemList.mainEntityOfPage = { "@id": BASE };
+// ItemList es Intangible: las fechas y la relación con el sitio pertenecen a WebPage.
+delete itemList.isPartOf;
+delete itemList.about;
+delete itemList.dateModified;
 
 const organization = graph["@graph"].find((node) => [].concat(node["@type"]).includes("Organization"));
 const website = graph["@graph"].find((node) => node["@type"] === "WebSite");
@@ -135,7 +138,6 @@ organization.alternateName = ["Chic&Love", "Chic & Love", "Chic and Love Ecuador
 organization.image = BASE + "assets/img/share-square.jpg";
 // Una sola identidad ecuatoriana; no proponer el nombre de la tienda española.
 website.alternateName = REGIONAL_ALIASES;
-organization.dateModified = CONTENT_MODIFIED;
 organization.hasShippingService = shippingPolicy({ base: BASE, freeShipping: catalog.CL_FREE_SHIPPING });
 organization.hasOfferCatalog = {
   "@type": "OfferCatalog",
@@ -273,21 +275,41 @@ for (const [file, page] of Object.entries(editorialPages)) {
     dateModified: CONTENT_MODIFIED,
     isPartOf: { "@id": BASE + "#website" },
     about: { "@id": BASE + "#organization" },
-    publisher: { "@id": BASE + "#organization" }
+    publisher: { "@id": BASE + "#organization" },
+    ...(file === "index.html" ? { mainEntity: { "@id": BASE + "#products" } } : {})
   }));
 }
 
-const connectedTypes = new Set(["Product", "CollectionPage", "FAQPage", "WebPage", "AboutPage", "ContactPage"]);
+const connectedTypes = new Set(["CollectionPage", "FAQPage", "WebPage", "AboutPage", "ContactPage"]);
 const allIndexablePages = [
   "index.html", "tienda.html", "nosotros.html", "about.html", "contact.html", "privacy.html", "terms.html",
   ...catalog.CL_PRODUCTS.map((product) => product.id + ".html")
 ];
 
+function normalizeOrganizations(value) {
+  if (!value || typeof value !== "object") return;
+  const types = [].concat(value["@type"] ?? []);
+  if (types.includes("Organization") && !types.includes("LocalBusiness")) {
+    // OnlineStore hereda Organization, no LocalBusiness. Conserva el pago en la
+    // propiedad admitida; la moneda y los precios siguen en las ofertas Product.
+    if (value.paymentAccepted && !value.acceptedPaymentMethod) {
+      value.acceptedPaymentMethod = value.paymentAccepted;
+    }
+    delete value.paymentAccepted;
+    delete value.currenciesAccepted;
+    delete value.priceRange;
+    delete value.dateModified;
+  }
+  for (const child of Object.values(value)) normalizeOrganizations(child);
+}
+
 for (const file of allIndexablePages) {
   const path = resolve(root, file);
   const html = readFileSync(path, "utf8");
+  const hasBreadcrumb = html.includes('"@type":"BreadcrumbList"');
   const rewritten = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (block, json) => {
     const data = JSON.parse(json);
+    normalizeOrganizations(data);
     const nodes = data["@graph"] ?? [data];
     for (const node of nodes) {
       const types = [].concat(node["@type"]);
@@ -302,16 +324,18 @@ for (const file of allIndexablePages) {
         node.name = node.name.replaceAll("Chic & Love Ecuador", SITE_NAME).replaceAll("Chic&Love Ecuador", SITE_NAME);
       }
       if (types.includes("BreadcrumbList")) {
-        node.isPartOf = { "@id": BASE + "#website" };
-        node.about = { "@id": BASE + "#organization" };
-        node.publisher = { "@id": BASE + "#organization" };
-        node.dateModified = CONTENT_MODIFIED;
+        node["@id"] = BASE + pagePath(file) + "#breadcrumb";
+        delete node.isPartOf;
+        delete node.about;
+        delete node.publisher;
+        delete node.dateModified;
       }
       if (types.some((type) => connectedTypes.has(type))) {
         node.dateModified = CONTENT_MODIFIED;
         node.isPartOf = { "@id": BASE + "#website" };
         node.about = { "@id": BASE + "#organization" };
         node.publisher = { "@id": BASE + "#organization" };
+        if (hasBreadcrumb) node.breadcrumb = { "@id": BASE + pagePath(file) + "#breadcrumb" };
       }
       if (types.includes("WebSite")) {
         node.dateModified = CONTENT_MODIFIED;

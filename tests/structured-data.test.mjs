@@ -49,7 +49,7 @@ function plainText(html) {
   return text.replace(/\s+/g, " ").trim();
 }
 
-const primaryTypes = new Set(["Product", "CollectionPage", "FAQPage", "WebPage", "AboutPage", "ContactPage"]);
+const primaryTypes = new Set(["CollectionPage", "FAQPage", "WebPage", "AboutPage", "ContactPage"]);
 const nodesOfType = (file, types) =>
   jsonLd(file).filter((node) => [].concat(node["@type"]).some((type) => types.has(type)));
 
@@ -228,8 +228,7 @@ test("la Organization declara alias de marca, contacto y ubicación", () => {
   assert.equal(org.address.streetAddress, catalog.CL_LEGAL.streetAddress);
   assert.equal(org.address.addressLocality, catalog.CL_LEGAL.locality);
   assert.equal(org.address.addressRegion, catalog.CL_LEGAL.region);
-  assert.equal(org.currenciesAccepted, "USD");
-  assert.equal(org.paymentAccepted, "Transferencia bancaria");
+  assert.equal(org.acceptedPaymentMethod, "Transferencia bancaria");
   assert.match(org.contactPoint.url, new RegExp("wa\\.me/" + catalog.CL_WHATSAPP));
   assert.ok(org.hasOfferCatalog, "falta hasOfferCatalog");
   assert.equal(org.hasOfferCatalog.itemListElement.length, catalog.CL_PRODUCTS.length);
@@ -303,7 +302,7 @@ test("las entidades editoriales usan la fecha configurada y los mismos IDs", () 
     for (const node of nodesOfType(page, primaryTypes)) {
       assert.equal(node.dateModified, contentModified, `${page}: fecha desincronizada en ${node["@type"]}`);
       const types = [].concat(node["@type"]);
-      if (types.some((type) => ["Product", "FAQPage", "CollectionPage", "WebPage", "AboutPage", "ContactPage"].includes(type))) {
+      if (types.some((type) => primaryTypes.has(type))) {
         assert.equal(node.isPartOf?.["@id"], websiteId, `${page}: isPartOf`);
         assert.equal(node.about?.["@id"], organizationId, `${page}: about`);
       }
@@ -320,6 +319,48 @@ test("las entidades editoriales usan la fecha configurada y los mismos IDs", () 
   assert.equal(website.publisher?.["@id"], organizationId);
   assert.equal(website.dateModified, contentModified);
   assert.ok(!jsonLd("index.html").some((node) => "aggregateRating" in node));
+});
+
+test("las fichas conectan el producto, su página y sus rutas de exploración", () => {
+  for (const product of catalog.CL_PRODUCTS) {
+    const file = product.id + ".html";
+    const page = byType(file, "WebPage");
+    const item = byType(file, "Product");
+    const breadcrumb = byType(file, "BreadcrumbList");
+    assert.equal(page["@id"], BASE + pagePath(file));
+    assert.equal(item.mainEntityOfPage?.["@id"], page["@id"]);
+    assert.equal(page.mainEntity?.["@id"], item["@id"]);
+    assert.equal(page.breadcrumb?.["@id"], breadcrumb["@id"]);
+    assert.equal(page.inLanguage, "es-EC");
+    assert.equal(item.offers.priceCurrency, "USD");
+  }
+  const home = byType("index.html", "WebPage");
+  const collection = byType("index.html", "ItemList");
+  assert.equal(home.mainEntity?.["@id"], collection["@id"]);
+  assert.equal(collection.mainEntityOfPage?.["@id"], home["@id"]);
+});
+
+test("el marcado no aplica propiedades editoriales a productos, listas u organizaciones", () => {
+  // Dominios de Schema.org: WebSite/WebPage heredan CreativeWork; Product,
+  // ItemList y Organization no. Ver https://schema.org/dateModified y /isPartOf.
+  const forbidden = {
+    Product: ["inLanguage", "dateModified", "isPartOf", "about", "publisher"],
+    ItemList: ["dateModified", "isPartOf", "about", "publisher"],
+    BreadcrumbList: ["dateModified", "isPartOf", "about", "publisher"],
+    Organization: ["dateModified", "currenciesAccepted", "paymentAccepted", "priceRange"]
+  };
+  function inspect(value, file) {
+    if (!value || typeof value !== "object") return;
+    for (const type of [].concat(value["@type"] ?? [])) {
+      for (const property of forbidden[type] ?? []) {
+        assert.ok(!(property in value), `${file}: ${type}.${property} no pertenece a ese tipo`);
+      }
+    }
+    for (const child of Object.values(value)) inspect(child, file);
+  }
+  const pages = ["index.html", "tienda.html", "nosotros.html", "about.html", "contact.html", "privacy.html", "terms.html",
+    ...catalog.CL_PRODUCTS.map(product => product.id + ".html")];
+  for (const file of pages) inspect(jsonLd(file), file);
 });
 
 test("el sitemap usa la fecha configurada exclusivamente en URLs indexables", () => {

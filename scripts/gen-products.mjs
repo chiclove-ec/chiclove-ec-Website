@@ -1316,7 +1316,7 @@ for (const p of catalog.CL_PRODUCTS) {
     brand: { "@type": "Brand", name: "Chic&Love" },
     category: p.goalLabel,
     url: url,
-    inLanguage: "es-EC",
+    mainEntityOfPage: { "@id": url },
     nonProprietaryName: "Complemento alimenticio en gummies — " + p.goalLabel,
     activeIngredient: p.actives,
     recommendedIntake: {
@@ -1345,10 +1345,6 @@ for (const p of catalog.CL_PRODUCTS) {
       { "@type": "PropertyValue", name: "Sin lactosa", value: p.badges.includes("Sin lactosa") }
     ],
     ...(siblings.length ? { isSimilarTo: siblings.map((other) => ({ "@id": productId(other) })) } : {}),
-    dateModified: CONTENT_MODIFIED,
-    isPartOf: { "@id": BASE + "#website" },
-    about: { "@id": BASE + "#organization" },
-    publisher: { "@id": BASE + "#organization" },
     offers: {
       "@type": "Offer",
       url: url,
@@ -1391,6 +1387,22 @@ for (const p of catalog.CL_PRODUCTS) {
     }
   };
 
+  // El idioma, la fecha y el editor describen la página, no el suplemento físico.
+  const pageLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": url,
+    url,
+    name: title,
+    inLanguage: "es-EC",
+    dateModified: CONTENT_MODIFIED,
+    isPartOf: { "@id": BASE + "#website" },
+    about: { "@id": BASE + "#organization" },
+    publisher: { "@id": BASE + "#organization" },
+    mainEntity: { "@id": productId(p) },
+    breadcrumb: { "@id": url + "#breadcrumb" }
+  };
+
   // Glosario de los activos de esta fórmula, con su entidad externa. Va en su propio
   // bloque para que un rastreador que solo lea datos estructurados pueda desambiguar
   // cada ingrediente sin descargar /ingredientes.md.
@@ -1407,10 +1419,7 @@ for (const p of catalog.CL_PRODUCTS) {
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    isPartOf: { "@id": BASE + "#website" },
-    about: { "@id": BASE + "#organization" },
-    publisher: { "@id": BASE + "#organization" },
-    dateModified: CONTENT_MODIFIED,
+    "@id": url + "#breadcrumb",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Inicio", item: BASE },
       { "@type": "ListItem", position: 2, name: "Tienda", item: BASE + pagePath("tienda.html") },
@@ -1464,6 +1473,7 @@ for (const p of catalog.CL_PRODUCTS) {
     favAnchor,
     heroPreload + "\n" +
     '  <script type="application/ld+json">' + JSON.stringify(productLd) + "</script>\n" +
+      '  <script type="application/ld+json">' + JSON.stringify(pageLd) + "</script>\n" +
       '  <script type="application/ld+json">' + JSON.stringify(activesLd) + "</script>\n" +
       '  <script type="application/ld+json">' + JSON.stringify(breadcrumbLd) + "</script>\n" +
       favAnchor

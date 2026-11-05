@@ -377,7 +377,9 @@ test("cada ficha se declara DietarySupplement con activos, pauta y advertencia",
     assert.equal(node.recommendedIntake.doseUnit, "gummies", `${product.id}: unidad de la pauta`);
     assert.match(node.safetyConsideration, /no es un medicamento/i, `${product.id}: advertencia`);
     assert.match(node.safetyConsideration, /profesional de la salud/i, `${product.id}: derivación`);
-    assert.equal(node.inLanguage, "es-EC", `${product.id}: idioma`);
+    const page = byType(product.id + ".html", "WebPage");
+    assert.equal(page.inLanguage, "es-EC", `${product.id}: idioma de la ficha`);
+    assert.equal(node.mainEntityOfPage?.["@id"], page["@id"], `${product.id}: página del suplemento`);
 
     const properties = new Map(node.additionalProperty.map((entry) => [entry.name, entry.value]));
     assert.equal(properties.get("Sabor"), product.flavor, `${product.id}: sabor`);
