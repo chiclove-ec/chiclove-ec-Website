@@ -2066,16 +2066,17 @@ Ecuador. Puedes contactarnos en [ventas@laboratorioslira.com](mailto:ventas@labo
 ### Al navegar el sitio
 
 Si la persona acepta, usamos Google Analytics 4 y, cuando esté habilitado, Microsoft Clarity para
-conocer visitas, páginas consultadas, productos vistos, clics y navegación general. La analítica es
+conocer visitas, campañas de origen, páginas y productos consultados, navegación, profundidad de lectura, tiempo de interacción, rendimiento y fallos técnicos. La analítica es
 opcional y solo se activa después del consentimiento; si se rechaza, esas herramientas no cargan.
-No enviamos nombres, teléfonos, mensajes de WhatsApp ni el contenido del carrito. El proveedor de
+No enviamos nombres, teléfonos ni conversaciones de WhatsApp. Con consentimiento enviamos eventos del catálogo público: productos, variantes, cantidades y valores de las interacciones con el carrito, sin identificar a la persona con sus datos de contacto. El proveedor de
 alojamiento puede registrar peticiones técnicas en sus propios registros.
+
+GA4 conserva los datos de usuario y eventos usados en exploraciones durante 14 meses; el plazo del usuario puede reiniciarse con actividad nueva. Los informes estadísticos agregados tienen su propio tratamiento de conservación.
 
 ### Al usar el carrito
 
 Los productos añadidos se guardan en el **almacenamiento local del navegador** (`localStorage`),
-en el dispositivo de la persona. No se envían a ningún servidor, no los podemos leer y desaparecen
-al vaciar el carrito o borrar los datos del sitio.
+en el dispositivo de la persona. Este estado local desaparece al vaciar el carrito o borrar los datos del sitio. Si la persona acepta la analítica, las acciones del carrito generan las estadísticas descritas arriba; el mensaje del pedido no se envía a la herramienta de analítica.
 
 ### Al escribir por WhatsApp
 

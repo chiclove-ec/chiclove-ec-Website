@@ -16,7 +16,8 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 windows = module.date_windows(dt.date(2026, 9, 7))
 html = module.report_html(module.sample_data(), windows, dt.datetime(2026, 9, 7, 14, tzinfo=ZoneInfo("America/Guayaquil")))
-assert "<svg" in html
+assert 'role="presentation"' in html
+assert "<svg" not in html  # Correo compatible también con clientes sin SVG.
 assert "marketing@laboratorioslira.com" in html
 assert "Hair &amp; Nails Forte" in html
 assert windows["current_start"].isoformat() == "2026-08-31"

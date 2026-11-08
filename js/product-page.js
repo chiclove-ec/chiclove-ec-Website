@@ -129,7 +129,11 @@
   }
 
   function chooseVariant(index, restoreFocus) {
+    var previous = state.variant;
     state.variant = variants[index].key;
+    if (previous !== state.variant && window.clAnalytics) window.clAnalytics.track("variant_select", {
+      item_id: product.id, item_variant: state.variant, currency: "USD", value: variants[index].price
+    });
     renderVariants();
     updateBuy();
     if (restoreFocus) vBox.querySelectorAll(".variant-opt")[index].focus();
@@ -210,12 +214,22 @@
     document.getElementById("pd-sticky-variant").textContent = state.variant === "uno" ? chosen : chosen + (state.qty > 1 ? " por " + state.qty : "");
   }
 
+  function trackQuantity(previous) {
+    if (previous !== state.qty && window.clAnalytics) window.clAnalytics.track("quantity_change", {
+      item_id: product.id, item_variant: state.variant, previous_quantity: previous, quantity: state.qty, interaction_type: "product"
+    });
+  }
+
   document.getElementById("pd-qminus").addEventListener("click", function () {
+    var previous = state.qty;
     state.qty = Math.max(1, state.qty - 1);
+    trackQuantity(previous);
     updateBuy();
   });
   document.getElementById("pd-qplus").addEventListener("click", function () {
+    var previous = state.qty;
     state.qty = Math.min(99, state.qty + 1);
+    trackQuantity(previous);
     updateBuy();
   });
   document.getElementById("pd-add").addEventListener("click", function () {
@@ -227,21 +241,8 @@
 
   refreshVariants();
   document.addEventListener("cl:promotionchange", refreshVariants);
-  if (window.clAnalytics) {
-    window.clAnalytics.track("view_item", {
-      item_id: product.id,
-      item_name: product.name,
-      price: clSinglePrice(product),
-      currency: "USD",
-      items: [{
-        item_id: product.id,
-        item_name: product.name,
-        item_category: product.goalLabel,
-        price: clSinglePrice(product),
-        quantity: 1
-      }]
-    });
-  }
+  // analytics.js mide también las aceptaciones del consentimiento posteriores.
+  document.dispatchEvent(new CustomEvent("cl:catalogrender"));
 
   var sticky = document.getElementById("pd-sticky");
   var buyBox = document.querySelector(".pd-buy");
