@@ -127,7 +127,7 @@ que toda acción de GitHub esté anclada a un SHA.
 | `indexnow.yml` | En cada push a `main` | Espera a que el check «Cloudflare Pages» del commit quede en verde y avisa a IndexNow |
 | `refresh-catalog.yml` | 00:07 de Ecuador, con dos reintentos | Regenera lo derivado cuando una promoción abre o cierra, y lo fusiona por PR |
 | `deploy-cloudflare.yml` | Manual | Vía de recuperación con CI y Wrangler; la publicación normal la hace la integración Git nativa de Cloudflare, sin dos despliegues automáticos |
-| `weekly-analytics-report.yml` | Lunes 09:00 (Ecuador) | Envía por correo el informe de GA4 |
+| `weekly-analytics-report.yml` | Lunes 09:43 (Ecuador) | Envía por correo el informe de GA4 |
 
 Las acciones están ancladas por SHA y Dependabot propone sus actualizaciones una vez al mes
 (`.github/dependabot.yml`). El proyecto no tiene dependencias de npm ni de Python.
@@ -244,8 +244,10 @@ Para cambiar el número, edita `CL_WHATSAPP` en `js/products.js`.
 
 `js/analytics.js` está incluido en todas las páginas. Google Analytics 4 ya está configurado y la
 web pide consentimiento antes de cargarlo. Registra visitas, productos vistos, filtros, clics de
-contacto con contexto de página, carrito, inicio de checkout, intención de lead por WhatsApp y
-preguntas frecuentes, sin enviar nombres, teléfonos, mensajes ni el contenido del carrito. El
+contacto con contexto de página, carrito, inicio de pedido e intención por WhatsApp, filtros,
+preguntas, profundidad de lectura, secciones visibles, tiempo activo, variantes, cantidades y
+tiempos de carga. Los eventos de catálogo incluyen productos, variantes, cantidades y valores;
+no se envían datos de contacto, conversaciones, URLs con consultas ni texto libre. El
 evento `generate_lead` sólo se emite cuando se abre correctamente la ventana de WhatsApp; no
 representa una compra confirmada. Conserva el archivo `googlee70d0e2c8fe95f2c.html`,
 la etiqueta `google-site-verification` de la portada y el registro DNS de verificación
@@ -272,13 +274,47 @@ Las exclusiones «Página con redirección» de HTTP, www y `.html` son esperada
 destino es la URL canónica. Una página «Rastreada: actualmente sin indexar» necesita
 revisión individual; no se arregla retirándola ni solicitándola repetidamente.
 
+### Eventos y lectura de los datos
+
+La medición se inicia al aceptar el consentimiento, incluso si se acepta después de cargar una
+ficha. Rechazar detiene los eventos y desactiva GA4. Las exposiciones (`view_item_list`) se cuentan
+cuando una tarjeta o una escena activa es visible; se distinguen `featured`, `catalog_<filtro>`,
+`related` y `home_story`. La lectura registra 25/50/75/90/100 % y los hitos de tiempo activo
+10/30/60/120/300 segundos, con la página visible y actividad en los últimos 30 segundos.
+
+Las UTM admitidas son source, medium, campaign, id y content con etiquetas de campaña de hasta
+64 caracteres (letras, cifras, guion y guion bajo; comienzan por letra y rechazan secuencias de
+7 o más cifras). No se recoge `utm_term`. Usar etiquetas públicas, nunca datos de una persona.
+
+En **GA4 → Administrar → Definiciones personalizadas**, crear dimensiones de alcance Evento
+para `percent_scrolled`, `section_id`, `faq_id`, `filter_id`, `link_context`, `active_seconds`,
+`error_type`, `element_id` y `metric_name`; y una métrica `metric_value` para los tiempos en
+milisegundos. Registrar también `page_type` permite segmentar por tipo de página. El informe
+consulta metadata y solo pide desgloses que ya existen: el resto se indica como pendiente,
+sin sustituirlo por ceros. El registro no recupera el histórico anterior.
+
+Configuración aplicada el 8 de noviembre de 2026 en la propiedad `552393535`: diez dimensiones
+(incluido `page_type`), métrica `metric_value` en milisegundos, conservación de eventos de
+14 meses y `generate_lead` como evento clave una vez por sesión, sin valor predeterminado.
+El informe conserva además todas las acciones y usuarios por evento. Se desactivaron las
+mediciones automáticas redundantes y se añadieron 13 claves de URL a la ocultación de datos.
+
+En el flujo web, **Medición mejorada** debe mantener desactivados los clics salientes,
+búsquedas, formularios y cambios del historial automáticos: los eventos propios ya recogen
+las interacciones relevantes con URLs limpias. Así no se filtran parámetros de WhatsApp ni se
+duplican visitas por los cambios de ancla de las escenas. Marcar `generate_lead` como evento
+clave mide intención; no habilitar un evento `purchase` sin confirmación real.
+
 ### Informe automático de los lunes
 
 El workflow `.github/workflows/weekly-analytics-report.yml` genera y envía cada lunes a las
-09:00 de Ecuador un correo HTML a `marketing@laboratorioslira.com`. Incluye la semana cerrada
+09:43 de Ecuador un correo HTML a `marketing@laboratorioslira.com`. Incluye la semana cerrada
 anterior, comparación con la semana previa y una ventana consolidada de las últimas cuatro
 semanas: visitantes, sesiones, vistas, interacción, eventos, páginas, productos, canales,
-dispositivos, países y gráficas SVG.
+dispositivos, países, ciudades, tecnología y horarios. Distingue acciones y usuarios únicos,
+explica las tasas y no presenta la intención de WhatsApp como una venta. El HTML usa tablas y
+estilos en línea compatibles con clientes de correo, y adjunta un único ZIP con CSV agregados
+y un LEEME con periodos, unidades y advertencias de calidad.
 
 No requiere una plataforma de pago ni dependencias de Python: usa la GA4 Data API gratuita,
 OpenSSL disponible en el runner de GitHub Actions y el SMTP de una cuenta de correo que
@@ -310,6 +346,14 @@ El workflow también puede lanzarse manualmente desde **Actions → Weekly analy
 workflow** sin esperar al lunes: primero valida la configuración y solo consulta GA4 y envía el
 correo si el preflight pasa. Nunca pongas estas credenciales en HTML, JavaScript, el repositorio
 ni `js/analytics.js`.
+
+Para validar consultas reales sin enviar correo, activar `preview_only` al lanzar el workflow.
+El artefacto privado de Actions `analytics-preview` conserva HTML y CSV durante 7 días.
+La programación semanal mantiene el envío habitual. Para una vista previa local sin claves:
+
+```bash
+python3 scripts/analytics_report.py --fixture /ruta/datos.json --output /tmp/informe.html --export-dir /tmp/analitica
+```
 
 ## Editar datos comerciales
 

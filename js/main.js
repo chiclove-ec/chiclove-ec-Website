@@ -197,7 +197,7 @@ function analyticsCartItems(items) {
       item_name: product.name,
       item_category: product.goalLabel,
       item_variant: it.variant,
-      price: itemPrice(it),
+      price: it.qty ? itemTotal(it) / it.qty : itemPrice(it),
       quantity: it.qty
     };
   });
@@ -210,8 +210,12 @@ function cartAdd(id, variant, qty) {
   qty = Math.min(Math.max(parseInt(qty, 10) || 1, 1), 99);
   var items = cartLoad();
   var found = items.find(function (it) { return it.id === id && it.variant === variant; });
+  var beforeQty = found ? found.qty : 0;
   if (found) found.qty = Math.min(found.qty + qty, 99);
   else if (items.length < MAX_CART_LINES) items.push({ id: id, variant: variant, qty: qty });
+  else return;
+  qty = found ? found.qty - beforeQty : qty;
+  if (!qty) return;
   cartSave(items);
   renderCart();
   if (window.clAnalytics) {
@@ -227,7 +231,7 @@ function cartAdd(id, variant, qty) {
         item_name: p.name,
         item_category: p.goalLabel,
         item_variant: variant,
-        price: itemPrice({ id: id, variant: variant, qty: 1 }),
+        price: itemTotal({ id: id, variant: variant, qty: qty }) / qty,
         quantity: qty
       }]
     });
@@ -241,8 +245,17 @@ function cartSetQty(id, variant, qty) {
   var items = cartLoad();
   var it = items.find(function (x) { return x.id === id && x.variant === variant; });
   if (!it) return;
+  var previousQty = it.qty;
   qty = Number(qty);
   it.qty = Number.isInteger(qty) ? Math.max(0, Math.min(qty, 99)) : 0;
+  var delta = it.qty - previousQty;
+  if (delta && window.clAnalytics) {
+    window.clAnalytics.track(delta > 0 ? "add_to_cart" : "remove_from_cart", {
+      currency: "USD", value: itemTotal({ id: id, variant: variant, qty: Math.abs(delta) }),
+      items: analyticsCartItems([{ id: id, variant: variant, qty: Math.abs(delta) }])
+    });
+    window.clAnalytics.track("quantity_change", { item_id: id, item_variant: variant, previous_quantity: previousQty, quantity: it.qty, interaction_type: "cart" });
+  }
   cartSave(items.filter(function (x) { return x.qty > 0; }));
   renderCart();
 }
@@ -257,15 +270,9 @@ function cartRemove(id, variant) {
       item_name: clFindProduct(id).name,
       item_variant: variant,
       quantity: removed.qty,
+      value: itemTotal(removed),
       currency: "USD",
-      items: [{
-        item_id: id,
-        item_name: clFindProduct(id).name,
-        item_category: clFindProduct(id).goalLabel,
-        item_variant: variant,
-        price: itemPrice({ id: id, variant: variant, qty: 1 }),
-        quantity: removed.qty
-      }]
+      items: analyticsCartItems([removed])
     });
   }
 }
@@ -339,9 +346,18 @@ function checkoutWhatsApp() {
     toast("No se pudo abrir WhatsApp. Escríbenos desde el enlace de contacto.");
     return;
   }
-  var checkoutWindow = window.open(url, "_blank", "noopener,noreferrer");
+  // La página vacía permite detectar bloqueos y quitar opener antes de navegar.
+  var checkoutWindow = window.open("about:blank", "_blank");
   if (checkoutWindow) {
     checkoutWindow.opener = null;
+    try {
+      checkoutWindow.location.replace(url);
+    } catch (error) {
+      checkoutWindow.close();
+      if (window.clAnalytics) window.clAnalytics.track("checkout_error", { error_type: "navigation_failed" });
+      toast("No se pudo abrir WhatsApp. Intenta de nuevo o usa el enlace de contacto.");
+      return;
+    }
     if (window.clAnalytics) window.clAnalytics.track("begin_checkout", {
       items_count: items.length,
       value: cartTotal(items),
@@ -355,6 +371,9 @@ function checkoutWhatsApp() {
       currency: "USD",
       items: analyticsCartItems(items)
     });
+  } else {
+    if (window.clAnalytics) window.clAnalytics.track("checkout_error", { error_type: "popup_blocked" });
+    toast("Permite abrir la ventana de WhatsApp para continuar con tu pedido.");
   }
 }
 
@@ -815,6 +834,7 @@ function renderGrids() {
     observeReveals(grid);
     observeLazyImages(grid);
   });
+  document.dispatchEvent(new CustomEvent("cl:catalogrender"));
 }
 
 /* chips de filtro (tienda) */

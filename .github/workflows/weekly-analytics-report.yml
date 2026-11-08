@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "43 14 * * 1"
   workflow_dispatch:
+    inputs:
+      preview_only:
+        description: "Validar GA4 y generar una vista previa sin enviar correo"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -54,12 +59,26 @@ jobs:
           REPORT_FROM_EMAIL: ${{ secrets.REPORT_FROM_EMAIL }}
           REPORT_TO_EMAIL: marketing@laboratorioslira.com
           REPORT_TIMEZONE: America/Guayaquil
-        run: python3 scripts/analytics_report.py
+          REPORT_PREVIEW_ONLY: ${{ inputs.preview_only || false }}
+        run: |
+          if [ "$REPORT_PREVIEW_ONLY" = "true" ]; then
+            python3 scripts/analytics_report.py --output "$RUNNER_TEMP/analytics-preview/informe.html" --export-dir "$RUNNER_TEMP/analytics-preview"
+          else
+            python3 scripts/analytics_report.py
+          fi
+
+      - name: Save preview for review
+        if: inputs.preview_only
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: analytics-preview
+          path: ${{ runner.temp }}/analytics-preview
+          retention-days: 7
 
       # Los valores viajan por `env:` y nunca interpolados dentro del `run:`,
       # que es por donde entran las inyecciones en Actions.
       - name: Escalar el fallo a un issue visible
-        if: failure()
+        if: failure() && !inputs.preview_only
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}

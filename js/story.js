@@ -368,12 +368,17 @@
         window.scrollTo(0, top + travel * ((initial + 0.5) / total));
       }, { once: true });
     }
+    var lastMeasuredScene = -1;
     addScrubber(section, function (rect) {
       var p = pinnedProgress(rect);
       var exact = p * total;
       var index = clamp(Math.floor(exact), 0, total - 1);
       pinned = rect.top <= 1 && rect.bottom >= viewportH - 1;
       activate(index);
+      if (pinned && index !== lastMeasuredScene) {
+        document.dispatchEvent(new CustomEvent("cl:storyview"));
+        lastMeasuredScene = index;
+      } else if (!pinned) lastMeasuredScene = -1;
       syncHash(index);
       var active = scenes[index];
       setVar(active, "--lp", clamp(exact - index, 0, 1));
