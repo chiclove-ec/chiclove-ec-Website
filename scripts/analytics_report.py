@@ -530,6 +530,19 @@ def email_section(title: str, subtitle: str, content: str) -> str:
     return f'<tr><td class="pad" style="padding:24px 32px 8px;border-top:1px solid #eee9f0"><h2 style="margin:0 0 5px;font-size:20px;line-height:1.25;color:#34283f">{esc(title)}</h2><p style="margin:0 0 16px;font-size:12px;color:#7b7283">{esc(subtitle)}</p>{content}</td></tr>'
 
 
+def email_daily_bars(rows: List[Dict[str, Any]]) -> str:
+    maximum = max([1.0] + [number(row.get("sessions")) for row in rows])
+    bars = []
+    for row in rows:
+        value = max(0.0, number(row.get("sessions")))
+        width = min(100, max(1, round(value / maximum * 100))) if value else 0
+        fill = f'<td width="{width}%" height="8" bgcolor="#8b6aa9" style="font-size:0;line-height:0">&nbsp;</td>' if width else ""
+        rest = f'<td width="{100 - width}%" height="8" bgcolor="#eee8f3" style="font-size:0;line-height:0">&nbsp;</td>' if width < 100 else ""
+        label = esc(row.get("label"))
+        bars.append(f'<tr><td width="68" style="padding:5px 0;font-size:11px;color:#766a80">{label}</td><td style="padding:5px 8px"><div role="img" aria-label="{label}: {fmt(value)} sesiones"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>{fill}{rest}</tr></table></div></td><td width="40" align="right" style="font-size:11px;color:#51415e">{fmt(value)}</td></tr>')
+    return '<p style="margin:0 0 6px;font-size:12px;color:#766a80">Sesiones por día</p><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px">' + ''.join(bars) + '</table>'
+
+
 def report_insights(data: Dict[str, Any]) -> List[str]:
     weekly, previous = data.get("weekly", {}), data.get("previous", {})
     sessions = number(weekly.get("sessions"))
@@ -586,11 +599,13 @@ def report_html(data: Dict[str, Any], windows: Dict[str, dt.date], generated_at:
         '<p style="font-size:12px;color:#746780;line-height:1.6">WhatsApp mide intención, no ventas confirmadas. Inicio de pedido e intención describen la misma apertura y no se suman. Las filas no forman un embudo secuencial; una persona puede participar en varias.</p>' + email_table(["Indicador semanal", "Valor"], rate_rows))
     daily = {str(row.get("date")): row for row in data.get("daily", [])}
     daily_rows = []
+    chart_rows = []
     for offset in range(7):
         day = windows["current_start"] + dt.timedelta(days=offset)
         row = daily.get(day.strftime("%Y%m%d"), {})
         daily_rows.append([f"{day.day} {MONTHS[day.month-1]}", fmt(row.get("sessions")), fmt(row.get("activeUsers")), fmt(row.get("screenPageViews"))])
-    body += email_section("Tendencia diaria", "Semana cerrada. El CSV conserva cada fecha recuperada de los últimos 28 días.", email_table(["Día", "Sesiones", "Activos", "Vistas"], daily_rows))
+        chart_rows.append({"label": f"{day.day} {MONTHS[day.month-1]}", "sessions": number(row.get("sessions"))})
+    body += email_section("Tendencia diaria", "Semana cerrada. El CSV conserva cada fecha recuperada de los últimos 28 días.", email_daily_bars(chart_rows) + email_table(["Día", "Sesiones", "Activos", "Vistas"], daily_rows))
     def traffic(key: str, labels: List[str], dimensions: List[str], maximum: int = 6) -> str:
         rows = [[" · ".join(str(row.get(dim) or "(sin asignar)") for dim in dimensions), fmt(row.get("sessions")), fmt_pct(row["engagementRate"]) if "engagementRate" in row else "—"] for row in data.get(key, [])[:maximum]]
         return email_table(labels + ["Sesiones", "Interacción"], rows)

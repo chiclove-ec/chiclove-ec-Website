@@ -116,3 +116,14 @@ d['performance']=[{'customEvent:metric_name':'ttfb','averageCustomEvent:metric_v
 h=m.report_html(d,w,dt.datetime.now())
 assert '123 ms' in h and 'Rendimiento' in h
 `));
+
+test('la tendencia compara sesiones con barras HTML accesibles sin SVG', () => check(`
+d=m.sample_data()
+d['daily']=[{'date':'20261102','sessions':10,'activeUsers':8,'screenPageViews':20},{'date':'20261103','sessions':20,'activeUsers':12,'screenPageViews':40}]
+h=m.report_html(d,w,dt.datetime.now())
+assert 'Sesiones por día' in h
+assert 'aria-label="2 nov: 10 sesiones"' in h
+assert 'width="50%"' in h
+assert 'width="100%"' in h
+assert '<svg' not in h
+`));
