@@ -274,6 +274,25 @@ Las exclusiones «Página con redirección» de HTTP, www y `.html` son esperada
 destino es la URL canónica. Una página «Rastreada: actualmente sin indexar» necesita
 revisión individual; no se arregla retirándola ni solicitándola repetidamente.
 
+### Consentimiento de analítica y campañas
+
+El banner ofrece **Rechazar**, **Solo analítica** y **Analítica y campañas**. Consent Mode v2
+establece las cuatro señales en `denied` antes de cargar Google. Solo analítica concede
+`analytics_storage`; la elección expresa de campañas concede además `ad_storage` y `ad_user_data`.
+`ad_personalization`, Google Signals y la personalización de anuncios permanecen desactivados.
+
+La elección se guarda en `cl_consent_preferences_v2` y mantiene compatible la clave analítica
+anterior. Una aceptación antigua conserva exclusivamente analítica y muestra la nueva opción
+voluntaria; un rechazo antiguo se respeta. Retirar campañas conserva la analítica elegida y borra
+cookies `_gcl_*`; rechazar todo revoca las cuatro señales y elimina también las cookies analíticas.
+Los cambios se sincronizan con las otras pestañas.
+
+El [diagnóstico de Google de tasa 0 %](https://support.google.com/analytics/answer/14681508)
+se refiere a `ad_user_data` siempre rechazado, y no significa por sí solo que `analytics_storage`
+esté rechazado. La tasa final refleja decisiones reales: nunca convertir una aceptación de solo
+analítica en permiso publicitario para eliminar una alerta. El panel de Google puede seguir
+mostrando el histórico mientras procesa nuevas señales.
+
 ### Eventos y lectura de los datos
 
 La medición se inicia al aceptar el consentimiento, incluso si se acepta después de cargar una

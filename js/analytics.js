@@ -11,8 +11,12 @@
     clarityProjectId: ""
   };
   var CONSENT_KEY = "cl_analytics_consent_v1";
+  var PREFERENCES_KEY = "cl_consent_preferences_v2";
+  var preferences = readConsent();
   var state = {
-    consent: readConsent(),
+    consent: preferences.analytics,
+    campaignConsent: preferences.campaigns,
+    preferencesRecorded: preferences.recorded,
     toolsStarted: false,
     gaReady: false,
     pending: [],
@@ -84,11 +88,46 @@
   }
 
   function readConsent() {
-    try { return window.localStorage.getItem(CONSENT_KEY) || ""; } catch (e) { return ""; }
+    var empty = { analytics: "", campaigns: "denied", recorded: false };
+    try {
+      var saved = window.localStorage.getItem(PREFERENCES_KEY);
+      if (saved !== null && saved !== undefined) {
+        var parsed = JSON.parse(saved);
+        if (!parsed || parsed.version !== 2 || !/^(granted|denied)$/.test(parsed.analytics) || !/^(granted|denied)$/.test(parsed.campaigns)) return empty;
+        if (parsed.analytics === "granted" && window.localStorage.getItem(CONSENT_KEY) === "denied") {
+          return { analytics: "denied", campaigns: "denied", recorded: true, legacyWithdrawal: true };
+        }
+        return { analytics: parsed.analytics, campaigns: parsed.analytics === "granted" ? parsed.campaigns : "denied", recorded: true };
+      }
+      var legacy = window.localStorage.getItem(CONSENT_KEY);
+      return { analytics: /^(granted|denied)$/.test(legacy) ? legacy : "", campaigns: "denied", recorded: false };
+    } catch (e) { return empty; }
   }
 
-  function saveConsent(value) {
+  function saveConsent(value, campaigns) {
+    // Mantiene la retirada también en pestañas que todavía ejecutan la versión anterior.
     try { window.localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* modo privado */ }
+    try { window.localStorage.setItem(PREFERENCES_KEY, JSON.stringify({ version: 2, analytics: value, campaigns: campaigns })); } catch (e) { /* modo privado */ }
+  }
+
+  function googleConsent() {
+    var analytics = state.consent === "granted";
+    var campaigns = analytics && state.campaignConsent === "granted";
+    return { analytics_storage: analytics ? "granted" : "denied", ad_storage: campaigns ? "granted" : "denied",
+      ad_user_data: campaigns ? "granted" : "denied", ad_personalization: "denied" };
+  }
+
+  function initializeGoogleConsent() {
+    if (!validGaId(config.ga4MeasurementId)) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window["ga-disable-" + config.ga4MeasurementId] = state.consent !== "granted";
+    window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied",
+      ad_personalization: "denied", wait_for_update: 500 });
+  }
+
+  function updateGoogleConsent() {
+    if (window.gtag) window.gtag("consent", "update", googleConsent());
   }
 
   function loadScript(src, attributeName) {
@@ -101,16 +140,8 @@
 
   function startGoogleAnalytics() {
     if (!validGaId(config.ga4MeasurementId)) return;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window["ga-disable-" + config.ga4MeasurementId] = false;
-    window.gtag("consent", "default", {
-      analytics_storage: "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      wait_for_update: 500
-    });
+    updateGoogleConsent();
     window.gtag("js", new Date());
     window.gtag("set", googleDefaults());
     window.gtag("config", config.ga4MeasurementId, Object.assign(googleDefaults(), {
@@ -122,12 +153,6 @@
       "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(config.ga4MeasurementId),
       "ga4"
     );
-    window.gtag("consent", "update", {
-      analytics_storage: "granted",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied"
-    });
     state.gaReady = true;
   }
 
@@ -262,7 +287,7 @@
     state.lastActivity = Date.now();
     if (state.toolsStarted) {
       window["ga-disable-" + config.ga4MeasurementId] = false;
-      if (window.gtag) window.gtag("consent", "update", { analytics_storage: "granted" });
+      updateGoogleConsent();
       if (window.clarity) window.clarity("consent", true);
       pageView();
       measureContent();
@@ -277,37 +302,53 @@
     startBehavior();
   }
 
-  function setConsent(value) {
+  function setConsent(value, campaigns, persist) {
+    var previousCampaigns = state.campaignConsent;
     state.consent = value;
-    saveConsent(value);
+    state.campaignConsent = value === "granted" && campaigns === true ? "granted" : "denied";
+    if (persist !== false) {
+      state.preferencesRecorded = true;
+      saveConsent(value, state.campaignConsent);
+    }
     removeBanner();
-    if (value === "granted") activate();
+    if (value === "granted") {
+      if (previousCampaigns === "granted" && state.campaignConsent !== "granted") clearGoogleCookies(false, true);
+      activate();
+    }
     else {
       window["ga-disable-" + config.ga4MeasurementId] = true;
       state.pending = [];
       state.activeSeconds = 0;
       if (exposureObserver) { exposureObserver.disconnect(); exposureObserver = null; }
       state.observed = new WeakMap();
-      if (window.gtag) window.gtag("consent", "update", {
-        analytics_storage: "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied"
-      });
+      updateGoogleConsent();
       if (window.clarity) window.clarity("consent", false);
-      // Elimina las cookies propias de GA4 también en el dominio raíz.
-      (document.cookie || "").split(";").forEach(function (entry) {
-        var key = entry.split("=")[0].trim();
-        if (!/^_ga(?:_|$)|^_gid$|^_gat/.test(key)) return;
-        var base = key + "=; Max-Age=0; path=/; SameSite=Lax";
-        document.cookie = base;
-        var parts = window.location.hostname.split(".");
-        while (parts.length > 1) {
-          document.cookie = base + "; domain=." + parts.join(".");
-          parts.shift();
-        }
-      });
+      clearGoogleCookies(true, true);
     }
+  }
+
+  function clearGoogleCookies(analytics, campaigns) {
+    (document.cookie || "").split(";").forEach(function (entry) {
+      var key = entry.split("=")[0].trim();
+      if (!(analytics && /^_ga(?:_|$)|^_gid$|^_gat/.test(key)) && !(campaigns && /^_gcl_/.test(key))) return;
+      var base = key + "=; Max-Age=0; path=/; SameSite=Lax";
+      document.cookie = base;
+      var parts = window.location.hostname.split(".");
+      while (parts.length > 1) {
+        document.cookie = base + "; domain=." + parts.join(".");
+        parts.shift();
+      }
+    });
+  }
+
+  function synchronizeConsent() {
+    var next = readConsent();
+    if (next.legacyWithdrawal) saveConsent("denied", "denied");
+    state.preferencesRecorded = next.recorded;
+    if (state.consent !== next.analytics || state.campaignConsent !== next.campaigns) {
+      setConsent(next.analytics, next.campaigns === "granted", false);
+    }
+    if (next.analytics !== "denied" && !next.recorded) showBanner();
   }
 
   function listId(target) {
@@ -435,7 +476,9 @@
     var title = document.createElement("strong");
     title.textContent = "Tu privacidad importa";
     var copy = document.createElement("p");
-    copy.textContent = "Con tu permiso medimos visitas, navegación, productos e interacción para mejorar tu experiencia. No recogemos datos de contacto ni conversaciones.";
+    copy.textContent = state.consent === "granted" && !state.preferencesRecorded
+      ? "Ya aceptaste la analítica y la mantenemos activa. Puedes autorizar también que Google use estos datos para medir campañas, sin publicidad personalizada. Tu permiso anterior no incluye campañas."
+      : "Medimos visitas e interacciones solo con tu permiso. Puedes autorizar también que Google use estos datos para medir campañas, sin publicidad personalizada. No enviamos datos de contacto ni conversaciones.";
     var actions = document.createElement("div");
     actions.className = "cl-consent-actions";
     var reject = document.createElement("button");
@@ -446,9 +489,14 @@
     var accept = document.createElement("button");
     accept.type = "button";
     accept.className = "btn btn-primary";
-    accept.textContent = "Aceptar analítica";
+    accept.textContent = "Solo analítica";
     accept.addEventListener("click", function () { setConsent("granted"); });
-    actions.append(reject, accept);
+    var campaigns = document.createElement("button");
+    campaigns.type = "button";
+    campaigns.className = "btn btn-primary";
+    campaigns.textContent = "Analítica y campañas";
+    campaigns.addEventListener("click", function () { setConsent("granted", true); });
+    actions.append(reject, accept, campaigns);
     banner.append(title, copy, actions);
     document.body.appendChild(banner);
   }
@@ -456,11 +504,15 @@
   window.clAnalytics = {
     track: send,
     openPreferences: showBanner,
-    consentState: function () { return state.consent; }
+    consentState: function () { return state.consent; },
+    consentDetails: function () { return { analytics: state.consent === "granted" ? "granted" : "denied", campaigns: state.campaignConsent }; }
   };
 
+  if (preferences.legacyWithdrawal) saveConsent("denied", "denied");
+  if (state.consent === "denied") clearGoogleCookies(true, true);
+  initializeGoogleConsent();
   if (state.consent === "granted") activate();
-  else if (state.consent !== "denied") {
+  if (state.consent !== "denied" && !state.preferencesRecorded) {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showBanner);
     else showBanner();
   }
@@ -473,12 +525,13 @@
   document.addEventListener("cl:catalogrender", measureContent);
   document.addEventListener("cl:storyview", storyViews);
   window.addEventListener("storage", function (event) {
-    if (event.key === CONSENT_KEY && event.newValue !== state.consent) setConsent(event.newValue === "granted" ? "granted" : "denied");
+    if (event.key === PREFERENCES_KEY || event.key === CONSENT_KEY || event.key === null) synchronizeConsent();
   });
   window.addEventListener("pageshow", function (event) {
     if (!event.persisted) return;
     state.pageViewSent = false;
     state.productViewSent = false;
+    synchronizeConsent();
     pageView();
     measureContent();
   });

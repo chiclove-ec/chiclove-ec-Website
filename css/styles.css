@@ -1670,7 +1670,7 @@ p, li { text-wrap: pretty; }
 }
 .cl-consent-banner strong { display: block; text-align: center; font-size: 15px; font-weight: 700; letter-spacing: 0.01em; color: var(--ink-2); }
 .cl-consent-banner p { max-width: 470px; margin: 7px auto 0; text-align: center; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
-.cl-consent-actions { display: flex; justify-content: center; gap: 9px; margin-top: 14px; }
+.cl-consent-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 14px; }
 .cl-consent-actions .btn {
   min-width: 142px;
   min-height: 38px;
@@ -1695,7 +1695,8 @@ p, li { text-wrap: pretty; }
   .cl-consent-banner { left: 12px; bottom: 20px; transform: none; width: calc(100vw - 24px); padding: 17px 16px 16px; }
   .cl-consent-banner p { font-size: 12px; }
   .cl-consent-actions { gap: 8px; }
-  .cl-consent-actions .btn { flex: 1; min-width: 0; width: auto; padding-inline: 8px; }
+  .cl-consent-actions .btn { flex: 1 1 calc(50% - 4px); min-width: 0; width: auto; padding-inline: 8px; }
+  .cl-consent-actions .btn:last-child { flex-basis: 100%; }
 }
 
 /* Capa móvil compacta: prioriza producto, reduce repetición y mantiene aire visual. */

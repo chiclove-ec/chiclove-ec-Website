@@ -11,6 +11,7 @@ function browser(consent = "", path = "/tienda", options = {}) {
   const listeners = {};
   const nodes = new Map();
   const store = new Map([["cl_analytics_consent_v1", consent]]);
+  if (options.preferences !== undefined) store.set("cl_consent_preferences_v2", JSON.stringify(options.preferences));
   function node(tag) {
     return { tagName: tag, children: [], attrs: {}, setAttribute(k,v) { this.attrs[k]=v; }, getAttribute(k) { return this.attrs[k] || null; },
       append(...els) { this.children.push(...els); for (const el of els) if (el.id) nodes.set(el.id, el); }, appendChild(el) { this.append(el); },
@@ -39,7 +40,7 @@ test("no carga analítica sin consentimiento y la aceptación tardía envía una
   const b = browser();
   assert.equal(b.document.head.children.length,0);
   assert.equal(b.window.clAnalytics.track("add_to_cart",{ value: 20 }),false);
-  b.choose("Aceptar analítica");
+  b.choose("Solo analítica");
   assert.equal(b.events().filter(e=>e[1]==="page_view").length,1);
   assert.equal(b.events().filter(e=>e[1]==="add_to_cart").length,0);
 });
@@ -66,7 +67,7 @@ test("revocar y volver a aceptar actualiza el proveedor y detiene eventos", () =
   const length=b.events().length;
   assert.equal(b.window.clAnalytics.track("faq_open",{}),false);
   assert.equal(b.window["ga-disable-G-9QHN0YJKJW"],true);
-  b.window.clAnalytics.openPreferences(); b.choose("Aceptar analítica");
+  b.window.clAnalytics.openPreferences(); b.choose("Solo analítica");
   assert.equal(b.window["ga-disable-G-9QHN0YJKJW"],false);
   assert.equal(b.window.clAnalytics.track("faq_open",{}),true);
   assert.ok(b.events().length>length);
@@ -113,7 +114,7 @@ test('al reaceptar vuelve a observar las exposiciones actuales sin duplicar las 
   b.window.clAnalytics.openPreferences(); b.choose('Rechazar');
   b.observers[0].callback([{target:card,isIntersecting:true,intersectionRatio:.9}]);
   assert.equal(b.events().filter(e=>e[1]==='view_item_list').length,0);
-  b.window.clAnalytics.openPreferences(); b.choose('Aceptar analítica');
+  b.window.clAnalytics.openPreferences(); b.choose('Solo analítica');
   assert.ok(b.observers.at(-1).targets.includes(card),'se debe volver a observar la tarjeta tras reaceptar');
   assert.ok(b.observers.length>1 || b.observers[0].targets.length>1,'necesita una nueva observación para disparar la exposición vigente');
 });
@@ -122,7 +123,7 @@ test('las fichas se registran también al aceptar después de cargar', () => {
   const product={id:'hair-nails-forte',name:'Hair',price:23.99};
   const b=browser('','/hair-nails-forte',{findProduct:()=>product});
   b.document.body.setAttribute('data-product-id',product.id);
-  b.choose('Aceptar analítica');
+  b.choose('Solo analítica');
   assert.equal(b.events().filter(e=>e[1]==='view_item').length,1);
   b.document.dispatchEvent({type:'cl:catalogrender'});
   assert.equal(b.events().filter(e=>e[1]==='view_item').length,1);
@@ -164,4 +165,106 @@ test('cambios y retiradas del carrito conservan value igual a la suma de artícu
   cart=[{id:'hair',variant:'uno',qty:2}]; events.length=0;
   vm.runInContext('cartRemove("hair","uno");',context);
   e=events[0]; assert.equal(e.value,49.99); assert.equal(e.value,e.items.reduce((sum,i)=>sum+i.price*i.quantity,0));
+});
+
+
+function latestConsent(b) {
+  return Array.from(b.window.dataLayer || []).filter(e => e[0] === "consent" && e[1] === "update").at(-1)?.[2];
+}
+
+test("consentimiento por defecto existe antes de elegir y no carga Google", () => {
+  const b=browser();
+  const defaults=Array.from(b.window.dataLayer || []).find(e=>e[0]==="consent"&&e[1]==="default");
+  assert.ok(defaults,"faltan los valores predeterminados de Consent Mode v2");
+  for (const key of ["analytics_storage","ad_storage","ad_user_data","ad_personalization"]) assert.equal(defaults[2][key],"denied");
+  assert.equal(b.document.head.children.length,0);
+});
+
+test("solo analítica concede almacenamiento analítico y conserva publicidad rechazada", () => {
+  const b=browser(); b.choose("Solo analítica");
+  const values=latestConsent(b);
+  assert.equal(values.analytics_storage,"granted");
+  for(const key of ["ad_storage","ad_user_data","ad_personalization"]) assert.equal(values[key],"denied");
+  const saved=JSON.parse(b.window.localStorage.getItem("cl_consent_preferences_v2"));
+  assert.equal(saved.analytics,"granted"); assert.equal(saved.campaigns,"denied");
+});
+
+test("medición de campañas requiere elección explícita y se concede antes de configurar Google", () => {
+  const b=browser(); b.choose("Analítica y campañas");
+  const values=latestConsent(b);
+  for(const key of ["analytics_storage","ad_storage","ad_user_data"]) assert.equal(values[key],"granted");
+  assert.equal(values.ad_personalization,"denied");
+  const commands=Array.from(b.window.dataLayer);
+  assert.ok(commands.findIndex(e=>e[0]==="consent"&&e[1]==="update")<commands.findIndex(e=>e[0]==="config"));
+  assert.equal(b.window.clAnalytics.consentDetails().campaigns,"granted");
+  assert.equal(JSON.parse(b.window.localStorage.getItem("cl_consent_preferences_v2")).campaigns,"granted");
+});
+
+test("una aceptación antigua nunca se amplía a medición publicitaria", () => {
+  const b=browser("granted");
+  assert.equal(latestConsent(b).analytics_storage,"granted");
+  assert.equal(latestConsent(b).ad_user_data,"denied");
+  assert.ok(b.document.getElementById("cl-consent-banner"),"debe ofrecer la nueva elección opcional");
+  const denied=browser("denied");
+  assert.equal(denied.document.head.children.length,0);
+  assert.equal(denied.document.getElementById("cl-consent-banner"),undefined);
+});
+
+test("preferencias guardadas conservan campañas y una retirada elimina solo ese permiso", () => {
+  const b=browser("granted","/tienda",{preferences:{version:2,analytics:"granted",campaigns:"granted"}});
+  assert.equal(latestConsent(b).ad_user_data,"granted");
+  b.window.clAnalytics.openPreferences(); b.choose("Solo analítica");
+  assert.equal(latestConsent(b).analytics_storage,"granted"); assert.equal(latestConsent(b).ad_storage,"denied");
+  assert.equal(latestConsent(b).ad_user_data,"denied"); assert.equal(b.window["ga-disable-G-9QHN0YJKJW"],false);
+  assert.equal(b.document.head.children.length,1);
+  assert.equal(b.events().filter(e=>e[1]==="page_view").length,1);
+  b.window.clAnalytics.openPreferences(); b.choose("Rechazar");
+  for(const key of ["analytics_storage","ad_storage","ad_user_data","ad_personalization"]) assert.equal(latestConsent(b)[key],"denied");
+});
+
+test("revocar desde otra pestaña y desde una versión antigua sincroniza los cuatro permisos", () => {
+  const b=browser("granted","/tienda",{preferences:{version:2,analytics:"granted",campaigns:"granted"}});
+  b.window.localStorage.setItem("cl_consent_preferences_v2",JSON.stringify({version:2,analytics:"granted",campaigns:"denied"}));
+  b.emit("storage",{key:"cl_consent_preferences_v2",newValue:b.window.localStorage.getItem("cl_consent_preferences_v2")});
+  assert.equal(latestConsent(b).ad_user_data,"denied"); assert.equal(latestConsent(b).analytics_storage,"granted");
+  b.window.localStorage.setItem("cl_analytics_consent_v1","denied");
+  b.emit("storage",{key:"cl_analytics_consent_v1",newValue:"denied"});
+  assert.equal(latestConsent(b).analytics_storage,"denied"); assert.equal(latestConsent(b).ad_user_data,"denied");
+});
+
+test("un registro contradictorio o corrupto no otorga permisos publicitarios", () => {
+  const contradictory=browser("granted","/tienda",{preferences:{version:2,analytics:"denied",campaigns:"granted"}});
+  assert.equal(contradictory.document.head.children.length,0);
+  assert.equal(contradictory.window.clAnalytics.consentDetails().campaigns,"denied");
+  const corrupt=browser("granted","/tienda",{preferences:{version:2,analytics:"invalid",campaigns:"granted"}});
+  assert.equal(corrupt.document.head.children.length,0);
+});
+
+test("un rechazo guardado por una pestaña antigua prevalece al volver a cargar", () => {
+  const b=browser("denied","/tienda",{preferences:{version:2,analytics:"granted",campaigns:"granted"}});
+  assert.equal(b.document.head.children.length,0);
+  assert.equal(b.window.clAnalytics.consentDetails().campaigns,"denied");
+  assert.equal(JSON.parse(b.window.localStorage.getItem("cl_consent_preferences_v2")).campaigns,"denied");
+});
+
+test("bfcache relee una retirada antes de volver a medir la página", () => {
+  const b=browser("granted","/tienda",{preferences:{version:2,analytics:"granted",campaigns:"granted"}});
+  const count=b.events().filter(e=>e[1]==="page_view").length;
+  b.window.localStorage.setItem("cl_consent_preferences_v2",JSON.stringify({version:2,analytics:"denied",campaigns:"denied"}));
+  b.window.localStorage.setItem("cl_analytics_consent_v1","denied");
+  b.emit("pageshow",{persisted:true});
+  assert.equal(b.events().filter(e=>e[1]==="page_view").length,count);
+  assert.equal(b.window["ga-disable-G-9QHN0YJKJW"],true);
+  assert.equal(latestConsent(b).ad_user_data,"denied");
+});
+
+test("el evento de compatibilidad no sobrescribe una elección nueva de campañas", () => {
+  const b=browser("denied","/tienda",{preferences:{version:2,analytics:"denied",campaigns:"denied"}});
+  const saved=JSON.stringify({version:2,analytics:"granted",campaigns:"granted"});
+  b.window.localStorage.setItem("cl_analytics_consent_v1","granted");
+  b.window.localStorage.setItem("cl_consent_preferences_v2",saved);
+  b.emit("storage",{key:"cl_analytics_consent_v1",newValue:"granted"});
+  b.emit("storage",{key:"cl_consent_preferences_v2",newValue:saved});
+  assert.equal(latestConsent(b).ad_user_data,"granted");
+  assert.equal(JSON.parse(b.window.localStorage.getItem("cl_consent_preferences_v2")).campaigns,"granted");
 });
