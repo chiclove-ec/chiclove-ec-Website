@@ -2071,6 +2071,8 @@ opcional y solo se activa después del consentimiento; si se rechaza, esas herra
 No enviamos nombres, teléfonos ni conversaciones de WhatsApp. Con consentimiento enviamos eventos del catálogo público: productos, variantes, cantidades y valores de las interacciones con el carrito, sin identificar a la persona con sus datos de contacto. El proveedor de
 alojamiento puede registrar peticiones técnicas en sus propios registros.
 
+La medición de campañas requiere un permiso adicional y voluntario. Al elegir «Analítica y campañas», la persona permite que Google utilice los datos de actividad y las cookies correspondientes para medir resultados publicitarios. Esta opción no activa publicidad personalizada. Puede elegir «Solo analítica» o «Rechazar» y modificarlo después en las preferencias. Las aceptaciones anteriores de analítica no se amplían a campañas automáticamente.
+
 GA4 conserva los datos de usuario y eventos usados en exploraciones durante 14 meses; el plazo del usuario puede reiniciarse con actividad nueva. Los informes estadísticos agregados tienen su propio tratamiento de conservación.
 
 ### Al usar el carrito
@@ -2090,8 +2092,8 @@ rige además por las políticas de su proveedor.
 
 - **Empresa de transporte:** nombre, teléfono y dirección, para poder entregar el pedido.
 - **Entidad bancaria:** los datos propios de la transferencia que realiza la persona.
-- No vendemos, alquilamos ni cedemos datos con fines publicitarios, y no hacemos perfilado ni
-  decisiones automatizadas.
+- **Google:** datos de uso de la web si la persona acepta la analítica y, solo con su permiso adicional, uso de esa actividad para medir campañas.
+- No vendemos ni alquilamos los datos. La medición de campañas requiere autorización adicional y no activa anuncios personalizados.
 
 Conservamos la información del pedido el tiempo necesario para atenderlo y para cumplir las
 obligaciones legales y contables aplicables en Ecuador.
