@@ -32,7 +32,7 @@ en el dispositivo de la persona. Este estado local desaparece al vaciar el carri
 
 ### Al escribir por WhatsApp
 
-El botón «Finalizar pedido» abre WhatsApp con el detalle del pedido ya redactado; el mensaje se
+El botón «Enviar pedido» abre WhatsApp con el detalle del pedido ya redactado; el mensaje se
 envía solo si la persona lo envía. A partir de ahí tratamos los datos compartidos —nombre, número
 de teléfono, dirección de envío y contenido del pedido— con la única finalidad de gestionar la
 venta, coordinar el despacho y dar seguimiento. La conversación ocurre dentro de WhatsApp y se

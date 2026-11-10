@@ -25,7 +25,7 @@ al público: la venta y el seguimiento se hacen por WhatsApp.
 
 ## Qué canal usar según el caso
 
-- **Hacer un pedido:** armar el carrito en la tienda y pulsar «Finalizar pedido»; se abre WhatsApp
+- **Hacer un pedido:** armar el carrito en la tienda y pulsar «Enviar pedido»; se abre WhatsApp
   con el detalle escrito. También se puede escribir directamente y el equipo lo arma.
 - **Elegir producto:** indicar el objetivo (caída del cabello, piel, sueño, digestión, energía o
   estrés) y el equipo recomienda fórmula y dosis.
@@ -38,7 +38,7 @@ al público: la venta y el seguimiento se hacen por WhatsApp.
 
 ## Cómo termina un pedido
 
-El carrito se prepara directamente en el navegador. Al pulsar «Finalizar pedido», la compra
+El carrito se prepara directamente en el navegador. Al pulsar «Enviar pedido», la compra
 continúa en WhatsApp con el detalle listo para enviar. Allí confirmamos disponibilidad, dirección
 de entrega y datos para la **transferencia bancaria**. La web no procesa pagos con tarjeta y el
 despacho se hace una vez confirmado el pago.

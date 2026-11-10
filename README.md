@@ -236,9 +236,27 @@ petición, así que sigue siendo correcto en cualquier dominio o preview.
 
 ## Cómo funciona la compra
 
-No hay backend: el carrito vive en `localStorage` y "Finalizar pedido" abre
+No hay backend: el carrito vive en `localStorage` y "Enviar pedido" abre
 WhatsApp con el pedido ya redactado (productos, cantidades y total).
 Para cambiar el número, edita `CL_WHATSAPP` en `js/products.js`.
+
+El paso a WhatsApp está diseñado para no perder pedidos
+(`tests/checkout-conversion.test.mjs` lo vigila):
+
+- **El mensaje es el pedido, no un formulario.** Una línea por producto, el total y una sola
+  pregunta al final («Mi ciudad es:»), donde WhatsApp deja el cursor. Nombre, dirección y
+  cédula se piden en la conversación, cuando la tienda ya ha respondido.
+- **El carrito dice qué pasa después:** tres pasos («Así sigue tu pedido») y quién vende, con
+  `clSellerLine()` de `CL_LEGAL`. La misma línea aparece en cada ficha (`data-seller-line`).
+- **Plan B:** tras pulsar el botón aparecen «Abrir de nuevo» (un enlace real, que los
+  navegadores integrados de Instagram y Facebook sí siguen) y «Copiar pedido», con el número
+  a la vista. Se miden como `whatsapp_click` (`link_context=cart_fallback`) y `button_click`
+  (`element_id=cart-copy-order`). «¿Dudas?», en la cabecera del carrito, es
+  `whatsapp_click` con `link_context=cart_help`.
+- **El aviso de privacidad nunca tapa una acción de compra:** se oculta con `body.ui-locked`
+  (carrito o menú abiertos) y sube por encima de la barra fija de la ficha con
+  `body.pd-sticky-on`. En pantallas de 720 px de alto o menos, el botón va antes de los pasos
+  para verse sin desplazar.
 
 ## Analítica y reportes
 

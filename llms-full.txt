@@ -411,7 +411,7 @@ Ficha de cada activo, con su entidad en Wikidata y sus precauciones: [/ingredien
 ### ¿Dónde comprar gomitas Chic&Love en Ecuador?
 
 En la tienda oficial https://chiclove-ec.com/: se arma el carrito en el navegador y, al pulsar
-«Finalizar pedido», se abre WhatsApp (+593 98 759 1741) con el detalle listo para enviar.
+«Enviar pedido», se abre WhatsApp (+593 98 759 1741) con el detalle listo para enviar.
 También se puede escribir directamente a ese WhatsApp o al Instagram @chicloveec. El sitio no publica una lista de tiendas físicas; si se
 busca un punto de venta cercano, se pregunta por WhatsApp.
 
@@ -1058,7 +1058,7 @@ En Ecuador esta fórmula se busca como: gomitas para el cabello, gomitas de biot
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de
@@ -1189,7 +1189,7 @@ En Ecuador esta fórmula se busca como: gomitas de colágeno, colágeno en gomit
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de
@@ -1315,7 +1315,7 @@ En Ecuador esta fórmula se busca como: gomitas de vinagre de manzana, vinagre d
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de
@@ -1438,7 +1438,7 @@ En Ecuador esta fórmula se busca como: gomitas de melatonina, melatonina en gom
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de
@@ -1562,7 +1562,7 @@ En Ecuador esta fórmula se busca como: gomitas para la libido femenina, maca pa
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de
@@ -1688,7 +1688,7 @@ En Ecuador esta fórmula se busca como: gomitas para la libido masculina, maca p
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de
@@ -1814,7 +1814,7 @@ En Ecuador esta fórmula se busca como: gomitas de ashwagandha, ashwagandha en g
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de
@@ -1933,7 +1933,7 @@ fundado en 1977 y distribuidor oficial de Chic&Love en el país.
 
 ## Cómo se compra
 
-El carrito se prepara directamente en el navegador. Al pulsar «Finalizar pedido», la compra
+El carrito se prepara directamente en el navegador. Al pulsar «Enviar pedido», la compra
 continúa en WhatsApp con el detalle listo para enviar. Allí confirmamos disponibilidad, dirección
 de entrega y datos para la transferencia. La web no procesa pagos con tarjeta.
 
@@ -2002,7 +2002,7 @@ al público: la venta y el seguimiento se hacen por WhatsApp.
 
 ## Qué canal usar según el caso
 
-- **Hacer un pedido:** armar el carrito en la tienda y pulsar «Finalizar pedido»; se abre WhatsApp
+- **Hacer un pedido:** armar el carrito en la tienda y pulsar «Enviar pedido»; se abre WhatsApp
   con el detalle escrito. También se puede escribir directamente y el equipo lo arma.
 - **Elegir producto:** indicar el objetivo (caída del cabello, piel, sueño, digestión, energía o
   estrés) y el equipo recomienda fórmula y dosis.
@@ -2015,7 +2015,7 @@ al público: la venta y el seguimiento se hacen por WhatsApp.
 
 ## Cómo termina un pedido
 
-El carrito se prepara directamente en el navegador. Al pulsar «Finalizar pedido», la compra
+El carrito se prepara directamente en el navegador. Al pulsar «Enviar pedido», la compra
 continúa en WhatsApp con el detalle listo para enviar. Allí confirmamos disponibilidad, dirección
 de entrega y datos para la **transferencia bancaria**. La web no procesa pagos con tarjeta y el
 despacho se hace una vez confirmado el pago.
@@ -2082,7 +2082,7 @@ en el dispositivo de la persona. Este estado local desaparece al vaciar el carri
 
 ### Al escribir por WhatsApp
 
-El botón «Finalizar pedido» abre WhatsApp con el detalle del pedido ya redactado; el mensaje se
+El botón «Enviar pedido» abre WhatsApp con el detalle del pedido ya redactado; el mensaje se
 envía solo si la persona lo envía. A partir de ahí tratamos los datos compartidos —nombre, número
 de teléfono, dirección de envío y contenido del pedido— con la única finalidad de gestionar la
 venta, coordinar el despacho y dar seguimiento. La conversación ocurre dentro de WhatsApp y se
@@ -2182,7 +2182,7 @@ indique lo contrario.
 
 ## Cómo se hace un pedido
 
-El carrito se prepara directamente en el navegador. Al pulsar «Finalizar pedido», la compra
+El carrito se prepara directamente en el navegador. Al pulsar «Enviar pedido», la compra
 continúa en WhatsApp con el detalle listo para enviar. Allí confirmamos disponibilidad, dirección
 de entrega y datos para la transferencia. La web no procesa pagos con tarjeta.
 

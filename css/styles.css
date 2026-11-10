@@ -1169,6 +1169,73 @@ p, li { text-wrap: pretty; }
 .btn-wa { background: #21b858; color: #fff; }
 .btn-wa svg { width: 18px; height: 18px; fill: currentColor; flex: 0 0 auto; }
 .btn-wa:hover { background: #1aa04c; transform: translateY(-2px); box-shadow: 0 14px 30px -12px #21b858; }
+/* Ayuda antes de pedir, junto a cerrar: no resta altura al pie del carrito. */
+.cart-head-actions { display: flex; align-items: center; gap: 6px; }
+.cart-help {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: border-color 0.25s, transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cart-help:hover { border-color: var(--ink); transform: translateY(-2px); }
+.cart-help:active { transform: scale(0.97); }
+/* Qué pasa al pulsar el botón: tres pasos cortos, sin competir con el total. */
+.cart-steps { margin-bottom: 16px; }
+.cart-steps-title { margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.cart-steps ol { display: grid; gap: 6px; counter-reset: cart-step; }
+.cart-steps li { position: relative; padding-left: 26px; color: var(--ink-2); font-size: 12px; line-height: 1.45; counter-increment: cart-step; }
+.cart-steps li::before {
+  content: counter(cart-step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+/* Plan B tras pulsar el botón: reabrir con un enlace real o copiar el pedido. */
+.cart-fallback { margin-top: 12px; padding: 12px 14px 14px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--card); }
+.cart-fallback[hidden] { display: none; }
+.cart-fallback p { color: var(--ink-2); font-size: 12px; line-height: 1.45; }
+.cart-fallback strong { white-space: nowrap; }
+.cart-fallback-actions { display: flex; gap: 8px; margin-top: 10px; }
+.cart-fallback-actions .btn { flex: 1 1 0; min-width: 0; min-height: 44px; padding: 10px 8px; font-size: 13px; }
+/* Quién vende, donde se decide la compra. */
+.cart-seller { margin-top: 14px; color: var(--ink-2); font-size: 11.5px; font-weight: 600; line-height: 1.5; }
+.cart-seller + .cart-terms { margin-top: 4px; }
+/* Texto que se copia con el método antiguo; nunca se ve ni recibe clics. */
+.copy-buffer { position: fixed; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; font-size: 16px; }
+@media (max-width: 359px) {
+  .cart-help-more { display: none; }
+}
+/* En pantallas bajas (iPhone SE, Android de 640 px) el carrito se desplaza entero
+   para no aplastar el pedido, y el botón sube antes de los pasos: tiene que verse
+   sin desplazar. Los pasos quedan justo debajo y el plan B, pegado al botón. */
+@media (max-height: 720px) {
+  .cart-drawer { overflow-y: auto; overscroll-behavior: contain; }
+  .cart-head { padding-block: 14px; }
+  .cart-items { flex: none; overflow: visible; padding-block: 14px; }
+  .cart-foot { display: flex; flex-direction: column; margin-top: auto; padding-top: 16px; }
+  .cart-shipping { margin: 8px 0 12px; }
+  .cart-fallback { order: 1; }
+  .cart-steps { order: 2; margin: 14px 0 0; }
+  .cart-seller, .cart-terms { order: 3; }
+}
 
 /* ---------- Toast ---------- */
 .toast {
@@ -1188,6 +1255,7 @@ p, li { text-wrap: pretty; }
   transform: translateY(16px);
   transition: opacity 0.3s, transform 0.3s;
   pointer-events: none;
+  width: max-content;
   max-width: calc(100vw - 40px);
   text-align: center;
 }
@@ -1326,6 +1394,7 @@ p, li { text-wrap: pretty; }
 .pd-assurance strong, .pd-assurance span { display: block; }
 .pd-assurance strong { font-size: 12.5px; }
 .pd-assurance span { margin-top: 4px; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+.pd-seller { margin-top: 12px; color: var(--ink-2); font-size: 11.5px; font-weight: 600; line-height: 1.5; }
 .pd-benefits { margin-top: 34px; }
 .pd-benefits h2 { font-size: 22px; margin-bottom: 16px; }
 .pd-benefits li {
@@ -1667,7 +1736,15 @@ p, li { text-wrap: pretty; }
   background: rgba(255, 253, 251, 0.96);
   box-shadow: 0 14px 42px rgba(29, 25, 38, 0.15);
   backdrop-filter: blur(16px);
+  transition: bottom 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+/* El aviso nunca tapa una acción de compra. Con el carrito o el menú abiertos se
+   aparta y vuelve al cerrarlos; mientras nadie decide no se carga ningún proveedor,
+   así que no cambia nada de lo que se mide. */
+body.ui-locked .cl-consent-banner { display: none; }
+/* Mientras está abierto, el final de la página (pie y datos legales) se puede leer
+   por encima de él. */
+body:has(> .cl-consent-banner) .footer { padding-bottom: 230px; }
 .cl-consent-banner strong { display: block; text-align: center; font-size: 15px; font-weight: 700; letter-spacing: 0.01em; color: var(--ink-2); }
 .cl-consent-banner p { max-width: 470px; margin: 7px auto 0; text-align: center; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
 .cl-consent-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 14px; }
@@ -1697,6 +1774,11 @@ p, li { text-wrap: pretty; }
   .cl-consent-actions { gap: 8px; }
   .cl-consent-actions .btn { flex: 1 1 calc(50% - 4px); min-width: 0; width: auto; padding-inline: 8px; }
   .cl-consent-actions .btn:last-child { flex-basis: 100%; }
+  body:has(> .cl-consent-banner) .footer { padding-bottom: 290px; }
+}
+/* En las fichas móviles, el aviso sube por encima de la barra fija «Añadir». */
+@media (max-width: 720px) {
+  body.pd-sticky-on .cl-consent-banner { bottom: calc(max(10px, env(safe-area-inset-bottom, 0px)) + 78px); }
 }
 
 /* Capa móvil compacta: prioriza producto, reduce repetición y mantiene aire visual. */
