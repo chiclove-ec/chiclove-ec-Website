@@ -42,7 +42,7 @@ En Ecuador esta fórmula se busca como: gomitas de melatonina, melatonina en gom
 
 ## Cómo comprarlo
 
-Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Finalizar pedido»,
+Tu carrito se prepara directamente en tu navegador. Cuando pulsas «Enviar pedido»,
 continúas en WhatsApp con el detalle de tu compra listo para enviar. Allí confirmamos
 disponibilidad, dirección de entrega y datos para la transferencia. La web no procesa pagos
 con tarjeta. Los precios publicados incluyen IVA y son los vigentes en la tienda. Antes de

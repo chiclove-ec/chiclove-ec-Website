@@ -408,7 +408,7 @@ export function createAgentDocs({ catalog, BASE, SITE_NAME, pagePath }) {
       ...qa(
         "¿Dónde comprar gomitas Chic&Love en Ecuador?",
         "En la tienda oficial " + BASE + ": se arma el carrito en el navegador y, al pulsar",
-        "«Finalizar pedido», se abre WhatsApp (" + whatsapp + ") con el detalle listo para enviar.",
+        "«Enviar pedido», se abre WhatsApp (" + whatsapp + ") con el detalle listo para enviar.",
         "También se puede escribir directamente a ese WhatsApp o al Instagram @" +
           catalog.CL_INSTAGRAM + ". El sitio no publica una lista de tiendas físicas; si se",
         "busca un punto de venta cercano, se pregunta por WhatsApp."

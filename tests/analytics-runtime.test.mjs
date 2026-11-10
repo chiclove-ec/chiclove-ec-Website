@@ -89,9 +89,9 @@ test("WhatsApp mide el pedido abierto y el bloqueo con estados distintos", () =>
     const events=[]; const popup={ opener: {}, location: { replace(url) { this.url=url; } }, close() {} };
     const window={ open:()=>blocked?null:popup, clAnalytics:{ track:(name,p)=>events.push([name,p]) } };
     vm.runInNewContext(func,{ window, cartLoad:()=>[{id:"hair",qty:1}], clWhatsAppUrl:()=>"https://wa.me/123?text=order",
-      whatsappOrderMessage:()=>"order", toast:()=>{}, cartTotal:()=>23.99, analyticsCartItems:()=>[] });
+      whatsappOrderMessage:()=>"order", toast:()=>{}, cartTotal:()=>23.99, analyticsCartItems:()=>[], showCheckoutFallback:()=>{} });
     vm.runInNewContext(func+"; checkoutWhatsApp();",{ window, cartLoad:()=>[{id:"hair",qty:1}], clWhatsAppUrl:()=>"https://wa.me/123?text=order",
-      whatsappOrderMessage:()=>"order", toast:()=>{}, cartTotal:()=>23.99, analyticsCartItems:()=>[] });
+      whatsappOrderMessage:()=>"order", toast:()=>{}, cartTotal:()=>23.99, analyticsCartItems:()=>[], showCheckoutFallback:()=>{} });
     assert.equal(events.some(e=>e[0]==="generate_lead"),!blocked);
     assert.equal(events.some(e=>e[0]==="checkout_error"),blocked);
     if (!blocked) { assert.equal(popup.opener,null); assert.match(popup.location.url,/wa.me/); }

@@ -42,7 +42,7 @@ indique lo contrario.
 
 ## Cómo se hace un pedido
 
-El carrito se prepara directamente en el navegador. Al pulsar «Finalizar pedido», la compra
+El carrito se prepara directamente en el navegador. Al pulsar «Enviar pedido», la compra
 continúa en WhatsApp con el detalle listo para enviar. Allí confirmamos disponibilidad, dirección
 de entrega y datos para la transferencia. La web no procesa pagos con tarjeta.
 

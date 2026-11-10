@@ -255,6 +255,8 @@
       sticky.classList.toggle("show", shouldShow);
       sticky.setAttribute("aria-hidden", shouldShow ? "false" : "true");
       sticky.inert = !shouldShow;
+      // El aviso de privacidad sube por encima de la barra para no tapar «Añadir».
+      document.body.classList.toggle("pd-sticky-on", shouldShow);
     }
     var scheduler = window.__CL_SCROLL_SCHEDULER__;
     var queueStickyUpdate = scheduler

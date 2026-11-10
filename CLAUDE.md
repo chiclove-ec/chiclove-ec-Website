@@ -161,6 +161,11 @@ Nunca le añadas un disparador automático, o cada push publicaría dos veces.
   si no puede, deja la rama y un issue. A mano: `npm run refresh`, y
   `npm run refresh -- --now=<ISO>` simula cualquier fecha.
 
+- **El aviso de privacidad nunca tapa una acción de compra.** Tapó el botón del carrito en
+  todos los móviles hasta noviembre de 2026, y esas visitas eran invisibles en GA4 (sin
+  consentimiento no se mide). `body.ui-locked` lo oculta y `body.pd-sticky-on` lo sube; el
+  mensaje de WhatsApp no pide datos personales. Lo vigila `tests/checkout-conversion.test.mjs`;
+  el plan y el diagnóstico están en `docs/superpowers/plans/2026-11-08-checkout-y-confianza.md`.
 - **Nada de `aggregateRating` ni `review` mientras no haya reseñas reales.** Search
   Console avisa de que faltan en los «fragmentos de producto». Son avisos **no
   críticos**: la ficha ya califica por `offers`, y Google lo dice en el propio aviso.

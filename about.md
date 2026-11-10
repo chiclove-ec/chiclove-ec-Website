@@ -37,7 +37,7 @@ fundado en 1977 y distribuidor oficial de Chic&Love en el país.
 
 ## Cómo se compra
 
-El carrito se prepara directamente en el navegador. Al pulsar «Finalizar pedido», la compra
+El carrito se prepara directamente en el navegador. Al pulsar «Enviar pedido», la compra
 continúa en WhatsApp con el detalle listo para enviar. Allí confirmamos disponibilidad, dirección
 de entrega y datos para la transferencia. La web no procesa pagos con tarjeta.
 

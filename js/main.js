@@ -118,6 +118,8 @@ function observeLazyImages(scope) {
 
 /* ---------- carrito ---------- */
 var CART_KEY = "cl_cart_v1";
+var CART_HELP_MESSAGE = "Hola Chic&Love, tengo una duda antes de hacer mi pedido.";
+var WHATSAPP_ICON_PATH = "M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-5.7-5 6.6 6.6 0 0 1-1.3-3.4c0-1.6.9-2.4 1.2-2.7.3-.3.7-.4.9-.4h.6c.2 0 .5-.1.7.5l1 2.3c0 .2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.1.3.7 1.1 1.5 1.9 1 .9 1.9 1.2 2.2 1.4.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2.2 1c.3.2.5.3.6.4 0 .2 0 .7-.2 1.2Z";
 var MAX_CART_STORAGE_LENGTH = 8192;
 var MAX_CART_LINES = CL_PRODUCTS.length * 3;
 
@@ -277,7 +279,8 @@ function cartRemove(id, variant) {
   }
 }
 
-function whatsappItemDetails(it) {
+/* Una línea por producto: nombre, cantidad, importe que se cobra y por qué es ese. */
+function whatsappItemLine(it) {
   var product = clFindProduct(it.id);
   var quantity;
 
@@ -289,53 +292,33 @@ function whatsappItemDetails(it) {
     quantity = it.qty + (it.qty === 1 ? " frasco" : " frascos");
   }
 
-  var details = [
-    "*" + product.name + "*",
-    quantity + " - *" + clMoney(itemTotal(it)) + "*"
-  ];
+  var line = "*" + product.name + "* · " + quantity + " · " + clMoney(itemTotal(it));
   // El precio promocional solo afecta al frasco suelto; los packs conservan su tarifa.
   var promo = it.variant === "uno" ? clActivePromo(product) : null;
   if (promo) {
-    details.push("Promo −" + clPromoPercent(product) + "% aplicada");
+    line += " (promo −" + clPromoPercent(product) + "%)";
   } else if (it.variant === "uno" && it.qty > 1) {
-    details.push("Descuento por pack aplicado");
+    line += " (descuento por pack)";
   }
-  return details;
+  return line;
 }
 
+/* El mensaje es el pedido, no un formulario: nombre, dirección y demás se piden en la
+   conversación, cuando la tienda ya ha respondido. WhatsApp deja el cursor al final,
+   así que el único dato que se pide va en la última línea. Sin emojis (regla 9). */
 function whatsappOrderMessage(items) {
-  var lines = [
-    "Hola Chic&Love, quiero hacer este pedido:",
-    "",
-    "",
-    "*PEDIDO*",
-    "",
-    ""
-  ];
-
-  items.forEach(function (it) {
-    lines = lines.concat(whatsappItemDetails(it));
-    lines.push("", "");
-  });
-
   var orderTotal = cartTotal(items);
-  var totalLine = "*TOTAL: " + clMoney(orderTotal) + "*";
-  if (orderTotal > 0 && orderTotal < CL_FREE_SHIPPING) totalLine += " + envío";
-  totalLine += " (" + CL_VAT_NOTE + ")";
-  lines.push(
-    totalLine,
-    "Los precios publicados incluyen IVA. Confirmaremos disponibilidad, dirección de entrega y datos para la transferencia.",
-    "",
-    "",
-    "*DATOS DE ENTREGA*",
-    "Nombre:",
-    "Teléfono:",
-    "Cédula / RUC:",
-    "Email:",
-    "Ciudad:",
-    "Dirección:"
-  );
-  return lines.join("\n");
+  var freeShipping = orderTotal >= CL_FREE_SHIPPING;
+  return ["Hola Chic&Love, quiero hacer este pedido:", ""]
+    .concat(items.map(whatsappItemLine))
+    .concat([
+      "",
+      "*Total: " + clMoney(orderTotal) + "*" + (freeShipping ? " · envío gratis" : " + envío") + " · " + CL_VAT_NOTE,
+      freeShipping
+        ? "¿Me confirman disponibilidad? Mi ciudad es:"
+        : "¿Me confirman disponibilidad y el costo de envío? Mi ciudad es:"
+    ])
+    .join("\n");
 }
 
 function checkoutWhatsApp() {
@@ -346,6 +329,10 @@ function checkoutWhatsApp() {
     toast("No se pudo abrir WhatsApp. Escríbenos desde el enlace de contacto.");
     return;
   }
+  // Navegadores integrados (Instagram, Facebook) y ordenadores sin la app pueden no
+  // abrir WhatsApp: desde ya, el carrito ofrece reabrirlo con un enlace real o copiar
+  // el pedido.
+  showCheckoutFallback(url);
   // La página vacía permite detectar bloqueos y quitar opener antes de navegar.
   var checkoutWindow = window.open("about:blank", "_blank");
   if (checkoutWindow) {
@@ -355,7 +342,7 @@ function checkoutWhatsApp() {
     } catch (error) {
       checkoutWindow.close();
       if (window.clAnalytics) window.clAnalytics.track("checkout_error", { error_type: "navigation_failed" });
-      toast("No se pudo abrir WhatsApp. Intenta de nuevo o usa el enlace de contacto.");
+      toast("No se pudo abrir WhatsApp. Usa «Abrir de nuevo» o copia tu pedido.");
       return;
     }
     if (window.clAnalytics) window.clAnalytics.track("begin_checkout", {
@@ -373,7 +360,59 @@ function checkoutWhatsApp() {
     });
   } else {
     if (window.clAnalytics) window.clAnalytics.track("checkout_error", { error_type: "popup_blocked" });
-    toast("Permite abrir la ventana de WhatsApp para continuar con tu pedido.");
+    toast("Tu navegador no abrió WhatsApp. Usa «Abrir de nuevo» o copia tu pedido.");
+  }
+}
+
+/* Plan B del paso a WhatsApp: un enlace real (que los navegadores integrados sí siguen)
+   con el mismo pedido, el número a la vista y la opción de copiar el mensaje. */
+function showCheckoutFallback(url) {
+  var fallback = document.getElementById("cart-fallback");
+  var link = document.getElementById("cart-fallback-link");
+  if (!fallback || !link || !url) return;
+  link.href = url;
+  fallback.hidden = false;
+}
+
+function hideCheckoutFallback() {
+  var fallback = document.getElementById("cart-fallback");
+  if (fallback) fallback.hidden = true;
+}
+
+function copyWithSelection(text) {
+  var area = document.createElement("textarea");
+  area.value = text;
+  area.setAttribute("readonly", "");
+  area.setAttribute("aria-hidden", "true");
+  area.className = "copy-buffer";
+  var host = document.getElementById("cart-drawer") || document.body;
+  host.appendChild(area);
+  area.select();
+  var copied = false;
+  try { copied = document.execCommand("copy"); } catch (error) { copied = false; }
+  area.remove();
+  return copied;
+}
+
+function copyOrderMessage() {
+  var items = cartLoad();
+  if (!items.length) { toast("Tu carrito está vacío"); return; }
+  var text = whatsappOrderMessage(items);
+  var number = clWhatsAppDisplay();
+  var copyButton = document.getElementById("cart-copy-order");
+  function done() {
+    toast("Pedido copiado. Pégalo en el chat de WhatsApp.");
+    if (copyButton) copyButton.focus();
+  }
+  function failed() {
+    if (copyWithSelection(text)) { done(); return; }
+    toast("No se pudo copiar. Escríbenos al " + number + ".");
+    if (copyButton) copyButton.focus();
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, failed);
+  } else {
+    failed();
   }
 }
 
@@ -394,11 +433,27 @@ function buildCartChrome() {
   drawer.inert = true;
   var head = makeEl("div", "cart-head");
   head.appendChild(makeEl("h3", "", "Tu carrito"));
+  // Salida de bajo compromiso: preguntar antes de pedir. Se mide como whatsapp_click.
+  var help = makeEl("a", "cart-help");
+  help.setAttribute("data-whatsapp-link", "");
+  help.setAttribute("data-whatsapp-text", CART_HELP_MESSAGE);
+  help.setAttribute("data-analytics-context", "cart_help");
+  help.setAttribute("aria-label", "¿Dudas? Pregúntanos por WhatsApp antes de pedir");
+  var helpUrl = clWhatsAppUrl(CART_HELP_MESSAGE);
+  if (helpUrl) {
+    help.href = helpUrl;
+    help.target = "_blank";
+    help.rel = "noopener noreferrer";
+  }
+  help.appendChild(makeEl("span", "", "¿Dudas?"));
+  help.appendChild(makeEl("span", "cart-help-more", "Pregúntanos"));
   var close = makeEl("button", "icon-btn", "×");
   close.type = "button";
   close.id = "cart-close";
   close.setAttribute("aria-label", "Cerrar carrito");
-  head.appendChild(close);
+  var headActions = makeEl("div", "cart-head-actions");
+  headActions.append(help, close);
+  head.appendChild(headActions);
 
   var cartItems = makeEl("div", "cart-items");
   cartItems.id = "cart-items";
@@ -421,16 +476,49 @@ function buildCartChrome() {
   shippingProgress.setAttribute("aria-label", "Progreso para obtener envío gratis");
   shipping.append(shippingText, shippingProgress);
   foot.appendChild(shipping);
-  foot.appendChild(makeEl("p", "cart-note", "Antes de confirmar podrás revisar el total de tu compra."));
+  // Qué pasa al pulsar: quien abre el carrito no sabe que todavía no se paga.
+  var steps = makeEl("div", "cart-steps");
+  steps.appendChild(makeEl("p", "cart-steps-title", "Así sigue tu pedido"));
+  var stepList = makeEl("ol");
+  [
+    "Se abre WhatsApp con tu pedido ya escrito: solo envíalo.",
+    "Te confirmamos disponibilidad y envío en horario laboral.",
+    "Pagas cuando te lo confirmemos: enviarlo no tiene costo."
+  ].forEach(function (text) { stepList.appendChild(makeEl("li", "", text)); });
+  steps.appendChild(stepList);
+  foot.appendChild(steps);
   var checkout = makeEl("button", "btn btn-wa btn-wide");
   checkout.type = "button";
   checkout.id = "cart-checkout";
-  checkout.appendChild(makeSvg("M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-5.7-5 6.6 6.6 0 0 1-1.3-3.4c0-1.6.9-2.4 1.2-2.7.3-.3.7-.4.9-.4h.6c.2 0 .5-.1.7.5l1 2.3c0 .2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.1.3.7 1.1 1.5 1.9 1 .9 1.9 1.2 2.2 1.4.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2.2 1c.3.2.5.3.6.4 0 .2 0 .7-.2 1.2Z"));
-  checkout.appendChild(document.createTextNode("Finalizar pedido por WhatsApp"));
+  checkout.appendChild(makeSvg(WHATSAPP_ICON_PATH));
+  checkout.appendChild(document.createTextNode("Enviar pedido por WhatsApp"));
   foot.appendChild(checkout);
+
+  var fallback = makeEl("div", "cart-fallback");
+  fallback.id = "cart-fallback";
+  fallback.hidden = true;
+  var fallbackText = makeEl("p", "", "¿No se abrió WhatsApp? Escríbenos al ");
+  fallbackText.appendChild(makeEl("strong", "", clWhatsAppDisplay()));
+  fallbackText.appendChild(document.createTextNode("."));
+  var fallbackActions = makeEl("div", "cart-fallback-actions");
+  var copyOrder = makeEl("button", "btn btn-ghost", "Copiar pedido");
+  copyOrder.type = "button";
+  copyOrder.id = "cart-copy-order";
+  var reopen = makeEl("a", "btn btn-ghost", "Abrir de nuevo");
+  reopen.id = "cart-fallback-link";
+  reopen.target = "_blank";
+  reopen.rel = "noopener noreferrer";
+  reopen.setAttribute("data-whatsapp-link", "");
+  reopen.setAttribute("data-whatsapp-order", "");
+  reopen.setAttribute("data-analytics-context", "cart_fallback");
+  fallbackActions.append(copyOrder, reopen);
+  fallback.append(fallbackText, fallbackActions);
+  foot.appendChild(fallback);
+
+  foot.appendChild(makeEl("p", "cart-seller", clSellerLine()));
   var terms = makeEl("p", "cart-note cart-terms");
   terms.append(
-    document.createTextNode("Al finalizar tu pedido aceptas nuestros "),
+    document.createTextNode("Al enviar tu pedido aceptas nuestros "),
     Object.assign(makeEl("a", "", "Términos de compra"), { href: "terms" }),
     document.createTextNode(". Consulta cómo tratamos tus datos en nuestra "),
     Object.assign(makeEl("a", "", "Política de privacidad"), { href: "privacy" }),
@@ -448,6 +536,7 @@ function buildCartChrome() {
   document.body.append(overlay, drawer, toastEl);
   document.getElementById("cart-close").addEventListener("click", closeCart);
   document.getElementById("cart-checkout").addEventListener("click", checkoutWhatsApp);
+  document.getElementById("cart-copy-order").addEventListener("click", copyOrderMessage);
   document.addEventListener("keydown", function (e) {
     if (e.key === "Tab") {
       if (drawer.classList.contains("open")) trapDialogFocus(drawer, e);
@@ -575,6 +664,10 @@ function renderCart() {
     }
   }
   if (shippingProgress) shippingProgress.value = Math.min(total, CL_FREE_SHIPPING);
+  // El plan B siempre lleva el pedido tal como está ahora; sin pedido, desaparece.
+  var fallbackLink = document.getElementById("cart-fallback-link");
+  if (!items.length) hideCheckoutFallback();
+  else if (fallbackLink && fallbackLink.getAttribute("href")) fallbackLink.href = clWhatsAppUrl(whatsappOrderMessage(items));
   if (shippingText) {
     if (total >= CL_FREE_SHIPPING) shippingText.textContent = "Tu pedido incluye envío gratis";
     else if (total > 0) shippingText.textContent = "Te faltan " + clMoney(CL_FREE_SHIPPING - total) + " para el envío gratis";
@@ -1096,10 +1189,14 @@ function initBusinessData() {
   });
 
   var whatsappContactMessage = "Hola Chic&Love, soy ... y quiero más información sobre las gummies.";
-  document.querySelectorAll("[data-whatsapp-link]").forEach(function (link) {
+  // El plan B del carrito lleva el pedido y lo pinta renderCart, no el texto de contacto.
+  document.querySelectorAll("[data-whatsapp-link]:not([data-whatsapp-order])").forEach(function (link) {
     var url = clWhatsAppUrl(link.getAttribute("data-whatsapp-text") || whatsappContactMessage);
     activateExternalLink(link, url, "WhatsApp");
     if (link.hasAttribute("data-whatsapp-label")) link.textContent = "WhatsApp: " + whatsappDisplay;
+  });
+  document.querySelectorAll("[data-seller-line]").forEach(function (el) {
+    el.textContent = clSellerLine();
   });
   document.querySelectorAll("[data-whatsapp-number]").forEach(function (el) {
     el.textContent = whatsappDisplay;

@@ -28,6 +28,12 @@ function clFooterLegal() {
   return CL_LEGAL.brand + ". Distribuido por " + CL_LEGAL.companyShort +
     ". RUC " + CL_LEGAL.ruc + ". " + CL_LEGAL.locality + ", Ecuador.";
 }
+
+/* Quién vende, en una línea, donde se decide la compra (carrito y fichas). */
+function clSellerLine() {
+  return "Vende " + CL_LEGAL.companyShort + " · RUC " + CL_LEGAL.ruc + " · " +
+    CL_LEGAL.locality + " · " + CL_LEGAL.returnDays + " días para devoluciones";
+}
 const CL_PRODUCT_PRICING = Object.freeze({
   price: 29.99,
   pricePack: 49.99,

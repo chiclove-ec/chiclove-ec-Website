@@ -43,8 +43,13 @@ trabajo, pero ahí las rutas sin extensión y el 404 **no** se comportan igual.
 No requiere descargar navegadores.
 
 Flujos que importan:
-- index: 4 tarjetas bestsellers; "Añadir +" abre el drawer del carrito y sube el badge.
-- Checkout: clic en `#cart-checkout` abre popup `wa.me`/`api.whatsapp.com` con el pedido.
+- index: 7 tarjetas; "Añadir" abre el drawer del carrito y sube el badge.
+- Checkout: clic en `#cart-checkout` abre popup `wa.me`/`api.whatsapp.com` con el pedido
+  (sin campos de datos personales) y muestra el plan B `#cart-fallback`; «Copiar pedido»
+  copia el mismo texto (concede `clipboard-read`/`clipboard-write` al contexto).
+- Aviso de privacidad **sin decidir** (no lo aceptes antes): con el carrito abierto,
+  `elementFromPoint` sobre el centro y los bordes de `#cart-checkout` devuelve el botón en
+  320×640, 390×844 y 1280×800; en la ficha móvil, lo mismo para `#pd-sticky-add`.
 - tienda: 7 tarjetas; chips filtran (Sueño→1, Energía→2).
 - `/anti-stress.html` (URL canónica): variantes cambian precio; relacionados
   excluyen el producto; el JSON-LD `Product` trae oferta e InStock.
