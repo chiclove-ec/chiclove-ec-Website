@@ -21,7 +21,11 @@ const CL_LEGAL = Object.freeze({
   region: "Pichincha",
   email: "ventas@laboratorioslira.com",
   phones: Object.freeze(["+593 2 237 9285", "+593 2 237 6425"]),
-  returnDays: 15
+  returnDays: 15,
+  // laboratorioslira.com/conocenos: «Se constituyó en septiembre de 1977».
+  founded: 1977,
+  // Página oficial del laboratorio que publica este WhatsApp como «Contacto Ventas Directas».
+  whatsappVerifyUrl: "https://www.laboratorioslira.com/chic-and-love/"
 });
 
 function clFooterLegal() {
@@ -29,10 +33,15 @@ function clFooterLegal() {
     ". RUC " + CL_LEGAL.ruc + ". " + CL_LEGAL.locality + ", Ecuador.";
 }
 
-/* Quién vende, en una línea, donde se decide la compra (carrito y fichas). */
+/* Quién vende, con datos que el cliente puede comprobar, donde se decide la compra
+   (carrito y fichas). */
 function clSellerLine() {
-  return "Vende " + CL_LEGAL.companyShort + " · RUC " + CL_LEGAL.ruc + " · " +
-    CL_LEGAL.locality + " · " + CL_LEGAL.returnDays + " días para devoluciones";
+  return "Vende " + CL_LEGAL.companyShort + ", laboratorio ecuatoriano desde " +
+    CL_LEGAL.founded + ". RUC " + CL_LEGAL.ruc + ".";
+}
+
+function clSellerVerifyText() {
+  return "Comprueba nuestro WhatsApp en " + new URL(CL_LEGAL.whatsappVerifyUrl).hostname.replace(/^www\./, "");
 }
 const CL_PRODUCT_PRICING = Object.freeze({
   price: 29.99,

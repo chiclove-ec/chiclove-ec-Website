@@ -247,7 +247,9 @@ El paso a WhatsApp está diseñado para no perder pedidos
   pregunta al final («Mi ciudad es:»), donde WhatsApp deja el cursor. Nombre, dirección y
   cédula se piden en la conversación, cuando la tienda ya ha respondido.
 - **El carrito dice qué pasa después:** tres pasos («Así sigue tu pedido») y quién vende, con
-  `clSellerLine()` de `CL_LEGAL`. La misma línea aparece en cada ficha (`data-seller-line`).
+  `clSellerLine()` de `CL_LEGAL` (razón social, año de fundación y RUC) y un enlace a
+  `CL_LEGAL.whatsappVerifyUrl`, la página del laboratorio que publica este mismo WhatsApp. La
+  misma línea aparece en cada ficha (`data-seller-line`, `data-seller-verify`).
 - **Plan B:** tras pulsar el botón aparecen «Abrir de nuevo» (un enlace real, que los
   navegadores integrados de Instagram y Facebook sí siguen) y «Copiar pedido», con el número
   a la vista. Se miden como `whatsapp_click` (`link_context=cart_fallback`) y `button_click`

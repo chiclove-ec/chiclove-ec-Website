@@ -8,6 +8,7 @@ import { resolve } from "node:path";
 import { test } from "node:test";
 import vm from "node:vm";
 
+import { BRAND_FACTS } from "../scripts/lib/agent-knowledge.mjs";
 import { loadCatalog, projectRoot } from "../scripts/lib/catalog.mjs";
 import { loadPublicFiles } from "./public-files.mjs";
 
@@ -70,9 +71,9 @@ test("el mensaje lleva el pedido, el total y una sola pregunta, sin formulario d
     [
       "Hola Chic&Love, quiero hacer este pedido:",
       "",
-      "*Anti-Stress Gummies* · 1 frasco · $23.99 (promo −20%)",
+      "1 frasco de *Anti-Stress Gummies*: $23.99 (promo −20%)",
       "",
-      "*Total: $23.99* + envío · IVA incluido",
+      "*Total: $23.99* más envío, IVA incluido",
       "¿Me confirman disponibilidad y el costo de envío? Mi ciudad es:"
     ].join("\n")
   );
@@ -87,10 +88,10 @@ test("con varios productos y envío gratis, cada línea dice cantidad, precio vi
     [
       "Hola Chic&Love, quiero hacer este pedido:",
       "",
-      "*Anti-Stress Gummies* · 2 frascos · $47.98 (promo −20%)",
-      "*Radiant Skin Vitamins* · 1 frasco · $23.99 (promo −20%)",
+      "2 frascos de *Anti-Stress Gummies*: $47.98 (promo −20%)",
+      "1 frasco de *Radiant Skin Vitamins*: $23.99 (promo −20%)",
       "",
-      "*Total: $71.97* · envío gratis · IVA incluido",
+      "*Total: $71.97* con envío gratis, IVA incluido",
       "¿Me confirman disponibilidad? Mi ciudad es:"
     ].join("\n")
   );
@@ -105,10 +106,10 @@ test("sin promo, los packs y el descuento por cantidad se nombran tal cual se co
     [
       "Hola Chic&Love, quiero hacer este pedido:",
       "",
-      "*Hair & Nails Forte* · 1 pack de 3 frascos · $74.99",
-      "*Sleep Vitamins* · 2 frascos · $49.99 (descuento por pack)",
+      "1 pack de 3 frascos de *Hair & Nails Forte*: $74.99",
+      "2 frascos de *Sleep Vitamins*: $49.99 (descuento por pack)",
       "",
-      "*Total: $124.98* · envío gratis · IVA incluido",
+      "*Total: $124.98* con envío gratis, IVA incluido",
       "¿Me confirman disponibilidad? Mi ciudad es:"
     ].join("\n")
   );
@@ -126,6 +127,7 @@ test("el mensaje nunca pide datos personales ni lleva emojis (regla 9)", () => {
       assert.doesNotMatch(text, /\p{Extended_Pictographic}/u, "WhatsApp convierte los emojis de la URL en U+FFFD");
       assert.doesNotMatch(text, /\n\n\n/, "sin saltos dobles que alarguen el cuadro de texto");
       assert.match(text, /Mi ciudad es:$/, "el único dato que se pide va al final, donde queda el cursor");
+      assert.ok(!text.includes("·"), "sin separadores «·»: frases normales");
     }
   }
 });
@@ -147,12 +149,19 @@ test("el botón dice «Enviar pedido» en el carrito y en todos los textos publi
   }
 });
 
-test("el carrito explica los tres pasos y que enviar el pedido no cobra nada", () => {
+test("el carrito explica los tres pasos con frases claras y sin «·»", () => {
   assert.match(mainSource, /"Así sigue tu pedido"/);
-  assert.match(mainSource, /solo envíalo/);
-  assert.match(mainSource, /horario laboral/);
-  assert.match(mainSource, /Pagas cuando te lo confirmemos: enviarlo no tiene costo/);
+  assert.match(mainSource, /"Se abre WhatsApp con tu pedido ya escrito\. Solo envíalo\."/);
+  assert.match(mainSource, /"Pagas por transferencia solo cuando confirmemos tu pedido\."/);
+  assert.doesNotMatch(mainSource, /no tiene costo|no se cobra/, "no debe sonar a envío gratis");
   assert.doesNotMatch(mainSource, /Antes de confirmar podrás revisar el total de tu compra\./);
+  assert.ok(!mainSource.includes("·"), "main.js no usa «·» en ningún texto");
+});
+
+test("el segundo paso habla del costo de envío solo cuando lo hay", () => {
+  const { context } = storefront();
+  assert.equal(context.cartShippingStep(23.99), "Te confirmamos disponibilidad y costo de envío en horario laboral.");
+  assert.equal(context.cartShippingStep(catalog.CL_FREE_SHIPPING), "Te confirmamos disponibilidad y entrega en horario laboral.");
 });
 
 /* ---------- el aviso de privacidad no tapa la compra ---------- */
@@ -227,19 +236,39 @@ test("los enlaces de ayuda del carrito son WhatsApp medidos con su contexto", ()
 
 /* ---------- la empresa a la vista ---------- */
 
-test("la línea de quién vende sale de CL_LEGAL", () => {
+test("la línea de quién vende da datos comprobables de CL_LEGAL, sin «·» ni relleno", () => {
   const line = catalog.clSellerLine();
-  for (const fact of [catalog.CL_LEGAL.companyShort, catalog.CL_LEGAL.ruc, catalog.CL_LEGAL.locality, String(catalog.CL_LEGAL.returnDays)]) {
+  for (const fact of [catalog.CL_LEGAL.companyShort, catalog.CL_LEGAL.ruc, String(catalog.CL_LEGAL.founded)]) {
     assert.ok(line.includes(fact), `falta ${fact}`);
   }
+  assert.ok(!line.includes("·"));
+  assert.doesNotMatch(line, /devoluci/);
   assert.match(mainSource, /clSellerLine\(\)/, "el carrito la pinta desde el catálogo");
 });
 
-test("cada ficha muestra quién vende, con el texto de CL_LEGAL también sin JavaScript", () => {
-  const expected = catalog.clSellerLine().replace(/&/g, "&amp;");
+test("el año de fundación coincide con los hechos de marca de la capa para agentes", () => {
+  // Fuente: laboratorioslira.com/conocenos («Se constituyó en septiembre de 1977»).
+  assert.equal(catalog.CL_LEGAL.founded, BRAND_FACTS.distributorFounded);
+});
+
+test("el cliente puede comprobar el WhatsApp en la web del laboratorio", () => {
+  // laboratorioslira.com/chic-and-love publica el mismo número como «Contacto Ventas Directas».
+  const url = new URL(catalog.CL_LEGAL.whatsappVerifyUrl);
+  assert.equal(url.protocol, "https:");
+  assert.equal(url.hostname.replace(/^www\./, ""), "laboratorioslira.com");
+  assert.equal(catalog.clSellerVerifyText(), "Comprueba nuestro WhatsApp en laboratorioslira.com");
+  assert.match(mainSource, /CL_LEGAL\.whatsappVerifyUrl/, "el carrito enlaza la verificación");
+  assert.match(mainSource, /"data-analytics-context", "seller_verify"/);
+});
+
+test("cada ficha muestra quién vende y dónde comprobarlo, también sin JavaScript", () => {
+  const esc = (text) => text.replace(/&/g, "&amp;");
+  const line = '<span data-seller-line>' + esc(catalog.clSellerLine()) + "</span>";
+  const link = '<a href="' + catalog.CL_LEGAL.whatsappVerifyUrl + '" target="_blank" rel="noopener noreferrer" ' +
+    'data-seller-verify data-analytics-context="seller_verify">' + esc(catalog.clSellerVerifyText()) + "</a>";
   const pages = ["producto.html", ...catalog.CL_PRODUCTS.map((p) => p.id + ".html")];
   for (const page of pages) {
-    assert.ok(read(page).includes('<p class="pd-seller" data-seller-line>' + expected + "</p>"), `${page} sin la línea del vendedor`);
+    assert.ok(read(page).includes('<p class="pd-seller">' + line + " " + link + "</p>"), `${page} sin la línea del vendedor`);
   }
 });
 
