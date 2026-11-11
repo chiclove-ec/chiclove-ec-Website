@@ -1,6 +1,7 @@
-// El dueño no quiere separadores «·» en el sitio: suenan a texto generado. Se escribe
-// con frases normales (comas, «y», «para») y, donde hace falta separar etiquetas, un
-// filete fino de CSS. Esta prueba impide que vuelvan, también por los generadores.
+// El dueño no quiere separadores «·» en el sitio ni en el informe semanal: suenan a texto
+// generado. Se escribe con frases normales (comas, «y», «para», «/») y, donde hace falta
+// separar etiquetas, un filete fino de CSS. Esta prueba impide que vuelvan, también por los
+// generadores, el correo de analítica y los mensajes de los workflows.
 import { strict as assert } from "node:assert";
 import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
@@ -17,10 +18,13 @@ function sources() {
     ...readdirSync(resolve(projectRoot, "scripts")).filter((f) => f.endsWith(".mjs")).map((f) => "scripts/" + f),
     ...readdirSync(resolve(projectRoot, "scripts/lib")).filter((f) => f.endsWith(".mjs")).map((f) => "scripts/lib/" + f)
   ];
-  return [...published, ...generators];
+  const report = ["scripts/analytics_report.py"];
+  const workflows = readdirSync(resolve(projectRoot, ".github/workflows"))
+    .filter((f) => /\.ya?ml$/.test(f)).map((f) => ".github/workflows/" + f);
+  return [...published, ...generators, ...report, ...workflows];
 }
 
-test("ningún archivo publicado ni generador usa el separador «·»", () => {
+test("ni la web, ni sus generadores, ni el informe semanal usan el separador «·»", () => {
   const offenders = [];
   for (const file of sources()) {
     let text;
