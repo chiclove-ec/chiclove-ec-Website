@@ -104,7 +104,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 - **Beneficios que declara la marca:** Previene y frena la caída, acelera el crecimiento y engrosa la fibra capilar. Activa la microcirculación del cuero cabelludo: más nutrientes a los folículos pilosos. Crecimiento y fuerza visibles en cabello y uñas. El grupo de vitaminas B aumenta el flujo de sangre al cuero cabelludo para un pelo fuerte y brillante.
 - **Precauciones de sus activos:** Biotina: La biotina puede alterar el resultado de algunos análisis de sangre (por ejemplo, hormonas tiroideas o troponina). Conviene avisar al médico y al laboratorio antes de hacerse análisis. Vitamina B12: Bien tolerada en las cantidades de un complemento; no superar la dosis indicada. Ácido fólico: En embarazo o planificación de embarazo, la dosis de ácido fólico debe indicarla un profesional de la salud. Vitamina A: En embarazo no conviene sumar aportes de vitamina A de varios complementos sin indicación profesional. Vitamina D: No sumar varios complementos con vitamina D sin indicación profesional. Ashwagandha: No se recomienda en embarazo ni lactancia. Consultar antes en caso de enfermedad tiroidea, autoinmune o hepática, o si se toman sedantes, ansiolíticos, inmunosupresores o medicación para la tiroides. Zinc: No sumar varios complementos con zinc durante periodos largos sin indicación profesional.
 - **También se busca como:** gomitas para el cabello, gomitas de biotina, gomitas para la caída del cabello, vitaminas para el pelo, gomitas para las uñas, vitaminas para uñas quebradizas, hair gummies.
-- **Ficha:** [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) · [markdown](https://chiclove-ec.com/hair-nails-forte.md)
+- **Ficha:** [Hair & Nails Forte](https://chiclove-ec.com/hair-nails-forte) ([markdown](https://chiclove-ec.com/hair-nails-forte.md))
 
 ### Gomitas de colágeno en Ecuador: Radiant Skin Vitamins
 
@@ -115,7 +115,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 - **Beneficios que declara la marca:** Potencia la luminosidad y vitalidad de la piel. El colágeno y la coenzima Q10 mejoran la elasticidad y combaten los signos de la edad. La biotina fortalece la barrera cutánea y aporta un glow saludable. Piel perfecta: hidratación y firmeza desde el interior.
 - **Precauciones de sus activos:** Colágeno: Es de origen bovino: no apto para dietas veganas ni vegetarianas, ni para personas con alergia a la proteína bovina. Coenzima Q10: Puede interferir con anticoagulantes como la warfarina y con algunos antihipertensivos; consultar si se toman. Biotina: La biotina puede alterar el resultado de algunos análisis de sangre (por ejemplo, hormonas tiroideas o troponina). Conviene avisar al médico y al laboratorio antes de hacerse análisis. Vitamina C: Bien tolerada en las cantidades de un complemento; no superar la dosis indicada. Vitamina E: Consultar antes si se toman anticoagulantes.
 - **También se busca como:** gomitas de colágeno, colágeno en gomitas, gomitas para la piel, vitaminas para la piel, colágeno con biotina, gomitas antiedad, skin gummies.
-- **Ficha:** [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) · [markdown](https://chiclove-ec.com/radiant-skin.md)
+- **Ficha:** [Radiant Skin Vitamins](https://chiclove-ec.com/radiant-skin) ([markdown](https://chiclove-ec.com/radiant-skin.md))
 
 ### Gomitas de vinagre de manzana en Ecuador: Vinagre de Manzana
 
@@ -126,7 +126,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 - **Beneficios que declara la marca:** Ayuda a mantener estables los niveles de glucosa en sangre y facilita la digestión. Efecto probiótico que favorece la generación de bacterias saludables en el tracto intestinal. Regula la digestión y la microbiota, y reduce la hinchazón. Contribuye al control de peso y ayuda a absorber minerales y vitaminas.
 - **Precauciones de sus activos:** Vinagre de manzana: Consultar antes si se toma medicación para la diabetes, diuréticos o digoxina, o si hay reflujo o gastritis activa. Extracto de jengibre: Consultar antes si se toman anticoagulantes o si hay cálculos biliares.
 - **También se busca como:** gomitas de vinagre de manzana, vinagre de manzana en gomitas, apple cider vinegar gummies, gomitas ACV, gomitas para la hinchazón, gomitas para la digestión, gomitas para bajar de peso.
-- **Ficha:** [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana) · [markdown](https://chiclove-ec.com/vinagre-de-manzana.md)
+- **Ficha:** [Vinagre de Manzana](https://chiclove-ec.com/vinagre-de-manzana) ([markdown](https://chiclove-ec.com/vinagre-de-manzana.md))
 
 ### Gomitas de melatonina en Ecuador: Sleep Vitamins
 
@@ -137,7 +137,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 - **Beneficios que declara la marca:** Ayuda a conciliar el sueño de manera rápida. Sueño reparador y profundo, noche tras noche. Protege la piel y el cabello del envejecimiento celular. Melatonina + B6: regenera las defensas de piel y pelo contra el estrés oxidativo.
 - **Precauciones de sus activos:** Melatonina: Produce somnolencia: no conducir ni manejar maquinaria después de tomarla. No indicada en embarazo ni lactancia. Consultar si se toman sedantes, anticoagulantes, inmunosupresores o antidiabéticos. El insomnio persistente merece valoración médica. Vitamina B6: Tomada en exceso durante mucho tiempo puede afectar a los nervios; no superar la dosis indicada.
 - **También se busca como:** gomitas de melatonina, melatonina en gomitas, gomitas para dormir, vitaminas para dormir, algo natural para dormir, melatonina Ecuador, sleep gummies.
-- **Ficha:** [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins) · [markdown](https://chiclove-ec.com/sleep-vitamins.md)
+- **Ficha:** [Sleep Vitamins](https://chiclove-ec.com/sleep-vitamins) ([markdown](https://chiclove-ec.com/sleep-vitamins.md))
 
 ### Gomitas para la libido femenina en Ecuador: Sexual Booster Women
 
@@ -148,7 +148,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 - **Beneficios que declara la marca:** Aumenta la libido y potencia el bienestar sexual. Mantiene en condiciones óptimas la ovulación. Impulso de energía y menos niveles de estrés. Maca y damiana: ingredientes activos 100% naturales.
 - **Precauciones de sus activos:** Maca: Sin datos suficientes de seguridad en embarazo y lactancia. Consultar antes en caso de condiciones sensibles a las hormonas. Damiana: No se recomienda en embarazo ni lactancia. Puede bajar la glucosa: consultar si se toma medicación para la diabetes. Ashwagandha: No se recomienda en embarazo ni lactancia. Consultar antes en caso de enfermedad tiroidea, autoinmune o hepática, o si se toman sedantes, ansiolíticos, inmunosupresores o medicación para la tiroides.
 - **También se busca como:** gomitas para la libido femenina, maca para mujeres, vitaminas para el deseo sexual femenino, gomitas de maca, damiana, energía íntima mujer, gomitas para la mujer.
-- **Ficha:** [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women) · [markdown](https://chiclove-ec.com/sexual-booster-women.md)
+- **Ficha:** [Sexual Booster Women](https://chiclove-ec.com/sexual-booster-women) ([markdown](https://chiclove-ec.com/sexual-booster-women.md))
 
 ### Gomitas para la libido masculina en Ecuador: Sexual Booster Men
 
@@ -159,7 +159,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 - **Beneficios que declara la marca:** Aumenta la libido y el rendimiento sexual. Mejora la calidad del esperma e incrementa la fertilidad. Estabiliza los canales de energía con maca. Ingredientes activos 100% naturales.
 - **Precauciones de sus activos:** Maca: Sin datos suficientes de seguridad en embarazo y lactancia. Consultar antes en caso de condiciones sensibles a las hormonas. Fenogreco: No se recomienda en embarazo. Puede bajar la glucosa y potenciar anticoagulantes; consultar si se toman. Posible alergia cruzada en personas alérgicas al maní o a los garbanzos. Zinc: No sumar varios complementos con zinc durante periodos largos sin indicación profesional. L-arginina: Consultar antes si se toman medicamentos para la presión arterial, nitratos o medicamentos para la disfunción eréctil, o si hay antecedentes de herpes.
 - **También se busca como:** gomitas para la libido masculina, maca para hombres, vitaminas para la fertilidad masculina, gomitas de maca para hombre, L-arginina, rendimiento sexual natural, gomitas para el hombre.
-- **Ficha:** [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) · [markdown](https://chiclove-ec.com/sexual-booster-men.md)
+- **Ficha:** [Sexual Booster Men](https://chiclove-ec.com/sexual-booster-men) ([markdown](https://chiclove-ec.com/sexual-booster-men.md))
 
 ### Gomitas de ashwagandha en Ecuador: Anti-Stress Gummies
 
@@ -170,7 +170,7 @@ Para mujeres adultas: Sexual Booster Women. Para hombres adultos: Sexual Booster
 - **Beneficios que declara la marca:** Alivia estados de estrés y ansiedad. Favorece la relajación y la calma mental. Ayuda a adaptarte a situaciones de estrés o de cambio. La ashwagandha, planta adaptógena, regula los niveles de cortisol.
 - **Precauciones de sus activos:** Ashwagandha: No se recomienda en embarazo ni lactancia. Consultar antes en caso de enfermedad tiroidea, autoinmune o hepática, o si se toman sedantes, ansiolíticos, inmunosupresores o medicación para la tiroides. Melisa: Puede sumar efecto a los sedantes; consultar si se toman, o si hay hipotiroidismo en tratamiento. Ginseng: Consultar antes si se toman anticoagulantes, antidiabéticos o antidepresivos. Tomado tarde puede dificultar el sueño.
 - **También se busca como:** gomitas de ashwagandha, ashwagandha en gomitas, ashwagandha Ecuador, gomitas para el estrés, gomitas para la ansiedad, vitaminas para el estrés, algo natural para los nervios.
-- **Ficha:** [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) · [markdown](https://chiclove-ec.com/anti-stress.md)
+- **Ficha:** [Anti-Stress Gummies](https://chiclove-ec.com/anti-stress) ([markdown](https://chiclove-ec.com/anti-stress.md))
 
 ## Gomitas de cada activo en Ecuador
 
@@ -354,7 +354,7 @@ No es la opción cuando la persona:
 
 - [Guía de elección con tabla comparativa](https://chiclove-ec.com/guia-de-eleccion.md)
 - [Glosario de activos con precauciones](https://chiclove-ec.com/ingredientes.md)
-- [Catálogo completo](https://chiclove-ec.com/tienda.md) · [versión HTML](https://chiclove-ec.com/tienda)
+- [Catálogo completo](https://chiclove-ec.com/tienda.md) ([versión HTML](https://chiclove-ec.com/tienda))
 - [Catálogo en JSON](https://chiclove-ec.com/catalog.json)
 - [Información de la empresa](https://chiclove-ec.com/about.md)
 - [English summary](https://chiclove-ec.com/en.md)

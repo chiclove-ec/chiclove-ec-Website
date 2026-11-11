@@ -161,11 +161,11 @@
       meta.push("dura " + (duration.min === duration.max ? "unos " + duration.min : duration.min + "–" + duration.max) + " días");
     }
     meta.push(CL_VAT_NOTE);
-    price.appendChild(makeEl("small", "", meta.join(" · ")));
+    price.appendChild(makeEl("small", "", meta.join(", ")));
     // Fuera de promoción (o con una que mantenga los packs) se enseña el ahorro por volumen,
     // con los precios tal cual están en el catálogo: nunca un precio por unidad calculado.
     if (typeof clHasPacks === "function" && clHasPacks(product)) {
-      price.appendChild(makeEl("span", "fs-packs", "Pack x2 " + clMoney(product.pricePack) + " · Pack x3 " + clMoney(product.pricePack3)));
+      price.appendChild(makeEl("span", "fs-packs", "Pack x2 " + clMoney(product.pricePack) + " y pack x3 " + clMoney(product.pricePack3)));
     }
   }
 
@@ -241,8 +241,8 @@
 
   // Dos fórmulas comparten objetivo: el carril las distingue por el público del nombre.
   function railLabel(product) {
-    if (/\bWomen\b/.test(product.name)) return product.goalLabel + " · mujer";
-    if (/\bMen\b/.test(product.name)) return product.goalLabel + " · hombre";
+    if (/\bWomen\b/.test(product.name)) return product.goalLabel + " para mujer";
+    if (/\bMen\b/.test(product.name)) return product.goalLabel + " para hombre";
     return product.goalLabel;
   }
 
@@ -401,7 +401,7 @@
     panel.setAttribute("aria-label", (index + 1) + " de " + total + ": " + name);
     panel.appendChild(makeEl("span", "as-kind", capitalize(info.kind)));
     panel.appendChild(makeEl("h3", "as-name", name));
-    if (info.aka && info.aka.length) panel.appendChild(makeEl("p", "as-aka", "También: " + info.aka.join(" · ")));
+    if (info.aka && info.aka.length) panel.appendChild(makeEl("p", "as-aka", "También: " + info.aka.join(", ")));
     panel.appendChild(makeEl("p", "as-what", info.what + " " + info.role));
     if (info.wikipedia) {
       var source = makeEl("a", "as-source", "Saber más en Wikipedia");
@@ -844,7 +844,7 @@
     var cinema = document.querySelector("[data-cinema] .cinema-copy");
     var dock = makeEl("div", "home-dock");
     var label = makeEl("span", "home-dock-copy");
-    label.appendChild(makeEl("small", "", "60 gummies · " + CL_VAT_NOTE));
+    label.appendChild(makeEl("small", "", "60 gummies, " + CL_VAT_NOTE));
     label.appendChild(makeEl("strong", "", "Desde " + clMoney(clCurrentSingleMinimum())));
     var cta = makeEl("a", "btn btn-primary", "Elegir mi fórmula");
     cta.href = "tienda";

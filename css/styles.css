@@ -1380,7 +1380,16 @@ p, li { text-wrap: pretty; }
 .pd-buy { margin-top: 18px; display: flex; gap: 12px; align-items: stretch; }
 .pd-buy .qty { margin: 0; background: var(--card); }
 .pd-buy .qty button { width: 44px; height: 48px; }
-.pd-buy .btn { flex: 1; }
+/* Nunca más estrecho que su texto: con overflow: hidden (el brillo), min-width: auto vale
+   0 y el botón se recortaba en el móvil. Si no cabe, baja de renglón. */
+.pd-buy .btn { flex: 1; min-width: max-content; }
+.pd-add-short { display: none; }
+/* En el móvil, «Añadir $23.99», como la barra fija de la ficha. */
+@media (max-width: 459px) {
+  .pd-add-long { display: none; }
+  .pd-add-short { display: inline; }
+  .pd-buy .btn { padding-inline: 20px; }
+}
 .pd-meta { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
 .pd-meta span {
   padding: 7px 12px;
@@ -2945,7 +2954,7 @@ h1, h2, .display { font-weight: 700; letter-spacing: -0.038em; }
 }
 .trust-item.reveal.in:nth-child(n) .t-ico { background: none; color: var(--a-dark); }
 
-/* Ficha de producto, en limpio: texto corrido con puntos medios en vez de píldoras. */
+/* Ficha de producto, en limpio: texto corrido separado por filetes finos en vez de píldoras. */
 .pd-badges, .pd-meta { gap: 6px 0; }
 .pd-badges span,
 .pd-meta span {
@@ -2957,22 +2966,25 @@ h1, h2, .display { font-weight: 700; letter-spacing: -0.038em; }
 }
 .pd-badges span { font-size: 11px; letter-spacing: 0.14em; }
 .pd-meta span { color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
-.pd-badges span + span::before,
-.pd-meta span + span::before { content: "·"; margin: 0 10px; color: var(--muted); font-weight: 400; }
 .pd-badges span:hover { transform: none; }
 .pd-benefits li::before { content: ""; width: 14px; height: 1.5px; margin-top: 11px; border-radius: 2px; background: var(--a); }
 /* El capítulo «Dentro de cada gummy» ya cuenta los activos; sin JS, las píldoras se quedan. */
 html.story-ready .page-product .pd-actives { display: none; }
-/* Puntos medios sin huérfanos: el contenedor recorta el punto que abre cada línea. */
-.pd-badges, .pd-meta { margin-left: -22px; overflow: hidden; }
+/* Filetes sin huérfanos: cada elemento lleva el suyo delante y el contenedor recorta el
+   que abre cada línea. El filete toma el color del texto, atenuado. */
+.pd-badges, .pd-meta { margin-left: -22px; clip-path: inset(-4px -4px -4px 22px); }
 .pd-badges span, .pd-meta span { position: relative; margin-left: 22px; }
-.pd-badges span + span::before,
-.pd-meta span + span::before { content: none; }
-.pd-badges span::before,
-.pd-meta span::before { content: "·"; position: absolute; left: -14px; color: var(--muted); font-weight: 400; }
-.pd-badges, .pd-meta { overflow: visible; clip-path: inset(-4px -4px -4px 22px); }
-.pd-badges span::before, .pd-meta span::before,
-.pd-badges span + span::before, .pd-meta span + span::before { content: "·"; position: absolute; left: -14px; margin: 0; color: var(--muted); font-weight: 400; }
+.pd-badges span::before, .pd-meta span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -11px;
+  width: 1px;
+  height: 0.9em;
+  background: currentColor;
+  opacity: 0.3;
+  translate: 0 -50%;
+}
 
 /* Un solo lienzo: las secciones teñidas de lavanda pasan al color base y se separan
    con un filete fino; así no hay costuras de color entre capítulos. */
@@ -3093,7 +3105,6 @@ html.story-ready .cinema { height: 190vh; }
 .pcard-vat, .pcard-pack-prices, .pcard-saving { margin-top: 2px; }
 .pcard-vat { display: inline; }
 .pcard-pack-prices { margin-top: 2px; }
-.pcard-pack-prices small::before { content: "· "; }
 .pcard-foot { gap: 16px; }
 
 /* Nosotros y páginas de texto: el resplandor del hero se funde con el lienzo. */
@@ -3104,7 +3115,10 @@ html.story-ready .cinema { height: 190vh; }
 /* Precio de la tarjeta en tres renglones fijos: precio, una línea discreta y la píldora
    de ahorro siempre debajo (el ::after fuerza el salto), sin huecos dispares. */
 .pcard-price { column-gap: 0; }
-.pcard-pack-prices small::before { content: "·"; margin: 0 7px; }
+/* Promo: «IVA incluido, −20% en noviembre» en una frase. Sin promo, los precios de los
+   packs ocupan su propio renglón, sin viñetas. */
+.pcard-pack-prices small:only-child::before { content: ", "; }
+.pcard-pack-prices:has(small + small) { flex-basis: 100%; }
 .pcard-price::after { content: ""; order: 4; flex-basis: 100%; height: 0; }
 .pcard-saving { order: 5; margin-top: 4px; }
 
@@ -3534,7 +3548,7 @@ html.story-ready .manifesto { height: 170vh; }
 }
 .hero > .scroll-cue-line, .hero > .scroll-cue .scroll-cue-line { width: 1px; height: 22px; background: linear-gradient(rgba(140, 111, 201, 0.9), rgba(140, 111, 201, 0)); }
 
-/* Nosotros · Filosofía: la cabeza está en el tercio superior de la foto; el encuadre se ancla
+/* Nosotros, Filosofía: la cabeza está en el tercio superior de la foto; el encuadre se ancla
    arriba y el movimiento de scroll (acercamiento y paralaje) parte del borde superior, para
    que nunca recorte la cara. */
 .about-philosophy .split-media img.cover { object-position: 50% 0%; transform-origin: 50% 0%; }
@@ -3542,7 +3556,7 @@ html.story-ready .manifesto { height: 170vh; }
 html.story-ready .about-philosophy[data-benefits] .split-media img.cover { scale: calc(1.06 - var(--bp, 0) * 0.06); }
 
 /* ============================================================
-   Nosotros · Origen y Lira: escena a dos columnas ligada al scroll (story.js → --si).
+   Nosotros, Origen y Lira: escena a dos columnas ligada al scroll (story.js → --si).
    La imagen llega desde la izquierda, algo pequeña; el texto entra desde la derecha y sus
    bloques suben uno tras otro; en Lira, un filete se dibuja sobre las cifras y estas
    aparecen escalonadas. Mismo ritmo y curvas que «Belleza» y «Filosofía».
@@ -3608,7 +3622,7 @@ html.story-ready .about-philosophy[data-benefits] .split-media img.cover { scale
   }
 }
 
-/* Móvil · franja de confianza: dos columnas con el mismo borde izquierdo; el número va en
+/* Móvil, franja de confianza: dos columnas con el mismo borde izquierdo; el número va en
    una columna fija y el título se alinea siempre a su derecha, sin centrados dispares. */
 @media (max-width: 720px) {
   .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 14px; width: min(calc(100% - 40px), 340px); margin-inline: auto; }
@@ -3617,7 +3631,7 @@ html.story-ready .about-philosophy[data-benefits] .split-media img.cover { scale
   .trust-item h3 { font-size: 13px; line-height: 1.25; }
 }
 
-/* Móvil · «Tu momento», tarjeta 03: más alto el marco y el encuadre en el rostro. */
+/* Móvil, «Tu momento», tarjeta 03: más alto el marco y el encuadre en el rostro. */
 @media (max-width: 720px) {
   .rc-3 .rc-media { height: 270px; }
   .rc-3 .rc-media img { object-position: 50% 4%; }

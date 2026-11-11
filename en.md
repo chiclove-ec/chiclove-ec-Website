@@ -26,7 +26,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **How to take:** 2 gummies a day after a meal. A bottle lasts about 30 days.
 - **Flavor:** blueberry.
 - **Price:** $23.99 per bottle of 60 gummies on a promotion ending 2026-11-26 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
-- **Page:** https://chiclove-ec.com/hair-nails-forte (Spanish) · https://chiclove-ec.com/hair-nails-forte.md (markdown)
+- **Page:** https://chiclove-ec.com/hair-nails-forte (Spanish), https://chiclove-ec.com/hair-nails-forte.md (markdown)
 
 ### Radiant Skin Vitamins
 
@@ -35,7 +35,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **How to take:** 2 gummies a day after a meal. A bottle lasts about 30 days.
 - **Flavor:** red berries.
 - **Price:** $23.99 per bottle of 60 gummies on a promotion ending 2026-11-26 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
-- **Page:** https://chiclove-ec.com/radiant-skin (Spanish) · https://chiclove-ec.com/radiant-skin.md (markdown)
+- **Page:** https://chiclove-ec.com/radiant-skin (Spanish), https://chiclove-ec.com/radiant-skin.md (markdown)
 
 ### Vinagre de Manzana
 
@@ -44,7 +44,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **How to take:** 2 gummies on an empty stomach, or 1 gummy after a meal. A bottle lasts 30 to 60 days.
 - **Flavor:** apple.
 - **Price:** $23.99 per bottle of 60 gummies on a promotion ending 2026-11-26 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
-- **Page:** https://chiclove-ec.com/vinagre-de-manzana (Spanish) · https://chiclove-ec.com/vinagre-de-manzana.md (markdown)
+- **Page:** https://chiclove-ec.com/vinagre-de-manzana (Spanish), https://chiclove-ec.com/vinagre-de-manzana.md (markdown)
 
 ### Sleep Vitamins
 
@@ -53,7 +53,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **How to take:** 1–3 gummies a day before bed, depending on your sleep pattern. A bottle lasts 20 to 60 days.
 - **Flavor:** strawberry.
 - **Price:** $23.99 per bottle of 60 gummies on a promotion ending 2026-11-26 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
-- **Page:** https://chiclove-ec.com/sleep-vitamins (Spanish) · https://chiclove-ec.com/sleep-vitamins.md (markdown)
+- **Page:** https://chiclove-ec.com/sleep-vitamins (Spanish), https://chiclove-ec.com/sleep-vitamins.md (markdown)
 
 ### Sexual Booster Women
 
@@ -62,7 +62,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **How to take:** 2 gummies a day after breakfast. A bottle lasts about 30 days.
 - **Flavor:** cherry.
 - **Price:** $23.99 per bottle of 60 gummies on a promotion ending 2026-11-26 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
-- **Page:** https://chiclove-ec.com/sexual-booster-women (Spanish) · https://chiclove-ec.com/sexual-booster-women.md (markdown)
+- **Page:** https://chiclove-ec.com/sexual-booster-women (Spanish), https://chiclove-ec.com/sexual-booster-women.md (markdown)
 
 ### Sexual Booster Men
 
@@ -71,7 +71,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **How to take:** 2 gummies a day after breakfast. A bottle lasts about 30 days.
 - **Flavor:** cherry.
 - **Price:** $23.99 per bottle of 60 gummies on a promotion ending 2026-11-26 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
-- **Page:** https://chiclove-ec.com/sexual-booster-men (Spanish) · https://chiclove-ec.com/sexual-booster-men.md (markdown)
+- **Page:** https://chiclove-ec.com/sexual-booster-men (Spanish), https://chiclove-ec.com/sexual-booster-men.md (markdown)
 
 ### Anti-Stress Gummies
 
@@ -80,7 +80,7 @@ This is an English summary of https://chiclove-ec.com/, whose content is in Span
 - **How to take:** 2 gummies a day during periods of high stress and/or anxiety. A bottle lasts about 30 days.
 - **Flavor:** orange.
 - **Price:** $23.99 per bottle of 60 gummies on a promotion ending 2026-11-26 (regular price $29.99; multi-bottle packs are paused meanwhile), VAT included.
-- **Page:** https://chiclove-ec.com/anti-stress (Spanish) · https://chiclove-ec.com/anti-stress.md (markdown)
+- **Page:** https://chiclove-ec.com/anti-stress (Spanish), https://chiclove-ec.com/anti-stress.md (markdown)
 
 ## Safety
 
