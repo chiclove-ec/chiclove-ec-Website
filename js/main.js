@@ -279,7 +279,7 @@ function cartRemove(id, variant) {
   }
 }
 
-/* Una línea por producto: nombre, cantidad, importe que se cobra y por qué es ese. */
+/* Una línea por producto: cantidad, nombre, importe que se cobra y por qué es ese. */
 function whatsappItemLine(it) {
   var product = clFindProduct(it.id);
   var quantity;
@@ -292,7 +292,7 @@ function whatsappItemLine(it) {
     quantity = it.qty + (it.qty === 1 ? " frasco" : " frascos");
   }
 
-  var line = "*" + product.name + "* · " + quantity + " · " + clMoney(itemTotal(it));
+  var line = quantity + " de *" + product.name + "*: " + clMoney(itemTotal(it));
   // El precio promocional solo afecta al frasco suelto; los packs conservan su tarifa.
   var promo = it.variant === "uno" ? clActivePromo(product) : null;
   if (promo) {
@@ -313,7 +313,7 @@ function whatsappOrderMessage(items) {
     .concat(items.map(whatsappItemLine))
     .concat([
       "",
-      "*Total: " + clMoney(orderTotal) + "*" + (freeShipping ? " · envío gratis" : " + envío") + " · " + CL_VAT_NOTE,
+      "*Total: " + clMoney(orderTotal) + "*" + (freeShipping ? " con envío gratis" : " más envío") + ", " + CL_VAT_NOTE,
       freeShipping
         ? "¿Me confirman disponibilidad? Mi ciudad es:"
         : "¿Me confirman disponibilidad y el costo de envío? Mi ciudad es:"
@@ -362,6 +362,13 @@ function checkoutWhatsApp() {
     if (window.clAnalytics) window.clAnalytics.track("checkout_error", { error_type: "popup_blocked" });
     toast("Tu navegador no abrió WhatsApp. Usa «Abrir de nuevo» o copia tu pedido.");
   }
+}
+
+/* El segundo paso nombra el costo de envío solo cuando lo hay. */
+function cartShippingStep(total) {
+  return total >= CL_FREE_SHIPPING
+    ? "Te confirmamos disponibilidad y entrega en horario laboral."
+    : "Te confirmamos disponibilidad y costo de envío en horario laboral.";
 }
 
 /* Plan B del paso a WhatsApp: un enlace real (que los navegadores integrados sí siguen)
@@ -480,11 +487,13 @@ function buildCartChrome() {
   var steps = makeEl("div", "cart-steps");
   steps.appendChild(makeEl("p", "cart-steps-title", "Así sigue tu pedido"));
   var stepList = makeEl("ol");
-  [
-    "Se abre WhatsApp con tu pedido ya escrito: solo envíalo.",
-    "Te confirmamos disponibilidad y envío en horario laboral.",
-    "Pagas cuando te lo confirmemos: enviarlo no tiene costo."
-  ].forEach(function (text) { stepList.appendChild(makeEl("li", "", text)); });
+  var shippingStep = makeEl("li", "", cartShippingStep(0));
+  shippingStep.id = "cart-step-shipping";
+  stepList.append(
+    makeEl("li", "", "Se abre WhatsApp con tu pedido ya escrito. Solo envíalo."),
+    shippingStep,
+    makeEl("li", "", "Pagas por transferencia solo cuando confirmemos tu pedido.")
+  );
   steps.appendChild(stepList);
   foot.appendChild(steps);
   var checkout = makeEl("button", "btn btn-wa btn-wide");
@@ -515,7 +524,15 @@ function buildCartChrome() {
   fallback.append(fallbackText, fallbackActions);
   foot.appendChild(fallback);
 
-  foot.appendChild(makeEl("p", "cart-seller", clSellerLine()));
+  // Quién vende y dónde comprobar que este WhatsApp es el oficial.
+  var seller = makeEl("p", "cart-seller", clSellerLine() + " ");
+  var verify = makeEl("a", "", clSellerVerifyText());
+  verify.href = CL_LEGAL.whatsappVerifyUrl;
+  verify.target = "_blank";
+  verify.rel = "noopener noreferrer";
+  verify.setAttribute("data-analytics-context", "seller_verify");
+  seller.appendChild(verify);
+  foot.appendChild(seller);
   var terms = makeEl("p", "cart-note cart-terms");
   terms.append(
     document.createTextNode("Al enviar tu pedido aceptas nuestros "),
@@ -664,6 +681,8 @@ function renderCart() {
     }
   }
   if (shippingProgress) shippingProgress.value = Math.min(total, CL_FREE_SHIPPING);
+  var shippingStep = document.getElementById("cart-step-shipping");
+  if (shippingStep) shippingStep.textContent = cartShippingStep(total);
   // El plan B siempre lleva el pedido tal como está ahora; sin pedido, desaparece.
   var fallbackLink = document.getElementById("cart-fallback-link");
   if (!items.length) hideCheckoutFallback();
@@ -1197,6 +1216,10 @@ function initBusinessData() {
   });
   document.querySelectorAll("[data-seller-line]").forEach(function (el) {
     el.textContent = clSellerLine();
+  });
+  document.querySelectorAll("[data-seller-verify]").forEach(function (link) {
+    link.href = CL_LEGAL.whatsappVerifyUrl;
+    link.textContent = clSellerVerifyText();
   });
   document.querySelectorAll("[data-whatsapp-number]").forEach(function (el) {
     el.textContent = whatsappDisplay;

@@ -282,9 +282,9 @@ negocio) y después lo que da confianza (mayor impacto potencial, pero depende d
   ```text
   Hola Chic&Love, quiero hacer este pedido:
 
-  *Anti-Stress Gummies* · 2 frascos · $47.98 (promo −20%)
+  2 frascos de *Anti-Stress Gummies*: $47.98 (promo −20%)
 
-  *Total: $47.98* + envío · IVA incluido
+  *Total: $47.98* más envío, IVA incluido
   ¿Me confirman disponibilidad y el costo de envío? Mi ciudad es:
   ```
 
@@ -292,9 +292,14 @@ negocio) y después lo que da confianza (mayor impacto potencial, pero depende d
   cuando la tienda ya ha respondido. Sin emojis en la URL (regla 9). Prueba nueva: el mensaje lleva
   producto, cantidad, precio vigente (promo incluida) y total, y **no** lleva campos de datos personales.
 - [x] **P1.2 · «Así sigue tu pedido», en el carrito, encima del botón** (tres líneas, mismos tokens):
-  1. Se abre WhatsApp con tu pedido ya escrito: solo envíalo.
-  2. Te confirmamos disponibilidad y envío en horario laboral (dato de /contact).
-  3. Pagas cuando te lo confirmemos: enviarlo no tiene costo.
+  1. Se abre WhatsApp con tu pedido ya escrito. Solo envíalo.
+  2. Te confirmamos disponibilidad y costo de envío en horario laboral («y entrega» cuando el
+     envío es gratis; el horario laboral sale de /contact).
+  3. Pagas por transferencia solo cuando confirmemos tu pedido.
+
+  El 11 de noviembre se reescribieron a petición del dueño. El texto anterior («enviarlo no tiene
+  costo») hacía pensar que el envío era gratis, y los separadores «·» del mensaje y de la línea
+  del vendedor se sustituyeron por frases normales.
 
   Sustituye a «Antes de confirmar podrás revisar el total de tu compra». En pantallas de 720 px de
   alto o menos, los pasos van justo debajo del botón, para que el botón se vea sin desplazar.
@@ -304,8 +309,12 @@ negocio) y después lo que da confianza (mayor impacto potencial, pero depende d
   todos los sitios y ejecutar `npm run gen` (regla 2). En el texto legal del carrito, «Al enviar tu
   pedido aceptas…».
 - [x] **P1.3 · La empresa a la vista donde se decide.** En el pie del carrito y en `.pd-assurance`:
-  «Vende Laboratorios Lira S.A. · RUC 1790336352001 · Quito · 15 días para devoluciones», con
-  `clSellerLine()` desde `CL_LEGAL`. En la ficha va debajo de `.pd-assurance` (`data-seller-line`).
+  «Vende Laboratorios Lira S.A., laboratorio ecuatoriano desde 1977. RUC 1790336352001.», con
+  `clSellerLine()` desde `CL_LEGAL`, y el enlace «Comprueba nuestro WhatsApp en
+  laboratorioslira.com» (`CL_LEGAL.whatsappVerifyUrl`). Fuentes: laboratorioslira.com/conocenos
+  («Se constituyó en septiembre de 1977») y laboratorioslira.com/chic-and-love, que publica este
+  mismo número como «Contacto Ventas Directas». Se mide como `navigation_click` con
+  `link_context=seller_verify`. En la ficha va debajo de `.pd-assurance` (`data-seller-line`).
   En móvil se ve aunque `.pd-assurance` siga oculto.
 - [x] **P1.3 · Salida de bajo compromiso:** píldora «¿Dudas? Pregúntanos» en la cabecera del carrito,
   junto a cerrar, sin restar altura al pie. Es `data-whatsapp-link` con
