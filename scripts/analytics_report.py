@@ -548,8 +548,8 @@ def report_insights(data: Dict[str, Any]) -> List[str]:
     sessions = number(weekly.get("sessions"))
     users = number(weekly.get("totalUsers"))
     leads = event_value(data, "events_week", "generate_lead", "totalUsers")
-    insights = [f"{fmt(sessions)} sesiones esta semana · {change(sessions, previous.get('sessions'))} frente a la anterior.",
-                f"{fmt(leads)} usuarios con intención de pedido · {fmt_rate(ratio(leads, users))} de los usuarios totales medidos."]
+    insights = [f"{fmt(sessions)} sesiones esta semana, {change(sessions, previous.get('sessions'))} frente a la anterior.",
+                f"{fmt(leads)} usuarios con intención de pedido, {fmt_rate(ratio(leads, users))} de los usuarios totales medidos."]
     if sessions < 30:
         insights.append("Volumen semanal reducido: usa la ventana de 28 días para orientar decisiones y evita atribuir los cambios a una causa sin más evidencia.")
     errors = event_value(data, "events_week", "checkout_error")
@@ -557,7 +557,7 @@ def report_insights(data: Dict[str, Any]) -> List[str]:
         insights.append(f"Revisar WhatsApp: {fmt(errors)} intentos encontraron un bloqueo o fallo de apertura.")
     if data.get("sources"):
         top = max(data["sources"], key=lambda row: number(row.get("sessions")))
-        insights.append(f"Mayor fuente de los últimos 28 días: {top.get('sessionSourceMedium', '—')} · {fmt(top.get('sessions'))} sesiones.")
+        insights.append(f"Mayor fuente de los últimos 28 días: {top.get('sessionSourceMedium', '—')}, con {fmt(top.get('sessions'))} sesiones.")
     return insights
 
 
@@ -606,41 +606,45 @@ def report_html(data: Dict[str, Any], windows: Dict[str, dt.date], generated_at:
         daily_rows.append([f"{day.day} {MONTHS[day.month-1]}", fmt(row.get("sessions")), fmt(row.get("activeUsers")), fmt(row.get("screenPageViews"))])
         chart_rows.append({"label": f"{day.day} {MONTHS[day.month-1]}", "sessions": number(row.get("sessions"))})
     body += email_section("Tendencia diaria", "Semana cerrada. El CSV conserva cada fecha recuperada de los últimos 28 días.", email_daily_bars(chart_rows) + email_table(["Día", "Sesiones", "Activos", "Vistas"], daily_rows))
+    def traffic_label(row: Dict[str, Any], dimensions: List[str]) -> str:
+        # «noviembre (instagram / social)»: la primera dimensión y el resto entre paréntesis.
+        values = [str(row.get(dim) or "(sin asignar)") for dim in dimensions]
+        return values[0] + (" (" + ", ".join(values[1:]) + ")" if len(values) > 1 else "")
     def traffic(key: str, labels: List[str], dimensions: List[str], maximum: int = 6) -> str:
-        rows = [[" · ".join(str(row.get(dim) or "(sin asignar)") for dim in dimensions), fmt(row.get("sessions")), fmt_pct(row["engagementRate"]) if "engagementRate" in row else "—"] for row in data.get(key, [])[:maximum]]
+        rows = [[traffic_label(row, dimensions), fmt(row.get("sessions")), fmt_pct(row["engagementRate"]) if "engagementRate" in row else "—"] for row in data.get(key, [])[:maximum]]
         return email_table(labels + ["Sesiones", "Interacción"], rows)
-    body += email_section("Fuentes y campañas", f"Últimos 28 días · {four_label}. Principales filas; detalle completo recuperado en CSV.",
+    body += email_section("Fuentes y campañas", f"Últimos 28 días ({four_label}). Principales filas; detalle completo recuperado en CSV.",
         '<h3 style="font-size:14px">Canales</h3>' + traffic("channels", ["Canal"], ["sessionDefaultChannelGroup"]) +
         '<h3 style="font-size:14px">Fuentes / medios</h3>' + traffic("sources", ["Fuente / medio"], ["sessionSourceMedium"]) +
-        '<h3 style="font-size:14px">Campañas</h3>' + traffic("campaigns", ["Campaña · fuente"], ["sessionCampaignName", "sessionSourceMedium"], 6))
+        '<h3 style="font-size:14px">Campañas</h3>' + traffic("campaigns", ["Campaña (fuente)"], ["sessionCampaignName", "sessionSourceMedium"], 6))
     lead_sources = [[r.get("sessionSourceMedium"), fmt(r.get("eventCount")), fmt(r.get("totalUsers"))] for r in data.get("lead_sources", [])[:6]]
     if lead_sources:
-        body += email_section("Qué fuentes originan intención", "28 días · usuarios y acciones del evento generate_lead, con atribución de sesión.", email_table(["Fuente / medio", "Acciones", "Usuarios"], lead_sources))
-    body += email_section("Páginas de entrada", "28 días · dónde comienza la sesión y qué proporción tiene interacción.", traffic("landing_pages", ["Entrada"], ["landingPage"]))
+        body += email_section("Qué fuentes originan intención", "Últimos 28 días: usuarios y acciones del evento generate_lead, con atribución de sesión.", email_table(["Fuente / medio", "Acciones", "Usuarios"], lead_sources))
+    body += email_section("Páginas de entrada", "Últimos 28 días: dónde comienza la sesión y qué proporción tiene interacción.", traffic("landing_pages", ["Entrada"], ["landingPage"]))
     pages = [[r.get("pagePath"), fmt(r.get("screenPageViews")), fmt(r.get("totalUsers", r.get("activeUsers"))), fmt_duration(number(r.get("userEngagementDuration")) / number(r.get("totalUsers"))) if number(r.get("totalUsers")) else "—"] for r in data.get("pages", [])[:7]]
-    body += email_section("Contenido consultado", "28 días · tiempo activo por usuario de cada página; usuarios no sumables entre filas.", email_table(["Página", "Vistas", "Usuarios", "Tiempo / usuario"], pages))
+    body += email_section("Contenido consultado", "Últimos 28 días: tiempo activo por usuario de cada página; usuarios no sumables entre filas.", email_table(["Página", "Vistas", "Usuarios", "Tiempo / usuario"], pages))
     products = [[r.get("itemName") or r.get("itemId"), fmt(r.get("itemsViewedInList")), fmt(r.get("itemsViewed")), fmt(r.get("itemsAddedToCart")), fmt(r.get("itemsCheckedOut"))] for r in data.get("products", [])[:7]]
-    body += email_section("Rendimiento de productos", "28 días · unidades de las variantes registradas. Exposición real de lista, fichas, adiciones y envío a WhatsApp; el CSV añade clics y variantes.",
+    body += email_section("Rendimiento de productos", "Últimos 28 días: unidades de las variantes registradas. Exposición real de lista, fichas, adiciones y envío a WhatsApp; el CSV añade clics y variantes.",
         email_table(["Producto", "Lista", "Ficha", "Añadidas", "WhatsApp"], products))
-    body += email_section("Audiencia y tecnología", "28 días · principales segmentos. La ubicación es aproximada y depende de lo que GA4 pueda informar.",
+    body += email_section("Audiencia y tecnología", "Últimos 28 días: principales segmentos. La ubicación es aproximada y depende de lo que GA4 pueda informar.",
         '<h3 style="font-size:14px">Dispositivos</h3>' + traffic("devices", ["Dispositivo"], ["deviceCategory"]) +
         '<h3 style="font-size:14px">Navegadores y sistemas</h3>' + traffic("technology", ["Entorno"], ["deviceCategory", "browser", "operatingSystem"], 5) +
         '<h3 style="font-size:14px">Países</h3>' + email_table(["País", "Usuarios", "Sesiones"], [[r.get("country"), fmt(r.get("totalUsers", r.get("activeUsers"))), fmt(r.get("sessions"))] for r in data.get("countries", [])[:6]]))
     if data.get("cities"):
-        body += email_section("Ciudades y regiones", "28 días · principales ubicaciones agregadas; el CSV conserva el resto.", email_table(["Ubicación", "Usuarios", "Sesiones"], [[" · ".join(str(r.get(k) or "—") for k in ("city", "region", "country")), fmt(r.get("totalUsers")), fmt(r.get("sessions"))] for r in data["cities"][:6]]))
+        body += email_section("Ciudades y regiones", "Últimos 28 días: principales ubicaciones agregadas; el CSV conserva el resto.", email_table(["Ubicación", "Usuarios", "Sesiones"], [[", ".join(str(r.get(k) or "—") for k in ("city", "region", "country")), fmt(r.get("totalUsers")), fmt(r.get("sessions"))] for r in data["cities"][:6]]))
     weekdays = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
     hours = [[f"{weekdays[int(r['dayOfWeek'])]} {str(r.get('hour','0')).zfill(2)}:00", fmt(r.get("sessions")), fmt(r.get("totalUsers"))] for r in data.get("hours", [])[:8] if str(r.get("dayOfWeek", "")) in "0123456" and str(r.get("dayOfWeek", ""))]
-    body += email_section("Horarios", "28 días · franjas con más sesiones, según la zona horaria de la propiedad GA4.", email_table(["Día y hora", "Sesiones", "Usuarios"], hours))
+    body += email_section("Horarios", "Últimos 28 días: franjas con más sesiones, según la zona horaria de la propiedad GA4.", email_table(["Día y hora", "Sesiones", "Usuarios"], hours))
     names = list(dict.fromkeys(list(EVENT_LABELS) + list(events) + list(four_events)))
     event_rows = [[EVENT_LABELS.get(name, name), fmt(events.get(name, {}).get("eventCount")), fmt(events.get(name, {}).get("totalUsers")), fmt(four_events.get(name, {}).get("eventCount"))] for name in names if name in events or name in four_events][:30]
     body += email_section("Detalle de interacciones", "Cada evento incluye contexto de página. Los CSV permiten cruzar las acciones con páginas y dimensiones registradas.", email_table(["Interacción", "Semana", "Usuarios", "28 d"], event_rows))
     for key, title, param in [("scroll", "Profundidad de lectura", "percent_scrolled"), ("sections", "Secciones vistas", "section_id"), ("faq", "Preguntas consultadas", "faq_id"), ("filters", "Filtros", "filter_id"), ("contact_contexts", "Ubicación del contacto", "link_context"), ("errors", "Fallos de interacción", "error_type")]:
         rows = [[r.get("eventName"), r.get("customEvent:" + param), fmt(r.get("eventCount")), fmt(r.get("totalUsers"))] for r in data.get(key, []) if r.get("customEvent:" + param) not in (None, "", "(not set)")][:4]
         if rows:
-            body += email_section(title, "28 días · dimensión personalizada registrada en GA4.", email_table(["Evento", "Detalle", "Veces", "Usuarios"], rows))
+            body += email_section(title, "Últimos 28 días: dimensión personalizada registrada en GA4.", email_table(["Evento", "Detalle", "Veces", "Usuarios"], rows))
     performance_rows = [[r.get("customEvent:metric_name"), f"{fmt(r.get('averageCustomEvent:metric_value'))} ms", fmt(r.get("eventCount"))] for r in data.get("performance", [])]
     if performance_rows:
-        body += email_section("Rendimiento", "28 días · medias de tiempos de navegación en milisegundos; no son percentiles ni Core Web Vitals.", email_table(["Métrica", "Media", "Muestras"], performance_rows))
+        body += email_section("Rendimiento", "Últimos 28 días: medias de tiempos de navegación en milisegundos; no son percentiles ni Core Web Vitals.", email_table(["Métrica", "Media", "Muestras"], performance_rows))
     notes = ["Cobertura: solo visitantes que aceptan analítica y cuya medición llega a GA4. Bloqueadores, consentimiento y procesamiento pueden reducir los datos.",
         "Los usuarios únicos por página, evento o segmento se solapan: no sumes las filas. Nuevos y recurrentes tampoco son grupos necesariamente excluyentes en 28 días.",
         "Los eventos nuevos y sus parámetros empiezan a producir datos tras publicar. Las dimensiones personalizadas necesitan registro en la propiedad y no rellenan el histórico.",
@@ -657,7 +661,7 @@ def report_html(data: Dict[str, Any], windows: Dict[str, dt.date], generated_at:
             break
         sections = [section for section in sections if f">{esc(title)}</h2>" not in section]
     body = "".join(sections)
-    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Informe Chic&amp;Love · {esc(week_label)}</title><style>@media(max-width:600px){{.pad{{padding-left:16px!important;padding-right:16px!important}}.kpi p{{font-size:11px!important}}.kpi p:nth-child(2){{font-size:21px!important}}}}</style></head><body style="margin:0;padding:0;background:#f4f1f5;color:#322b38;font-family:Arial,Helvetica,sans-serif"><div style="display:none;max-height:0;overflow:hidden">{fmt(sessions)} sesiones · {fmt(lead_users)} usuarios con intención de pedido · {esc(week_label)}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f1f5"><tr><td align="center" style="padding:24px 0"><table role="presentation" width="760" cellpadding="0" cellspacing="0" style="width:100%;max-width:760px;background:#fff;border-radius:18px;overflow:hidden"><tr><td class="pad" style="padding:36px 32px;background:#362542;color:#fff"><p style="margin:0 0 16px;font-size:10px;letter-spacing:2px;color:#d7c6e9">CHIC&amp;LOVE ECUADOR · MARKETING</p><h1 style="margin:0 0 12px;font-size:32px;line-height:1.15">Tu semana en datos</h1><p style="margin:0;font-size:14px;color:#e5d9ed">{esc(week_label)}</p><p style="margin:8px 0 0;font-size:12px;color:#ccbbd7">Comparación semanal y perspectiva de 28 días</p></td></tr>{body}<tr><td class="pad" style="padding:24px 32px;background:#f7f4f9;color:#7a6d83;font-size:11px;line-height:1.7">Generado el {esc(generated_at.strftime('%d/%m/%Y a las %H:%M'))} ({esc(str(generated_at.tzinfo))}).<br>Chic&amp;Love Ecuador · marketing@laboratorioslira.com</td></tr></table></td></tr></table></body></html>'''
+    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Informe Chic&amp;Love, semana {esc(week_label)}</title><style>@media(max-width:600px){{.pad{{padding-left:16px!important;padding-right:16px!important}}.kpi p{{font-size:11px!important}}.kpi p:nth-child(2){{font-size:21px!important}}}}</style></head><body style="margin:0;padding:0;background:#f4f1f5;color:#322b38;font-family:Arial,Helvetica,sans-serif"><div style="display:none;max-height:0;overflow:hidden">{fmt(sessions)} sesiones y {fmt(lead_users)} usuarios con intención de pedido en la semana {esc(week_label)}</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f1f5"><tr><td align="center" style="padding:24px 0"><table role="presentation" width="760" cellpadding="0" cellspacing="0" style="width:100%;max-width:760px;background:#fff;border-radius:18px;overflow:hidden"><tr><td class="pad" style="padding:36px 32px;background:#362542;color:#fff"><p style="margin:0 0 16px;font-size:10px;letter-spacing:2px;color:#d7c6e9">INFORME DE MARKETING CHIC&amp;LOVE ECUADOR</p><h1 style="margin:0 0 12px;font-size:32px;line-height:1.15">Tu semana en datos</h1><p style="margin:0;font-size:14px;color:#e5d9ed">{esc(week_label)}</p><p style="margin:8px 0 0;font-size:12px;color:#ccbbd7">Comparación semanal y perspectiva de 28 días</p></td></tr>{body}<tr><td class="pad" style="padding:24px 32px;background:#f7f4f9;color:#7a6d83;font-size:11px;line-height:1.7">Generado el {esc(generated_at.strftime('%d/%m/%Y a las %H:%M'))} ({esc(str(generated_at.tzinfo))}).<br>Chic&amp;Love Ecuador<br>marketing@laboratorioslira.com</td></tr></table></td></tr></table></body></html>'''
 
 
 def report_text(data: Dict[str, Any], windows: Dict[str, dt.date]) -> str:
@@ -670,7 +674,7 @@ def report_text(data: Dict[str, Any], windows: Dict[str, dt.date]) -> str:
             continue
         lines.append(label.replace("-", " ").capitalize() + ":")
         for row in ([rows] if isinstance(rows, dict) else rows)[:8]:
-            lines.append(" · ".join(f"{field}: {value}" for field, value in row.items()))
+            lines.append("; ".join(f"{field}: {value}" for field, value in row.items()))
         lines.append("")
     lines.extend(["Fuentes, campañas, productos, audiencia e interacciones: detalle completo recuperado en los CSV adjuntos.",
                   "Solo datos agregados de quienes aceptan analítica; los usuarios de distintas filas pueden solaparse.", *data.get("diagnostics", [])])

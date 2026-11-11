@@ -101,7 +101,7 @@ jobs:
               `name=${cloudflare.projectName}\n` +
               `branch=${cloudflare.productionBranch}\n` +
               `origin=${canonicalOrigin}\n`);
-            console.log(`Proyecto ${cloudflare.projectName} · rama ${cloudflare.productionBranch} · dominio ${canonicalOrigin}`);
+            console.log(`Proyecto ${cloudflare.projectName}, rama ${cloudflare.productionBranch}, dominio ${canonicalOrigin}`);
           '
 
       # `functions/` se queda en la raíz del repositorio, no en dist/: wrangler lo
