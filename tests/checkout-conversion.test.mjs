@@ -280,3 +280,19 @@ test("ninguna ficha promete «Entrega rápida» sin un plazo que la respalde", (
     assert.match(html, /<strong>Envío a todo el Ecuador<\/strong><span data-free-shipping-short>/, page);
   }
 });
+
+/* ---------- el botón principal de la ficha cabe en el móvil ---------- */
+
+test("«Añadir al carrito» no se recorta en el móvil: etiqueta corta y nunca más estrecho que su texto", () => {
+  // Con overflow: hidden (el brillo del botón), min-width: auto vale 0 y el botón se
+  // encogía por debajo de su texto: a 320 px se leía «adir al carrito — $23.».
+  const button = '<button class="btn btn-accent" id="pd-add" type="button">' +
+    '<span class="pd-add-long">Añadir al carrito</span><span class="pd-add-short">Añadir</span> ' +
+    '<span id="pd-add-price" aria-live="polite">';
+  for (const page of ["producto.html", ...catalog.CL_PRODUCTS.map((p) => p.id + ".html")]) {
+    assert.ok(read(page).includes(button), `${page}: botón «Añadir» sin etiqueta corta`);
+  }
+  assert.match(css, /\.pd-buy \.btn \{[^}]*min-width: max-content/);
+  assert.match(css, /\.pd-add-short \{ display: none; \}/);
+  assert.match(css, /@media \(max-width: 459px\) \{[^}]*\.pd-add-long \{ display: none; \}[^}]*\.pd-add-short \{ display: inline; \}/);
+});

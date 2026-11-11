@@ -71,7 +71,8 @@ npm run set-origin https://otro.dominio          # mudanza permanente (ver READM
    escrupulosamente la estética actual (editorial, cálida, minimalista y dopaminérgica).
    Prohibido introducir estilos o colores fuera de los tokens oficiales de `css/styles.css`
    (`--paper`, `--card`, `--ink`, `--muted`, `--line` y las paletas por fórmula), sombras duras,
-   fuentes externas (la CSP bloquea orígenes externos) o alterar los radios estándar (`--r-lg`,
+   fuentes externas (la CSP bloquea orígenes externos), separadores «·» en el texto (frases normales o
+  un filete de CSS; lo vigila `tests/sin-puntos-medios.test.mjs`) o alterar los radios estándar (`--r-lg`,
    `--r-md`, `--r-sm`, píldora 999px). En móvil (320px y 390px), jamás permitir desbordamiento
    horizontal (`scrollWidth - clientWidth === 0`). La guía canónica exhaustiva está en
    [`docs/estandares-de-diseno-y-desarrollo.md`](docs/estandares-de-diseno-y-desarrollo.md).

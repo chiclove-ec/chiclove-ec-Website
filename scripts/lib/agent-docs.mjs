@@ -336,7 +336,7 @@ export function createAgentDocs({ catalog, BASE, SITE_NAME, pagePath }) {
         "- **Precauciones de sus activos:** " +
           p.actives.map((name) => name + ": " + caution(name)).join(" "),
         "- **También se busca como:** " + n.searchTerms.join(", ") + ".",
-        "- **Ficha:** [" + p.name + "](" + htmlUrl(p) + ") · [markdown](" + mdUrl(p) + ")",
+        "- **Ficha:** [" + p.name + "](" + htmlUrl(p) + ") ([markdown](" + mdUrl(p) + "))",
         ""
       ];
     });
@@ -567,7 +567,7 @@ export function createAgentDocs({ catalog, BASE, SITE_NAME, pagePath }) {
       "",
       "- [Guía de elección con tabla comparativa](" + BASE + "guia-de-eleccion.md)",
       "- [Glosario de activos con precauciones](" + BASE + "ingredientes.md)",
-      "- [Catálogo completo](" + BASE + "tienda.md) · [versión HTML](" + BASE + pagePath("tienda.html") + ")",
+      "- [Catálogo completo](" + BASE + "tienda.md) ([versión HTML](" + BASE + pagePath("tienda.html") + "))",
       "- [Catálogo en JSON](" + BASE + "catalog.json)",
       "- [Información de la empresa](" + BASE + "about.md)",
       "- [English summary](" + BASE + "en.md)",
@@ -645,7 +645,7 @@ export function createAgentDocs({ catalog, BASE, SITE_NAME, pagePath }) {
           "- **How to take:** " + en.dose + " A bottle lasts " + durationTextEn(p) + ".",
           "- **Flavor:** " + en.flavor + ".",
           "- **Price:** " + priceSentenceEn(p) + ", VAT included.",
-          "- **Page:** " + htmlUrl(p) + " (Spanish) · " + mdUrl(p) + " (markdown)",
+          "- **Page:** " + htmlUrl(p) + " (Spanish), " + mdUrl(p) + " (markdown)",
           ""
         ];
       }),

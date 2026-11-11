@@ -126,11 +126,19 @@ Las tarjetas de producto son el componente núcleo de conversión del sitio:
 - **Header Glassmorphism:** Fondo traslúcido con desenfoque de fondo (`backdrop-filter: blur(14px); background: rgba(247, 244, 239, 0.94);`).
 - **Menú Móvil:** Drawer limpio accesible mediante `.nav-toggle` que bloquea el scroll del fondo agregando `.ui-locked` al `body`. Debe preservar contraste y accesibilidad con atributos `aria-expanded`.
 
+### 3.3.1. Sin separadores «·»
+
+El sitio no usa el punto medio «·» como separador: el dueño lo considera texto con aspecto
+generado. Se escriben frases normales (comas, «y», «para») y, donde hace falta separar
+etiquetas cortas (sellos y datos de la ficha), un filete vertical fino de CSS
+(`::before` de 1 px con `currentColor` atenuado). `tests/sin-puntos-medios.test.mjs` revisa
+todo lo publicado y los generadores.
+
 ### 3.4. Drawer del Carrito Lateral
 
 - Carrito slide-over desde la derecha con persistencia sincronizada en `localStorage`.
 - Selector dinámico de presentación (1 frasco, pack x2, pack x3) recalculando ahorros en tiempo real.
-- Botón de checkout principal («Enviar pedido por WhatsApp») que genera la URL codificada de WhatsApp (`https://wa.me/593987591741?text=...`) con el pedido en una línea por producto, el total y una sola pregunta final. El mensaje **nunca** pide datos personales. En los textos del carrito y del mensaje se escriben frases normales, sin separadores «·».
+- Botón de checkout principal («Enviar pedido por WhatsApp») que genera la URL codificada de WhatsApp (`https://wa.me/593987591741?text=...`) con el pedido en una línea por producto, el total y una sola pregunta final. El mensaje **nunca** pide datos personales. En los textos del carrito y del mensaje se escriben frases normales.
 - Encima del botón, «Así sigue tu pedido» (tres pasos numerados); debajo, la línea de quién vende (`clSellerLine()`, con el enlace para comprobar el WhatsApp en la web del laboratorio), y tras pulsar, el plan B (`.cart-fallback`: «Copiar pedido» y «Abrir de nuevo»). En la cabecera, la píldora «¿Dudas?».
 - Ningún elemento fijo puede tapar `#cart-checkout` ni la barra `.pd-sticky`: el aviso de privacidad se oculta con `body.ui-locked` y sube con `body.pd-sticky-on`. En pantallas de 720 px de alto o menos, el carrito se desplaza entero y el botón va antes de los pasos.
 
